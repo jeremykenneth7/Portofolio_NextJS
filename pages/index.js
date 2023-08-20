@@ -1,14 +1,14 @@
 import Head from "next/head";
 import {
-  AiFillTwitterCircle,
+  AiFillMail,
   AiFillLinkedin,
-  AiFillYoutube,
+  AiFillGithub,
 } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useState } from "react";
 import deved from "../public/profile.jpg";
 import Image from "next/image";
-import web1 from "../public/web1.png";
+import gempa from "../public/gempa.png";
 import web2 from "../public/web2.png";
 import web3 from "../public/web3.png";
 import web4 from "../public/web4.png";
@@ -38,8 +38,14 @@ export default function Home() {
               </li>
               <li>
                 <a
-                  className="bg-gradient-to-r from-cyan-500 text- to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8"
-                  href="https://www.youtube.com/"
+                  className="bg-gradient-to-r from-red-500 text- to-teal-400 text-white px-4 py-2 border-none rounded-md ml-8"
+                  href="https://www.Github.com/"
+                >
+                  Portofolio
+                </a>
+                <a
+                  className="bg-gradient-to-r from-green-500 text- to-teal-700 text-white px-4 py-2 border-none rounded-md ml-8"
+                  href="https://www.Github.com/"
                 >
                   Resume
                 </a>
@@ -58,9 +64,9 @@ export default function Home() {
               Freelancer Programmers
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-              <a href="https://www.linkedin.com/in/jeremy-kenneth-9b0b3a1b0/"><AiFillTwitterCircle /> </a>
+              <a href="mailto: jeremykenneth7@gmail.com"><AiFillMail /> </a>
               <a href="https://www.linkedin.com/in/jeremy-kenneth-9b0b3a1b0/"><AiFillLinkedin /></a>
-              <a href="https://www.linkedin.com/in/jeremy-kenneth-9b0b3a1b0/"><AiFillYoutube /></a>
+              <a href="https://github.com/jeremykenneth7"><AiFillGithub /></a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
               <Image src={deved} layout="fill" objectFit="cover" alt="deved"/>
@@ -69,34 +75,26 @@ export default function Home() {
         </section>
         <section className="py-10">
           <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Portofolio</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              I’ve worked with <span className="text-teal-500">startups </span>
-              <span className="text-teal-500"> agencies </span>
-              consulted for <span className="text-teal-500">startups </span>
-              and collaborated with talanted people to create digital products
-              for both business and consumer use.
-            </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              I offer from a wide range of services, including brand design,
-              programming and teaching.
+            <h3 className="font-burtons text-3xl py-1 dark:text-white ">Portofolio</h3>
+            <p className="font-mono text-md py-5 leading-8 text-gray-800 dark:text-gray-200 md:text-xl">
+              Crafting a compelling portfolio website to showcase my extensive experience in front-end development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless user experiences. From responsive designs that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively, my portfolio reflects a deep-rooted passion for translating concepts into captivating visual narratives. Each project stands as a testament to my mastery of HTML, CSS, JavaScript, and other cutting-edge technologies, which I seamlessly integrate to breathe life into my designs. As visitors explore my portfolio, they will witness a fusion of innovation and aesthetics, demonstrating my commitment to staying ahead in the ever-evolving landscape of front-end development.
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
             <div className="basis-1/3 flex-1 ">
               <Image
                 className="rounded-lg object-cover"
-                width={"100%"}
+                width={"200%"}
                 height={"100%"}
                 layout="responsive"
-                src={web1}
-                alt="web1"
+                src={gempa}
+                alt="gempa"
               />
             </div>
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
-                width={"100%"}
+                width={"200%"}
                 height={"100%"}
                 layout="responsive"
                 src={web2}
@@ -106,7 +104,7 @@ export default function Home() {
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
-                width={"100%"}
+                width={"200%"}
                 height={"100%"}
                 layout="responsive"
                 src={web3}
@@ -116,7 +114,7 @@ export default function Home() {
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
-                width={"100%"}
+                width={"200%"}
                 height={"100%"}
                 layout="responsive"
                 src={web4}
@@ -126,7 +124,7 @@ export default function Home() {
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
-                width={"100%"}
+                width={"200%"}
                 height={"100%"}
                 layout="responsive"
                 src={web5}
@@ -136,7 +134,7 @@ export default function Home() {
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
-                width={"100%"}
+                width={"200%"}
                 height={"100%"}
                 layout="responsive"
                 src={web6}
