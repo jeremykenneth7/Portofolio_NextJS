@@ -8,12 +8,10 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useState } from "react";
 import deved from "../public/profile.jpg";
 import Image from "next/image";
-import gempa from "../public/gempa.png";
-import web2 from "../public/web2.png";
-import web3 from "../public/web3.png";
-import web4 from "../public/web4.png";
-import web5 from "../public/web5.png";
-import web6 from "../public/web6.png";
+import bimbel from "../public/bimbel.png";
+import gunung from "../public/gunung.png";
+import tsunami1 from "../public/tsunami1.png";
+import tsunami2 from "../public/tsunami2.png";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -80,60 +78,40 @@ export default function Home() {
               <Image
                 className="rounded-lg object-cover"
                 width={"200%"}
-                height={"100%"}
+                height={"110%"}
                 layout="responsive"
-                src={gempa}
-                alt="gempa"
+                src={bimbel}
+                alt="bimbel"
               />
             </div>
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
                 width={"200%"}
-                height={"100%"}
+                height={"110%"}
                 layout="responsive"
-                src={web2}
-                alt="web2"
+                src={tsunami1}
+                alt="tsunami1"
               />
             </div>
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
                 width={"200%"}
-                height={"100%"}
+                height={"110%"}
                 layout="responsive"
-                src={web3}
-                alt="web3"  
+                src={tsunami2}
+                alt="tsunami2"  
               />
             </div>
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
                 width={"200%"}
-                height={"100%"}
+                height={"110%"}
                 layout="responsive"
-                src={web4}
-                alt="web4"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"200%"}
-                height={"100%"}
-                layout="responsive"
-                src={web5}
-                alt="web5"
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"200%"}
-                height={"100%"}
-                layout="responsive"
-                src={web6}
-                alt="web6"
+                src={gunung}
+                alt="gunung"
               />
             </div>
           </div>
