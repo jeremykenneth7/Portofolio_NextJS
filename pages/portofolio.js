@@ -98,19 +98,19 @@ export default function Portfolio() {
                 <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/Online-eCommerce-Website" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/orgs/CalorEase/repositories" target="_blank" rel="noopener noreferrer">
                                 <Image
                                     className="rounded-lg overflow-hidden shadow-md"
                                     width={"200%"}
                                     height={"110%"}
                                     layout="responsive"
-                                    src={onlineshop2}
-                                    alt="onlineshop2"
+                                    src={calorease}
+                                    alt="calorease"
                                 />
                             </a>
                             <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Online e-Commerce Website</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build and Developed with PHP, Tailwind, and MySQL</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">CalorEase</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Application that focusing on helping people control the number of calories eaten each day by scanning the food image after that can get the nutrition data like calories,fat,protein,etc</p>
                             </div>
                         </div>
                     </div>
@@ -150,7 +150,24 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </div>
-                    
+                    <div className="basis-1/4 flex-1">
+                        <div className="rounded-lg overflow-hidden shadow-md">
+                            <a href="https://github.com/jeremykenneth7/Online-eCommerce-Website" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={onlineshop2}
+                                    alt="onlineshop2"
+                                />
+                            </a>
+                            <div className="p-5">
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Online e-Commerce Website</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools.</p>
+                            </div>
+                        </div>
+                    </div>
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
                             <a href="https://github.com/CalorEase/CaloriesAPI" target="_blank" rel="noopener noreferrer">
@@ -187,24 +204,7 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/orgs/CalorEase/repositories" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={calorease}
-                                    alt="calorease"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">CalorEase</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Application that focusing on helping people control the number of calories eaten each day by scanning the food image and get the nutrition</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
                             <a href="https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website" target="_blank" rel="noopener noreferrer">

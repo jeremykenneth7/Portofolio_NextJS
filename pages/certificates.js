@@ -88,141 +88,141 @@ export default function Certificates() {
                     </ul>
                 </nav>
 
-                    <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-                        {/* Display the certificate images */}
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/53XE4N95RZRN" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={js}
-                                    alt="js"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/0LZ0QD0NNZ65" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={web1}
-                                    alt="web1"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/98XWV1NMJPM3" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={cloud}
-                                    alt="cloud"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/GRX52O6J2X0M" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={backend}
-                                    alt="backend"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/L4PQGVWVOZO1" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={software}
-                                    alt="software"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/0LZ097MOKZ65" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={logic}
-                                    alt="logic"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/N9ZO6VG2DXG5" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={github}
-                                    alt="github"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://www.dicoding.com/certificates/81P2VVWQYPOY" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"130%"}
-                                    layout="responsive"
-                                    src={dart}
-                                    alt="dart"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://coursera.org/share/9e4673e59337bc071397c37e0a3a2671" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={160}
-                                    height={104}
-                                    layout="responsive"
-                                    src={preparing}
-                                    alt="preparing"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://coursera.org/share/122c87baf0ad5961654cf058510f82ae" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={160}
-                                    height={100}
-                                    layout="responsive"
-                                    src={bits}
-                                    alt="bits"
-                                />
-                            </a>
-                        </div>
-                        <div className="basis-1/4 flex-1">
-                            <a href="https://coursera.org/share/63e902db5f6180058c884b70ff020496" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={160}
-                                    height={100}
-                                    layout="responsive"
-                                    src={sysmin}
-                                    alt="sysmin"
-                                />
-                            </a>
-                        </div>
+                <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
+                    {/* Display the certificate images */}
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/53XE4N95RZRN" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={js}
+                                alt="js"
+                            />
+                        </a>
                     </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/0LZ0QD0NNZ65" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={web1}
+                                alt="web1"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/98XWV1NMJPM3" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={cloud}
+                                alt="cloud"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/GRX52O6J2X0M" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={backend}
+                                alt="backend"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/L4PQGVWVOZO1" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={software}
+                                alt="software"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/0LZ097MOKZ65" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={logic}
+                                alt="logic"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/N9ZO6VG2DXG5" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={github}
+                                alt="github"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://www.dicoding.com/certificates/81P2VVWQYPOY" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={dart}
+                                alt="dart"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://coursera.org/share/9e4673e59337bc071397c37e0a3a2671" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={preparing}
+                                alt="preparing"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://coursera.org/share/122c87baf0ad5961654cf058510f82ae" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={bits}
+                                alt="bits"
+                            />
+                        </a>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <a href="https://coursera.org/share/63e902db5f6180058c884b70ff020496" target="_blank" rel="noopener noreferrer">
+                            <Image
+                                className="rounded-lg overflow-hidden shadow-md"
+                                width={"200%"}
+                                height={"130%"}
+                                layout="responsive"
+                                src={sysmin}
+                                alt="sysmin"
+                            />
+                        </a>
+                    </div>
+                </div>
             </main>
         </div>
     );
