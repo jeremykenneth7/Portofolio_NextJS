@@ -11,6 +11,9 @@ import bangkit from "../public/bangkit.jpeg";
 import flask from "../public/flask.jpg";
 import onlineshop2 from "../public/onlineshop2.png";
 import bookshelf from "../public/bookshelf.png";
+import computershop from "../public/computershop.png";
+import stopwatch from "../public/stopwatch.png";
+import calorease from "../public/calorease.png";
 
 export default function Portfolio() {
     const [darkMode, setDarkMode] = useState(false);
@@ -89,23 +92,25 @@ export default function Portfolio() {
 
                 <div>
                     <p className="font-mono text-md py-5 leading-8 text-gray-800 dark:text-gray-200 md:text-xl">
-                        Crafting a compelling portfolio website to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless user experiences. From responsive designs that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively, my portfolio reflects a deep-rooted passion for translating concepts into captivating visual narratives. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my designs.
+                        Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website. From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
                     </p>
                 </div>
                 <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
-                            <Image
-                                className="object-cover"
-                                width={200}
-                                height={110}
-                                layout="responsive"
-                                src={bimbel}
-                                alt="bimbel"
-                            />
+                            <a href="https://github.com/jeremykenneth7/Online-eCommerce-Website" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={onlineshop2}
+                                    alt="onlineshop2"
+                                />
+                            </a>
                             <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Website Bimbel Online</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere, the website included with study package for student. Build with PHP and MySQL</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Online e-Commerce Website</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build and Developed with PHP, Tailwind, and MySQL</p>
                             </div>
                         </div>
                     </div>
@@ -129,54 +134,37 @@ export default function Portfolio() {
                     </div>
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
-                        <a href="https://github.com/jeremykenneth7/Tsunami-Warning-Center" target="_blank" rel="noopener noreferrer">
-                            <Image
-                                className="rounded-lg overflow-hidden shadow-md"
-                                width={"200%"}
-                                height={"110%"}
-                                layout="responsive"
-                                src={tsunami2}
-                                alt="tsunami2"
-                            />
-                        </a>
+                            <a href="https://github.com/jeremykenneth7/Tsunami-Warning-Center" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={tsunami2}
+                                    alt="tsunami2"
+                                />
+                            </a>
                             <div className="p-5">
                                 <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Tsunami Warning Center</p>
                                 <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia</p>
                             </div>
                         </div>
                     </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                        <a href="https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website" target="_blank" rel="noopener noreferrer">
-                            <Image
-                                className="rounded-lg overflow-hidden shadow-md"
-                                width={"200%"}
-                                height={"110%"}
-                                layout="responsive"
-                                src={gunung}
-                                alt="gunung"
-                            />
-                        </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Volcano Eruption Prevention Website</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person.</p>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
                             <a href="https://github.com/CalorEase/CaloriesAPI" target="_blank" rel="noopener noreferrer">
-                            <Image
-                                className="rounded-lg overflow-hidden shadow-md"
-                                width={"200%"}
-                                height={"110%"}
-                                layout="responsive"
-                                src={bangkit}
-                                alt="bangkit"
-                            />
-                        </a>
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={bangkit}
+                                    alt="bangkit"
+                                />
+                            </a>
                             <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Backend API Creation for Capstone Project</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Application Database API Creation </p>
                                 <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">API for Calories Application with Database using Express JS and Firebase. For the deployment using Google Cloud Functions</p>
                             </div>
                         </div>
@@ -194,26 +182,60 @@ export default function Portfolio() {
                                 />
                             </a>
                             <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Backend API Creation for Capstone Project</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Machine Learning Model API Creation </p>
                                 <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">API for Machine Learning Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run</p>
                             </div>
                         </div>
                     </div>
                     <div className="basis-1/4 flex-1">
                         <div className="rounded-lg overflow-hidden shadow-md">
-                        <a href="https://github.com/jeremykenneth7/Online-eCommerce-Website" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/orgs/CalorEase/repositories" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={calorease}
+                                    alt="calorease"
+                                />
+                            </a>
+                            <div className="p-5">
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">CalorEase</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Application that focusing on helping people control the number of calories eaten each day by scanning the food image and get the nutrition</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <div className="rounded-lg overflow-hidden shadow-md">
+                            <a href="https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={gunung}
+                                    alt="gunung"
+                                />
+                            </a>
+                            <div className="p-5">
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Volcano Eruption Prevention Website</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <div className="rounded-lg overflow-hidden shadow-md">
                             <Image
                                 className="rounded-lg overflow-hidden shadow-md"
                                 width={"200%"}
                                 height={"110%"}
                                 layout="responsive"
-                                src={onlineshop2}
-                                alt="onlineshop2"
+                                src={bimbel}
+                                alt="bimbel"
                             />
-                        </a>
                             <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Online e-Commerce Website</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build with PHP and MySQL</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Website Bimbel Online</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere</p>
                             </div>
                         </div>
                     </div>
@@ -232,6 +254,42 @@ export default function Portfolio() {
                             <div className="p-5">
                                 <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Bookshelf Website</p>
                                 <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <div className="rounded-lg overflow-hidden shadow-md">
+                            <a href="https://github.com/jeremykenneth7/StopwatchApp-Flutter" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={stopwatch}
+                                    alt="stopwatch"
+                                />
+                            </a>
+                            <div className="p-5">
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Stopwatch + Recommended Places Mobile Application</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">A Mobile Development Application for Recommended Places and Stopwatch inside of it. Build and Developed with Flutter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="basis-1/4 flex-1">
+                        <div className="rounded-lg overflow-hidden shadow-md">
+                            <a href="https://github.com/jeremykenneth7/Computer-Shop-MobileApps" target="_blank" rel="noopener noreferrer">
+                                <Image
+                                    className="rounded-lg overflow-hidden shadow-md"
+                                    width={"200%"}
+                                    height={"110%"}
+                                    layout="responsive"
+                                    src={computershop}
+                                    alt="computershop"
+                                />
+                            </a>
+                            <div className="p-5">
+                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Computer Shop Mobile Application</p>
+                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">A Mobile Development Application for Computer Shop that connect with API and Database. Build and Developed with Flutter</p>
                             </div>
                         </div>
                     </div>
