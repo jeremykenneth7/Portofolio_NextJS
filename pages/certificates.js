@@ -12,7 +12,8 @@ import preparing from "../public/preparing.png";
 import bits from "../public/bits.png";
 import sysmin from "../public/sysmin.png";
 import dart from "../public/dart.png";
-import Navbar from "./navbar";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 export default function Certificates() {
     const [darkMode, setDarkMode] = useState(false);
@@ -124,9 +125,8 @@ export default function Certificates() {
                         </div>
                     ))}
                 </div>
-
+                <Footer darkMode={darkMode} />
             </main>
-
             {/* Modal for zoomed image */}
             {isZoomed && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90">

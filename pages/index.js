@@ -1,13 +1,14 @@
 import Head from "next/head";
-import {
-  AiFillMail,
-  AiFillLinkedin,
-  AiFillGithub,
-} from "react-icons/ai";
-import { useState, useEffect } from "react";
-import deved from "../public/profile.jpg";
 import Image from "next/image";
-import Navbar from "./navbar";
+import { useState } from "react";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiFillMail,
+} from "react-icons/ai";
+import Navbar from "../components/navbar";
+import Footer from '../components/footer';
+import deved from "../public/profile.jpg";
 
 
 export default function Home() {
@@ -28,8 +29,8 @@ export default function Home() {
           <h3 className="font-burtons text-5xl py-2 dark:text-white md:text-5xl">
             Full-Stack Developer.
           </h3>
-          <p className="font-mono text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-            I also have passion for Mobile Development
+          <p className="font-mono text-md pt-2 pb-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
+            My expertise includes leveraging modern frameworks like React and Node.js to develop scalable and efficient solutions. Combining my knowledge of front-end design principles with robust back-end architecture.
           </p>
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
             <a href="mailto: jeremykenneth7@gmail.com"><AiFillMail /> </a>
@@ -40,6 +41,7 @@ export default function Home() {
             <Image src={deved} layout="fill" objectFit="cover" alt="deved" />
           </div>
         </div>
+        <Footer darkMode={darkMode} />
       </main>
     </div>
   );

@@ -1,18 +1,19 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
+import bangkit from "../public/bangkit.jpeg";
 import bimbel from "../public/bimbel.png";
+import bookshelf from "../public/bookshelf.png";
+import calorease from "../public/calorease.png";
+import computershop from "../public/computershop.png";
+import flask from "../public/flask.jpg";
 import gunung from "../public/gunung.png";
+import onlineshop2 from "../public/onlineshop2.png";
+import stopwatch from "../public/stopwatch.png";
 import tsunami1 from "../public/tsunami1.png";
 import tsunami2 from "../public/tsunami2.png";
-import bangkit from "../public/bangkit.jpeg";
-import flask from "../public/flask.jpg";
-import onlineshop2 from "../public/onlineshop2.png";
-import bookshelf from "../public/bookshelf.png";
-import computershop from "../public/computershop.png";
-import stopwatch from "../public/stopwatch.png";
-import calorease from "../public/calorease.png";
-import Navbar from './navbar';
 
 export default function Portfolio() {
     const [darkMode, setDarkMode] = useState(false);
@@ -164,6 +165,7 @@ export default function Portfolio() {
                         </div>
                     ))}
                 </div>
+                <Footer darkMode={darkMode} />
             </main>
         </div>
     );
