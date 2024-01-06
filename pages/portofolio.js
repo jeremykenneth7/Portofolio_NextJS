@@ -34,38 +34,50 @@ export default function Portfolio() {
             title: "Tsunami Warning Center",
             image: tsunami1,
             description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
-            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center"
+            date: "2022",
+            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center",
+            language: "PHP + GeoJSON + My SQL + Bootstrap"
         },
         {
             title: "Tsunami Warning Center 2",
             image: tsunami2,
             description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
-            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center"
+            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center",
+            language: "PHP + GeoJSON + My SQL + Bootstrap",
+            date: "2022",
         },
         {
             title: "Online e-Commerce Website",
             image: onlineshop2,
             description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build and Developed with PHP, Bootstrap, My SQL",
-            link: "https://github.com/jeremykenneth7/Online-eCommerce-Website"
+            link: "https://github.com/jeremykenneth7/Online-eCommerce-Website",
+            language: "PHP + Bootstrap + My SQL",
+            date: "2021",
         },
 
         {
             title: "Volcano Eruption Prevention Website",
             image: gunung,
             description: "Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person.",
-            link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website"
+            link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website",
+            language: "PHP + Bootstrap + My SQL",
+            date: "2022",
         },
         {
             title: "Website Bimbel Online",
             image: bimbel,
             description: "Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere",
-            link: "#"
+            link: "",
+            language: "PHP + Bootstrap + My SQL",
+            date: "2023",
         },
         {
             title: "Bookshelf Website",
             image: bookshelf,
             description: "A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript",
-            link: "https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage"
+            link: "https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage",
+            language: "JavaScript",
+            date: "2023",
         },
     ];
 
@@ -74,13 +86,17 @@ export default function Portfolio() {
             title: "Computer Shop Mobile Application",
             image: computershop,
             description: "A Mobile Development Application for Recommended Places and Stopwatch inside of it. Build and Developed with Flutter",
-            link: "https://github.com/jeremykenneth7/Computer-Shop-MobileApps"
+            link: "https://github.com/jeremykenneth7/Computer-Shop-MobileApps",
+            language: "Flutter",
+            date: "2023",
         },
         {
             title: "Stopwatch + Recommended Places Mobile Application",
             image: stopwatch,
             description: "A Mobile Development Application for Computer Shop that connect with API and Database. Build and Developed with Flutter",
-            link: "https://github.com/jeremykenneth7/StopwatchApp-Flutter"
+            link: "https://github.com/jeremykenneth7/StopwatchApp-Flutter",
+            language: "Flutter",
+            date: "2023",
         },
     ];
 
@@ -89,19 +105,25 @@ export default function Portfolio() {
             title: "CalorEase",
             image: calorease,
             description: "Application that focusing on helping people control the number of calories eaten each day by scanning the food image after that can get the nutrition",
-            link: "https://github.com/orgs/CalorEase/repositories"
+            link: "https://github.com/orgs/CalorEase/repositories",
+            language: "Google Cloud Storage , Cloud Run , Cloud Functions",
+            date: "2023",
         },
         {
             title: "Application Database API Creation",
             image: bangkit,
             description: "API for Calories Application with Database using Express JS and Firebase. For the deployment using Google Cloud Functions",
-            link: "https://github.com/CalorEase/CaloriesAPI"
+            link: "https://github.com/CalorEase/CaloriesAPI",
+            language: "Express JS + Firebase + Cloud Functions",
+            date: "2023",
         },
         {
             title: "Machine Learning Model API Creation",
             image: flask,
             description: "API for Machine Learning Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run",
-            link: "https://github.com/jeremykenneth7/CalorEase-API-2"
+            link: "https://github.com/jeremykenneth7/CalorEase-API-2",
+            language: "Flask API Python + Google Cloud Storage + Docker + Cloud Run",
+            date: "2023",
         },
     ];
 
@@ -110,6 +132,19 @@ export default function Portfolio() {
             currentCategory === 'backend' ? backendProjects :
                 currentCategory === 'all' ? [...backendProjects, ...webProjects, ...mobileProjects] :
                     [];
+
+    const [showModal, setShowModal] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
+
+    const openModal = (project) => {
+        setSelectedProject(project);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedProject(null);
+    };
 
     return (
         <div className={darkMode ? "dark" : ""}>
@@ -147,7 +182,7 @@ export default function Portfolio() {
                     {filteredProjects.map((project, index) => (
                         <div key={index} className="basis-1/4 flex-1">
                             <div className="rounded-lg overflow-hidden shadow-md">
-                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                <a href="" onClick={(e) => { e.preventDefault(); openModal(project); }}>
                                     <Image
                                         className="rounded-lg overflow-hidden shadow-md"
                                         width={"200%"}
@@ -165,8 +200,38 @@ export default function Portfolio() {
                         </div>
                     ))}
                 </div>
+
+                {showModal && selectedProject && (
+                    <Modal
+                        project={selectedProject}
+                        closeModal={closeModal}
+                    />
+                )}
+
                 <Footer darkMode={darkMode} />
             </main>
         </div>
     );
 }
+
+const Modal = ({ project, closeModal }) => {
+    return (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-lg">
+                {/* Display project details */}
+                <h2 className="text-xl font-bold mb-4">{project.title}</h2>
+                <p className="text-sm mb-4">{project.description}</p>
+                <p className="text-xs mb-4">
+                    Framework and Database : {project.language} <br />
+                    Project Date : {project.date} <br />
+                    Visit the Project :
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline"> {project.link}
+                    </a>
+
+                </p>
+
+                <button onClick={closeModal} className="text-sm font-semibold py-2 px-4 rounded-lg bg-blue-500 text-white">Close</button>
+            </div>
+        </div>
+    );
+};
