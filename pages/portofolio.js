@@ -17,6 +17,77 @@ import calorease from "../public/calorease.png";
 
 export default function Portfolio() {
     const [darkMode, setDarkMode] = useState(false);
+    const webProjects = [
+        {
+            title: "CalorEase",
+            image: calorease,
+            description: "Application that focusing on helping people control the number of calories eaten each day by scanning the food image after that can get the nutrition data like calories,fat,protein,etc",
+            link: "https://github.com/orgs/CalorEase/repositories"
+        },
+        {
+            title: "Tsunami Warning Center",
+            image: tsunami1,
+            description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
+            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center"
+        },
+        {
+            title: "Tsunami Warning Center 2",
+            image: tsunami2,
+            description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
+            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center"
+        },
+        {
+            title: "Online e-Commerce Website",
+            image: onlineshop2,
+            description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools.",
+            link: "https://github.com/jeremykenneth7/Online-eCommerce-Website"
+        },
+        {
+            title: "Application Database API Creation",
+            image: bangkit,
+            description: "API for Calories Application with Database using Express JS and Firebase. For the deployment using Google Cloud Functions",
+            link: "https://github.com/CalorEase/CaloriesAPI"
+        },
+        {
+            title: "Machine Learning Model API Creation",
+            image: flask,
+            description: "API for Machine Learning Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run",
+            link: "https://github.com/jeremykenneth7/CalorEase-API-2"
+        },
+        {
+            title: "Volcano Eruption Prevention Website",
+            image: gunung,
+            description: "Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person.",
+            link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website"
+        },
+        {
+            title: "Website Bimbel Online",
+            image: bimbel,
+            description: "Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere",
+            link: "#"
+        },
+        {
+            title: "Bookshelf Website",
+            image: bookshelf,
+            description: "A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript",
+            link: "https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage"
+        },
+    ];
+
+    const mobileProjects = [
+        {
+            title: "Computer Shop Mobile Application",
+            image: computershop,
+            description : "A Mobile Development Application for Recommended Places and Stopwatch inside of it. Build and Developed with Flutter",
+            link:"https://github.com/jeremykenneth7/Computer-Shop-MobileApps"
+        },
+        {
+            title: "Stopwatch + Recommended Places Mobile Application",
+            image: stopwatch,
+            description: "A Mobile Development Application for Computer Shop that connect with API and Database. Build and Developed with Flutter",
+            link:"https://github.com/jeremykenneth7/StopwatchApp-Flutter"
+        },
+    ];
 
     return (
         <div className={darkMode ? "dark" : ""}>
@@ -96,203 +167,50 @@ export default function Portfolio() {
                     </p>
                 </div>
                 <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/orgs/CalorEase/repositories" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={calorease}
-                                    alt="calorease"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">CalorEase</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Application that focusing on helping people control the number of calories eaten each day by scanning the food image after that can get the nutrition data like calories,fat,protein,etc</p>
+                    {/* Display web projects */}
+                    {webProjects.map((project, index) => (
+                        <div key={index} className="basis-1/4 flex-1">
+                            <div className="rounded-lg overflow-hidden shadow-md">
+                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        className="rounded-lg overflow-hidden shadow-md"
+                                        width={"200%"}
+                                        height={"110%"}
+                                        layout="responsive"
+                                        src={project.image}
+                                        alt={project.title}
+                                    />
+                                </a>
+                                <div className="p-5">
+                                    <p className="text-center text-gray-700 dark:text-gray-300 mb-1">{project.title}</p>
+                                    <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/Tsunami-Warning-Center" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={tsunami1}
-                                    alt="tsunami1"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Tsunami Warning Center</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia</p>
+                    ))}
+                </div>
+                <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
+                    {/* Display mobile projects */}
+                    {mobileProjects.map((project, index) => (
+                        <div key={index} className="basis-1/4 flex-1">
+                            <div className="rounded-lg overflow-hidden shadow-md">
+                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                    <Image
+                                        className="rounded-lg overflow-hidden shadow-md"
+                                        width={"200%"}
+                                        height={"110%"}
+                                        layout="responsive"
+                                        src={project.image}
+                                        alt={project.title}
+                                    />
+                                </a>
+                                <div className="p-5">
+                                    <p className="text-center text-gray-700 dark:text-gray-300 mb-1">{project.title}</p>
+                                    <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/Tsunami-Warning-Center" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={tsunami2}
-                                    alt="tsunami2"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Tsunami Warning Center</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/Online-eCommerce-Website" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={onlineshop2}
-                                    alt="onlineshop2"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Online e-Commerce Website</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/CalorEase/CaloriesAPI" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={bangkit}
-                                    alt="bangkit"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Application Database API Creation </p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">API for Calories Application with Database using Express JS and Firebase. For the deployment using Google Cloud Functions</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/CalorEase-API-2" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={flask}
-                                    alt="flask"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Machine Learning Model API Creation </p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">API for Machine Learning Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={gunung}
-                                    alt="gunung"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Volcano Eruption Prevention Website</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <Image
-                                className="rounded-lg overflow-hidden shadow-md"
-                                width={"200%"}
-                                height={"110%"}
-                                layout="responsive"
-                                src={bimbel}
-                                alt="bimbel"
-                            />
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Website Bimbel Online</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={bookshelf}
-                                    alt="bookshelf"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Bookshelf Website</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/StopwatchApp-Flutter" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={stopwatch}
-                                    alt="stopwatch"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Stopwatch + Recommended Places Mobile Application</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">A Mobile Development Application for Recommended Places and Stopwatch inside of it. Build and Developed with Flutter</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="basis-1/4 flex-1">
-                        <div className="rounded-lg overflow-hidden shadow-md">
-                            <a href="https://github.com/jeremykenneth7/Computer-Shop-MobileApps" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    className="rounded-lg overflow-hidden shadow-md"
-                                    width={"200%"}
-                                    height={"110%"}
-                                    layout="responsive"
-                                    src={computershop}
-                                    alt="computershop"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <p className="text-center text-gray-700 dark:text-gray-300 mb-1">Computer Shop Mobile Application</p>
-                                <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">A Mobile Development Application for Computer Shop that connect with API and Database. Build and Developed with Flutter</p>
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </main>
         </div>
