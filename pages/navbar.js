@@ -76,51 +76,51 @@ export default function Navbar() {
                     </div>
                 </div>
 
-               {/* Desktop View */}
-            <div className="hidden md:flex md:items-center md:flex-row justify-between">
-                {/* Home Link */}
-                <Link href="/">
-                    <a className="mr-4 font-burtons text-lg py-1 dark:text-white hover:border-teal-500">Jeremy</a>
-                </Link>
-                {/* Portfolio Link */}
-                <Link href="/portofolio">
-                    <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Portfolio</a>
-                </Link>
-                {/* Certificates Link */}
-                <Link href="/certificates">
-                    <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Certificates</a>
-                </Link>
-                {/* Experience Link */}
-                <Link href="/experience">
-                    <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Experience</a>
-                </Link>
-                    <ul className="flex items-center absolute right-44 md:flex-row md:flex-column justify-between">
-                    <li>
-                        <BsFillMoonStarsFill
-                            onClick={toggleDarkMode}
-                            className="cursor-pointer text-2xl"
-                        />
-                    </li>
-                    <li>
-                        <a
-                            className="bg-gradient-to-r from-blue-500 text- to-yellow-700 text-white px-4 py-2 border-none rounded-md ml-8"
-                            href="CV-Jeremy-Kenneth.pdf"
-                            alt="alt text"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >CV</a>
-                    </li>
-                    <li>
-                        <a
-                            className="bg-gradient-to-r from-red-500 text- to-teal-700 text-white px-4 py-2 border-none rounded-md ml-8"
-                            href="Resume-Jeremy-Kenneth.pdf"
-                            alt="alt text"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >Resume</a>
-                    </li>
-                </ul>
-            </div>
+                {/* Desktop View */}
+                <div className="hidden md:flex md:items-center md:flex-row justify-between">
+                    {/* Home Link */}
+                    <Link href="/">
+                        <a className="mr-4 font-burtons text-xl py-1 dark:text-white hover:border-teal-500">Jeremy</a>
+                    </Link>
+                    {/* Portfolio Link */}
+                    <Link href="/portofolio">
+                        <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Portfolio</a>
+                    </Link>
+                    {/* Certificates Link */}
+                    <Link href="/certificates">
+                        <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Certificates</a>
+                    </Link>
+                    {/* Experience Link */}
+                    <Link href="/experience">
+                        <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Experience</a>
+                    </Link>
+                    <ul className="flex items-center absolute right-44 ">
+                        <li>
+                            <BsFillMoonStarsFill
+                                onClick={toggleDarkMode}
+                                className="cursor-pointer text-2xl"
+                            />
+                        </li>
+                        <li>
+                            <a
+                                className="bg-gradient-to-r from-blue-500 text- to-yellow-700 text-white px-4 py-2 border-none rounded-md ml-8"
+                                href="CV-Jeremy-Kenneth.pdf"
+                                alt="alt text"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >CV</a>
+                        </li>
+                        <li>
+                            <a
+                                className="bg-gradient-to-r from-red-500 text- to-teal-700 text-white px-4 py-2 border-none rounded-md ml-8"
+                                href="Resume-Jeremy-Kenneth.pdf"
+                                alt="alt text"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >Resume</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     );
