@@ -13,16 +13,6 @@ import Navbar from "./navbar";
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
-  useEffect(() => {
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(isDarkMode);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
-    document.documentElement.classList.toggle('dark', darkMode);
-  }, [darkMode]);
-
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
