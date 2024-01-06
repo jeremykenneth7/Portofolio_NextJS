@@ -18,17 +18,7 @@ import tsunami2 from "../public/tsunami2.png";
 export default function Portfolio() {
     const [darkMode, setDarkMode] = useState(false);
     const [currentCategory, setCurrentCategory] = useState('all');
-
-    useEffect(() => {
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        setDarkMode(isDarkMode);
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('darkMode', darkMode ? 'true' : 'false');
-        document.documentElement.classList.toggle('dark', darkMode);
-    }, [darkMode]);
-
+    
     const webProjects = [
         {
             title: "Tsunami Warning Center",
@@ -159,7 +149,7 @@ export default function Portfolio() {
                         Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website. From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
                     </p>
                 </div>
-                {/* For mobile view */}
+                {/* Mobile view */}
                 <div className="md:hidden flex flex-wrap justify-center md:justify-start mb-8">
                     <div className="w-full md:w-auto flex flex-wrap justify-center">
                         <button onClick={() => setCurrentCategory('all')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
@@ -170,14 +160,14 @@ export default function Portfolio() {
                         <button onClick={() => setCurrentCategory('backend')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
                     </div>
                 </div>
-                {/* For desktop view */}
+                {/* Desktop view */}
                 <div className="hidden md:flex justify-center mb-8">
                     <button onClick={() => setCurrentCategory('all')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
                     <button onClick={() => setCurrentCategory('web')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
                     <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
                     <button onClick={() => setCurrentCategory('backend')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
                 </div>
-                {/* Display projects based on the selected category */}
+                {/* Projects by Category */}
                 <div className="flex flex-col gap-10 lg:flex-row lg:flex-wrap">
                     {filteredProjects.map((project, index) => (
                         <div key={index} className="basis-1/4 flex-1">
@@ -218,10 +208,9 @@ const Modal = ({ project, closeModal }) => {
     return (
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50">
             <div className="bg-white dark:bg-gray-800 p-8 rounded-lg">
-                {/* Display project details */}
-                <h2 className="text-xl font-bold mb-4">{project.title}</h2>
-                <p className="text-sm mb-4">{project.description}</p>
-                <p className="text-xs mb-4">
+                <h2 className="text-gray-700 dark:text-gray-300 text-xl font-bold mb-4">{project.title}</h2>
+                <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">{project.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 text-xs mb-4">
                     Framework and Database : {project.language} <br />
                     Project Date : {project.date} <br />
                     Visit the Project :

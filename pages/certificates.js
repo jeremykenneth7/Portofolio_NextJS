@@ -83,7 +83,7 @@ export default function Certificates() {
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
                 <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-                    {/* Display the certificate images */}
+
                     {images.map((image, index) => (
                         <div key={index} className="basis-1/4 flex-1 relative">
                             <a
@@ -94,8 +94,8 @@ export default function Certificates() {
                             >
                                 <Image
                                     className={`rounded-lg overflow-hidden shadow-md ${isHoveredArray[index] ? "filter blur-2" : ""}`}
-                                    width={600} // Numeric width value
-                                    height={400} // Numeric height value
+                                    width={600} 
+                                    height={400} 
                                     layout="responsive"
                                     src={image.src}
                                     alt={image.alt}
@@ -127,7 +127,7 @@ export default function Certificates() {
                 </div>
                 <Footer darkMode={darkMode} />
             </main>
-            {/* Modal for zoomed image */}
+
             {isZoomed && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-90">
                     <button
@@ -141,8 +141,8 @@ export default function Certificates() {
                         <div className="p-4">
                             <Image
                                 className="rounded-lg overflow-hidden shadow-md"
-                                width={originalWidth} // Replace with actual image width
-                                height={originalHeight} // Replace with actual image height
+                                width={originalWidth} 
+                                height={originalHeight} 
                                 layout="responsive"
                                 src={zoomedImage}
                                 alt="Zoomed Image"

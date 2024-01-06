@@ -1,23 +1,18 @@
 import Link from 'next/link';
-import { BsFillMoonStarsFill } from 'react-icons/bs';
+import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
+import { useLocalStorage } from '../components/localstorage';
 
 export default function Navbar() {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
     const [showDropdown, setShowDropdown] = useState(false);
-    useEffect(() => {
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        setDarkMode(isDarkMode);
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('darkMode', darkMode);
-        document.documentElement.classList.toggle('dark', darkMode);
-    }, [darkMode]);
 
     const toggleDarkMode = () => {
-        setDarkMode(!darkMode);
+        const newMode = !darkMode;
+        setDarkMode(newMode);
+        localStorage.setItem('darkMode', JSON.stringify(newMode));
+        document.documentElement.classList.toggle('dark', newMode);
     };
 
     const toggleDropdown = () => {
@@ -25,12 +20,11 @@ export default function Navbar() {
 
     };
     return (
-        <nav className="py-5 md:py-10 mb-4 md:mb-12 flex flex-col md:flex-row justify-between dark:text-white">
+        <nav className="py-5 md:py-10 md:mb-2 flex flex-col md:flex-row justify-between dark:text-white">
             <div className="md:flex md:items-center md:justify-between">
                 <div className="relative">
                     {/* Mobile View */}
                     <div className="md:hidden">
-                        {/* Home Link */}
                         <Link href="/">
                             <a className="mr-4 font-burtons text-lg py-1 dark:text-white hover:border-teal-500">Jeremy</a>
                         </Link>
@@ -39,7 +33,7 @@ export default function Navbar() {
                             onClick={toggleDarkMode}
                             className="cursor-pointer text-xl"
                         >
-                            <BsFillMoonStarsFill />
+                            {darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
                         </button></div>
                         <div className="absolute right-2 inline-block text-left">
                             <button
@@ -47,7 +41,7 @@ export default function Navbar() {
                                 type="button"
                                 className="font-burtons text-lg py-1 dark:text-white hover:border-teal-500"
                             >
-                                <FaBars /> {/* Replace "Menu" text with the icon */}
+                                <FaBars /> 
                             </button>
                             {/* Dropdown content */}
                             {showDropdown && (
@@ -78,28 +72,31 @@ export default function Navbar() {
 
                 {/* Desktop View */}
                 <div className="hidden md:flex md:items-center md:flex-row justify-between">
-                    {/* Home Link */}
                     <Link href="/">
                         <a className="mr-4 font-burtons text-xl py-1 dark:text-white hover:border-teal-500">Jeremy</a>
                     </Link>
-                    {/* Portfolio Link */}
                     <Link href="/portofolio">
                         <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Portfolio</a>
                     </Link>
-                    {/* Certificates Link */}
                     <Link href="/certificates">
                         <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Certificates</a>
                     </Link>
-                    {/* Experience Link */}
                     <Link href="/experience">
                         <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Experience</a>
                     </Link>
                     <ul className="flex items-center absolute right-44 ">
                         <li>
-                            <BsFillMoonStarsFill
-                                onClick={toggleDarkMode}
-                                className="cursor-pointer text-2xl"
-                            />
+                            {darkMode ? (
+                                <BsFillSunFill
+                                    onClick={toggleDarkMode}
+                                    className="cursor-pointer text-2xl"
+                                />
+                            ) : (
+                                <BsFillMoonStarsFill
+                                    onClick={toggleDarkMode}
+                                    className="cursor-pointer text-2xl"
+                                />
+                            )}
                         </li>
                         <li>
                             <a
