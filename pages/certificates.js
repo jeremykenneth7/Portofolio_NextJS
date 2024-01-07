@@ -78,7 +78,7 @@ export default function Certificates() {
         <div className={darkMode ? "dark" : ""}>
             <Head>
                 <title>Certificates • Jeremy Kenneth</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/developer.png" />
             </Head>
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />

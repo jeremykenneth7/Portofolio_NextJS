@@ -16,7 +16,16 @@ import tsunami1 from "../public/tsunami1.png";
 import tsunami2 from "../public/tsunami2.png";
 
 export default function Portfolio() {
+    const [loading, setLoading] = useState(true);
     const [darkMode, setDarkMode] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
     const [currentCategory, setCurrentCategory] = useState('all');
     
     const webProjects = [
@@ -136,14 +145,31 @@ export default function Portfolio() {
         setSelectedProject(null);
     };
 
+    const SkeletonLoader = () => {
+        return (
+            <div className="text-center p-10 py-10">
+                <h2 className="animate-pulse h-8 w-1/2 bg-gray-200 mb-4"></h2>
+                <h3 className="animate-pulse h-12 w-2/3 bg-gray-200 mb-6"></h3>
+                <p className="animate-pulse h-8 w-3/4 bg-gray-200 mb-8"></p>
+                <div className="animate-pulse flex justify-center gap-16 py-3">
+                    <div className="h-12 w-12 bg-gray-200 rounded-full"></div>
+                    <div className="h-12 w-12 bg-gray-200 rounded-full"></div>
+                    <div className="h-12 w-12 bg-gray-200 rounded-full"></div>
+                </div>
+                <div className="mx-auto bg-gray-200 rounded-full w-60 h-60 relative overflow-hidden mt-20"></div>
+            </div>
+        );
+    };
+
     return (
         <div className={darkMode ? "dark" : ""}>
             <Head>
                 <title>Portofolio • Jeremy Kenneth</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/developer.png" />
             </Head>
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+                
                 <div>
                     <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-xl">
                         Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website. From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.

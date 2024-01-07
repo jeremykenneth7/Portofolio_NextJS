@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AiFillGithub,
   AiFillLinkedin,
@@ -10,7 +10,6 @@ import Navbar from "../components/navbar";
 import Footer from '../components/footer';
 import deved from "../public/profile.jpg";
 
-
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -18,7 +17,7 @@ export default function Home() {
     <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Jeremy Kenneth • Full Stack Developer</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/developer.png" />
       </Head>
       <main className="bg-white dark:bg-gray-900 px-10 md:px-20 lg:px-40 min-h-screen">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />

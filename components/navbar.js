@@ -33,7 +33,7 @@ export default function Navbar() {
                             onClick={toggleDarkMode}
                             className="cursor-pointer text-xl"
                         >
-                            {darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
+                            {darkMode ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
                         </button></div>
                         <div className="absolute right-2 inline-block text-left">
                             <button
