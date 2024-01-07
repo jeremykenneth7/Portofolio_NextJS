@@ -19,6 +19,14 @@ export default function Navbar() {
         setShowDropdown(!showDropdown);
 
     };
+
+    useEffect(() => {
+        const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+        if (isDarkMode !== null) {
+            setDarkMode(isDarkMode);
+        }
+    }, [setDarkMode]);
+
     return (
         <nav className="py-5 md:py-10 md:mb-2 flex flex-col md:flex-row justify-between dark:text-white">
             <div className="md:flex md:items-center md:justify-between">
@@ -33,7 +41,7 @@ export default function Navbar() {
                             onClick={toggleDarkMode}
                             className="cursor-pointer text-xl"
                         >
-                            {darkMode ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
+                            {darkMode ? <BsFillSunFill/> :  <BsFillMoonStarsFill/>}
                         </button></div>
                         <div className="absolute right-2 inline-block text-left">
                             <button
