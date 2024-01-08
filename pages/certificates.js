@@ -3,20 +3,7 @@ import { useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Image from "next/image";
-import web from "../public/certificate/web.png";
-import js from "../public/certificate/js.jpg";
-import cloud from "../public/certificate/cloud.png";
-import backend from "../public/certificate/backend.png";
-import software from "../public/certificate/software.png";
-import logic from "../public/certificate/logic.png";
-import github from "../public/certificate/github.png";
-import preparing from "../public/certificate/preparing.png";
-import bits from "../public/certificate/bits.png";
-import sysmin from "../public/certificate/sysmin.png";
-import dart from "../public/certificate/dart.png";
-import react from "../public/certificate/react.png";
-import frontend from "../public/certificate/frontend.png";
-import proyek from "../public/certificate/proyek.png";
+import { web, js, cloud, backend, software, logic, github, preparing, bits, sysmin, dart, react, frontend, proyek } from "../public/certificate/index.js";
 import { LuExternalLink, LuZoomIn } from "react-icons/lu";
 
 export default function Certificates() {

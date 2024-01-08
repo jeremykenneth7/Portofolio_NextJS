@@ -62,10 +62,10 @@ export default function Navbar() {
                                 <Link href="/experience">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Experience</a>
                                 </Link>
-                                <Link href="CV-Jeremy-Kenneth.pdf">
+                                <Link href="./documents/CV-Jeremy-Kenneth.pdf">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CV</a>
                                 </Link>
-                                <Link href="Resume-Jeremy-Kenneth.pdf">
+                                <Link href="./documents/Resume-Jeremy-Kenneth.pdf">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Resume</a>
                                 </Link>
                             </div>
