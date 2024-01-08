@@ -3,17 +3,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import bangkit from "../public/bangkit.jpeg";
-import bimbel from "../public/bimbel.png";
-import bookshelf from "../public/bookshelf.png";
-import calorease from "../public/calorease.png";
-import computershop from "../public/computershop.png";
-import flask from "../public/flask.jpg";
-import gunung from "../public/gunung.png";
-import onlineshop2 from "../public/onlineshop2.png";
-import stopwatch from "../public/stopwatch.png";
-import tsunami1 from "../public/tsunami1.png";
-import tsunami2 from "../public/tsunami2.png";
+import bangkit from "../public/portofolio/bangkit.jpeg";
+import bimbel from "../public/portofolio/bimbel.png";
+import bookshelf from "../public/portofolio/bookshelf.png";
+import calorease from "../public/portofolio/calorease.png";
+import computershop from "../public/portofolio/computershop.png";
+import flask from "../public/portofolio/flask.jpg";
+import gunung from "../public/portofolio/gunung.png";
+import onlineshop2 from "../public/portofolio/onlineshop2.png";
+import stopwatch from "../public/portofolio/stopwatch.png";
+import tsunami1 from "../public/portofolio/tsunami1.png";
+import tsunami2 from "../public/portofolio/tsunami2.png";
 
 export default function Portfolio() {
     const [loading, setLoading] = useState(true);
@@ -145,22 +145,6 @@ export default function Portfolio() {
         setSelectedProject(null);
     };
 
-    const SkeletonLoader = () => {
-        return (
-            <div className="text-center p-10 py-10">
-                <h2 className="animate-pulse h-8 w-1/2 bg-gray-200 mb-4"></h2>
-                <h3 className="animate-pulse h-12 w-2/3 bg-gray-200 mb-6"></h3>
-                <p className="animate-pulse h-8 w-3/4 bg-gray-200 mb-8"></p>
-                <div className="animate-pulse flex justify-center gap-16 py-3">
-                    <div className="h-12 w-12 bg-gray-200 rounded-full"></div>
-                    <div className="h-12 w-12 bg-gray-200 rounded-full"></div>
-                    <div className="h-12 w-12 bg-gray-200 rounded-full"></div>
-                </div>
-                <div className="mx-auto bg-gray-200 rounded-full w-60 h-60 relative overflow-hidden mt-20"></div>
-            </div>
-        );
-    };
-
     return (
         <div className={darkMode ? "dark" : ""}>
             <Head>
@@ -168,8 +152,7 @@ export default function Portfolio() {
                 <link rel="icon" href="/developer.png" />
             </Head>
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
-                <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-                
+                <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />    
                 <div>
                     <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-xl">
                         Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website. From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
@@ -216,14 +199,12 @@ export default function Portfolio() {
                         </div>
                     ))}
                 </div>
-
                 {showModal && selectedProject && (
                     <Modal
                         project={selectedProject}
                         closeModal={closeModal}
                     />
                 )}
-
                 <Footer darkMode={darkMode} />
             </main>
         </div>
@@ -242,9 +223,7 @@ const Modal = ({ project, closeModal }) => {
                     Visit the Project :
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline"> {project.link}
                     </a>
-
                 </p>
-
                 <button onClick={closeModal} className="text-sm font-semibold py-2 px-4 rounded-lg bg-blue-500 text-white">Close</button>
             </div>
         </div>

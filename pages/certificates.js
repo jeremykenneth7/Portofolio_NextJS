@@ -1,19 +1,22 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import web from "../public/web.png";
-import js from "../public/js.jpg";
-import cloud from "../public/cloud.png";
-import backend from "../public/backend.png";
-import software from "../public/software.png";
-import logic from "../public/logic.png";
-import github from "../public/github.png";
-import preparing from "../public/preparing.png";
-import bits from "../public/bits.png";
-import sysmin from "../public/sysmin.png";
-import dart from "../public/dart.png";
+import { useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Image from "next/image";
+import web from "../public/certificate/web.png";
+import js from "../public/certificate/js.jpg";
+import cloud from "../public/certificate/cloud.png";
+import backend from "../public/certificate/backend.png";
+import software from "../public/certificate/software.png";
+import logic from "../public/certificate/logic.png";
+import github from "../public/certificate/github.png";
+import preparing from "../public/certificate/preparing.png";
+import bits from "../public/certificate/bits.png";
+import sysmin from "../public/certificate/sysmin.png";
+import dart from "../public/certificate/dart.png";
+import react from "../public/certificate/react.png";
+import frontend from "../public/certificate/frontend.png";
+import proyek from "../public/certificate/proyek.png";
 
 export default function Certificates() {
     const [darkMode, setDarkMode] = useState(false);
@@ -60,7 +63,12 @@ export default function Certificates() {
     };
 
     const images = [
-        { link: "https://www.dicoding.com/certificates/53XE4N95RZRN", src: js, alt: "js", description: "Dicoding - Belajar Dasar Pemrograman Java Script" },
+        { link: "  https://coursera.org/share/9e4673e59337bc071397c37e0a3a2671", src: preparing, alt: "preparing", description: "Coursera - Cloud Security Engineer" },
+        { link: "  https://coursera.org/share/122c87baf0ad5961654cf058510f82ae", src: bits, alt: "bits", description: "Coursera - The Bits and Bytes of Computer Networking" },
+        { link: "  https://coursera.org/share/63e902db5f6180058c884b70ff020496", src: sysmin, alt: "sysmin", description: "Coursera - System Administration and IT Infrastructure Service" },
+        { link: "https://www.dicoding.com/certificates/0LZ0Q7O1NZ65", src: react, alt: "react", description: "Dicoding - Membuat Aplikasi Web dengan React" },
+        { link: "https://www.dicoding.com/certificates/4EXG44N5GPRL", src: frontend, alt: "frontend", description: "Dicoding - Belajar Membuat Front-End Web" },
+        { link: "https://www.dicoding.com/certificates/53XE4N95RZRN", src: js, alt: "js", description: "Dicoding - Belajar Dasar Pemrograman JavaScript" },
         { link: "https://www.dicoding.com/certificates/0LZ0QD0NNZ65", src: web, alt: "web", description: "Dicoding - Belajar Dasar Pemrograman Web" },
         { link: "https://www.dicoding.com/certificates/98XWV1NMJPM3", src: cloud, alt: "cloud", description: "Dicoding - Menjadi Google Cloud Engineer" },
         { link: "https://www.dicoding.com/certificates/GRX52O6J2X0M", src: backend, alt: "backend", description: "Dicoding - Belajar Membuat Aplikasi Back-End dengan Google Cloud" },
@@ -68,12 +76,9 @@ export default function Certificates() {
         { link: "https://www.dicoding.com/certificates/0LZ097MOKZ65", src: logic, alt: "logic", description: "Dicoding - Programming Logic" },
         { link: "  https://www.dicoding.com/certificates/N9ZO6VG2DXG5", src: github, alt: "github", description: "Dicoding - Belajar Github" },
         { link: "  https://www.dicoding.com/certificates/81P2VVWQYPOY", src: dart, alt: "dart", description: "Dicoding - Memulai Pemrograman dengan Dart" },
-        { link: "  https://coursera.org/share/9e4673e59337bc071397c37e0a3a2671", src: preparing, alt: "preparing", description: "Coursera - Cloud Security Engineer" },
-        { link: "  https://coursera.org/share/122c87baf0ad5961654cf058510f82ae", src: bits, alt: "bits", description: "Coursera - The Bits and Bytes of Computer Networking" },
-        { link: "  https://coursera.org/share/63e902db5f6180058c884b70ff020496", src: sysmin, alt: "sysmin", description: "Coursera - System Administration and IT Infrastructure Service" },
+        { link: "  https://www.dicoding.com/certificates/NVP77Q3MWPR0", src: proyek, alt: "proyek", description: "Dicoding - Manajemen Proyek" },
 
     ];
-
     return (
         <div className={darkMode ? "dark" : ""}>
             <Head>

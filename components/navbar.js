@@ -41,7 +41,7 @@ export default function Navbar() {
                             onClick={toggleDarkMode}
                             className="cursor-pointer text-xl"
                         >
-                            {darkMode ? <BsFillSunFill/> :  <BsFillMoonStarsFill/>}
+                            {darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
                         </button></div>
                         <div className="absolute right-2 inline-block text-left">
                             <button
@@ -49,7 +49,7 @@ export default function Navbar() {
                                 type="button"
                                 className="font-burtons text-lg py-1 dark:text-white hover:border-teal-500"
                             >
-                                <FaBars /> 
+                                <FaBars />
                             </button>
                             {/* Dropdown content */}
                             {showDropdown && (
@@ -83,16 +83,16 @@ export default function Navbar() {
                     <Link href="/">
                         <a className="mr-4 font-burtons text-xl py-1 dark:text-white hover:border-teal-500">Jeremy</a>
                     </Link>
+                    <Link href="/experience">
+                        <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Experience</a>
+                    </Link>
                     <Link href="/portofolio">
                         <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Portfolio</a>
                     </Link>
                     <Link href="/certificates">
                         <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Certificates</a>
                     </Link>
-                    <Link href="/experience">
-                        <a className="ml-8 font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Experience</a>
-                    </Link>
-                    <ul className="flex items-center absolute right-44 ">
+                    <ul className="flex items-end ml-64">
                         <li>
                             {darkMode ? (
                                 <BsFillSunFill
@@ -109,7 +109,7 @@ export default function Navbar() {
                         <li>
                             <a
                                 className="bg-gradient-to-r from-blue-500 text- to-yellow-700 text-white px-4 py-2 border-none rounded-md ml-8"
-                                href="CV-Jeremy-Kenneth.pdf"
+                                href="./documents/CV-Jeremy-Kenneth.pdf"
                                 alt="alt text"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -118,7 +118,7 @@ export default function Navbar() {
                         <li>
                             <a
                                 className="bg-gradient-to-r from-red-500 text- to-teal-700 text-white px-4 py-2 border-none rounded-md ml-8"
-                                href="Resume-Jeremy-Kenneth.pdf"
+                                href="./documentsResume-Jeremy-Kenneth.pdf"
                                 alt="alt text"
                                 target="_blank"
                                 rel="noopener noreferrer"
