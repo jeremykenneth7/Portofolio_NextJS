@@ -3,17 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import bangkit from "../public/portofolio/bangkit.jpeg";
-import bimbel from "../public/portofolio/bimbel.png";
-import bookshelf from "../public/portofolio/bookshelf.png";
-import calorease from "../public/portofolio/calorease.png";
-import computershop from "../public/portofolio/computershop.png";
-import flask from "../public/portofolio/flask.jpg";
-import gunung from "../public/portofolio/gunung.png";
-import onlineshop2 from "../public/portofolio/onlineshop2.png";
-import stopwatch from "../public/portofolio/stopwatch.png";
-import tsunami1 from "../public/portofolio/tsunami1.png";
-import tsunami2 from "../public/portofolio/tsunami2.png";
+import { bangkit, bimbel, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, tsunami1, tsunami2 } from "../public/portofolio/index.js";
 
 export default function Portfolio() {
     const [loading, setLoading] = useState(true);
@@ -27,7 +17,7 @@ export default function Portfolio() {
         return () => clearTimeout(timer);
     }, []);
     const [currentCategory, setCurrentCategory] = useState('all');
-    
+
     const webProjects = [
         {
             title: "Tsunami Warning Center",
@@ -152,17 +142,20 @@ export default function Portfolio() {
                 <link rel="icon" href="/developer.png" />
             </Head>
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
-                <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />    
+                <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
                 <div>
-                    <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-xl">
-                        Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website. From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
+                    <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify">
+                        &emsp; Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website.
+                        < br />
+                        < br />
+                        &emsp; From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
                     </p>
                 </div>
                 {/* Mobile view */}
                 <div className="md:hidden flex flex-wrap justify-center md:justify-start mb-8">
                     <div className="w-full md:w-auto flex flex-wrap justify-center">
-                        <button onClick={() => setCurrentCategory('all')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
-                        <button onClick={() => setCurrentCategory('web')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
+                        <button onClick={() => setCurrentCategory('all')} className={`mx-2 mb-2 px-[1.8rem] py-2 rounded-lg text-sm ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
+                        <button onClick={() => setCurrentCategory('web')} className={`mx-2 mb-2 px-[1.8rem] py-2 rounded-lg text-sm ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
                     </div>
                     <div className="w-full md:w-auto flex flex-wrap justify-center">
                         <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
@@ -171,8 +164,8 @@ export default function Portfolio() {
                 </div>
                 {/* Desktop view */}
                 <div className="hidden md:flex justify-center mb-8">
-                    <button onClick={() => setCurrentCategory('all')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
-                    <button onClick={() => setCurrentCategory('web')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
+                    <button onClick={() => setCurrentCategory('all')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
+                    <button onClick={() => setCurrentCategory('web')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
                     <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
                     <button onClick={() => setCurrentCategory('backend')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
                 </div>

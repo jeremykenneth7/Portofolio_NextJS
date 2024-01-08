@@ -17,17 +17,17 @@ import dart from "../public/certificate/dart.png";
 import react from "../public/certificate/react.png";
 import frontend from "../public/certificate/frontend.png";
 import proyek from "../public/certificate/proyek.png";
+import { LuExternalLink, LuZoomIn } from "react-icons/lu";
 
 export default function Certificates() {
     const [darkMode, setDarkMode] = useState(false);
-    const [isHoveredArray, setIsHoveredArray] = useState(Array(11).fill(false));
+    const [isHoveredArray, setIsHoveredArray] = useState(Array(14).fill(false));
     const [isZoomed, setIsZoomed] = useState(false);
     const [zoomedImage, setZoomedImage] = useState(null);
     const [zoomedIndex, setZoomedIndex] = useState(null);
 
     const handleHover = (index, isHovered) => {
-        const updatedHoverArray = [...isHoveredArray];
-        updatedHoverArray[index] = isHovered;
+        const updatedHoverArray = isHoveredArray.map((item, idx) => idx === index ? isHovered : false);
         setIsHoveredArray(updatedHoverArray);
     };
 
@@ -77,8 +77,9 @@ export default function Certificates() {
         { link: "  https://www.dicoding.com/certificates/N9ZO6VG2DXG5", src: github, alt: "github", description: "Dicoding - Belajar Github" },
         { link: "  https://www.dicoding.com/certificates/81P2VVWQYPOY", src: dart, alt: "dart", description: "Dicoding - Memulai Pemrograman dengan Dart" },
         { link: "  https://www.dicoding.com/certificates/NVP77Q3MWPR0", src: proyek, alt: "proyek", description: "Dicoding - Manajemen Proyek" },
-
     ];
+    
+
     return (
         <div className={darkMode ? "dark" : ""}>
             <Head>
@@ -106,14 +107,14 @@ export default function Certificates() {
                                     alt={image.alt}
                                 />
                                 {isHoveredArray[index] && (
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-75 text-white text-center">
-                                        <p className="py-2">{image.description}</p>
-                                        <div className="flex items-center justify-between">
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-75 text-white text-center rounded-lg gap-1 ">
+                                        <p className="py-2 px-4 ">{image.description}</p>
+                                        <div className="flex items-center">
                                             <button
                                                 className="bg-transparent border-none outline-none focus:outline-none mr-5"
                                                 onClick={() => handleActivateZoom(image.src)}
                                             >
-                                                <span className="text-white text-3xl cursor-pointer">&#128269;</span>
+                                                <span className="text-white text-3xl cursor-pointer"><LuZoomIn className=" text-white hover:text-blue-500" /></span>
                                             </button>
                                             <a
                                                 className="text-white text-3xl cursor-pointer"
@@ -121,7 +122,7 @@ export default function Certificates() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                &#128279;
+                                                <LuExternalLink className="transition duration-300 ease-in-out text-white hover:text-blue-500" />
                                             </a>
                                         </div>
                                     </div>
@@ -151,6 +152,8 @@ export default function Certificates() {
                                 layout="responsive"
                                 src={zoomedImage}
                                 alt="Zoomed Image"
+                                onMouseEnter={() => handleHover(zoomedIndex, true)}
+                                onMouseLeave={() => handleHover(zoomedIndex, false)}
                             />
                         </div>
                     </div>
