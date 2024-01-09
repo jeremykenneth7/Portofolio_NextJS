@@ -174,7 +174,12 @@ export default function Portfolio() {
                     {filteredProjects.map((project, index) => (
                         <div key={index} className="basis-1/4 flex-1">
                             <div className="rounded-lg overflow-hidden shadow-md">
-                                <a href="" onClick={(e) => { e.preventDefault(); openModal(project); }}>
+                                <div
+                                    className="relative cursor-pointer"
+                                    onClick={() => openModal(project)}
+                                    onMouseEnter={(e) => e.currentTarget.style.cursor = "pointer"}
+                                    onMouseLeave={(e) => e.currentTarget.style.cursor = "auto"}
+                                >
                                     <Image
                                         className="rounded-lg overflow-hidden shadow-md"
                                         width={"200%"}
@@ -183,10 +188,10 @@ export default function Portfolio() {
                                         src={project.image}
                                         alt={project.title}
                                     />
-                                </a>
-                                <div className="p-5">
+                                </div>
+                                <div className="p-5 h-40 overflow-scroll">
                                     <p className="text-center text-gray-700 dark:text-gray-300 mb-1">{project.title}</p>
-                                    <p className="text-center text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
+                                    <p className="text-center py-2 px-5 text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
                                 </div>
                             </div>
                         </div>
