@@ -189,7 +189,7 @@ export default function Portfolio() {
                                         alt={project.title}
                                     />
                                 </div>
-                                <div className="p-5 h-40 overflow-scroll">
+                                <div className="p-5 h-40">
                                     <p className="text-center text-gray-700 dark:text-gray-300 mb-1">{project.title}</p>
                                     <p className="text-center py-2 px-5 text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
                                 </div>
