@@ -113,7 +113,7 @@ export default function Navbar() {
                     </a>
                     <a
                         className="bg-gradient-to-r from-red-500 to-teal-700 text-white px-4 py-2 border-none rounded-md"
-                        href="./documentsResume-Jeremy-Kenneth.pdf"
+                        href="./documents/Resume-Jeremy-Kenneth.pdf"
                         alt="alt text"
                         target="_blank"
                         rel="noopener noreferrer"

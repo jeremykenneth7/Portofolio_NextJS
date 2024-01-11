@@ -201,6 +201,7 @@ export default function Portfolio() {
                     <Modal
                         project={selectedProject}
                         closeModal={closeModal}
+                        projects={filteredProjects}
                     />
                 )}
                 <Footer darkMode={darkMode} />
@@ -209,20 +210,74 @@ export default function Portfolio() {
     );
 }
 
-const Modal = ({ project, closeModal }) => {
+const Modal = ({ project, closeModal, projects }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleNextProject = () => {
+        const nextIndex = (currentIndex + 1) % projects.length;
+        setCurrentIndex(nextIndex);
+    };
+
+    const handlePreviousProject = () => {
+        const previousIndex = (currentIndex - 1 + projects.length) % projects.length;
+        setCurrentIndex(previousIndex);
+    };
+
+    useEffect(() => {
+        setCurrentIndex(projects.findIndex((p) => p.title === project.title));
+    }, [project, projects]);
+
+    const currentProject = projects[currentIndex];
+
+    const handleCloseModal = (e) => {
+        if (e.target === e.currentTarget) {
+            closeModal();
+        }
+    };
+
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50" onClick={handleCloseModal}>
             <div className="bg-white dark:bg-gray-800 p-8 rounded-lg">
-                <h2 className="text-gray-700 dark:text-gray-300 text-xl font-bold mb-4">{project.title}</h2>
-                <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">{project.description}</p>
+                <div className="mb-4">
+                    <Image
+                        className="rounded-lg overflow-hidden shadow-md"
+                        width={800}
+                        height={400}
+                        layout="responsive"
+                        src={currentProject.image}
+                        alt={currentProject.title}
+                    />
+                </div>
+                <div className="mb-4 max-w-[700px]">
+                    <h2 className="text-gray-700 dark:text-gray-300 text-xl font-bold mb-4">{currentProject.title}</h2>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">{currentProject.description}</p>
+                </div>
                 <p className="text-gray-700 dark:text-gray-300 text-xs mb-4">
-                    Framework and Database : {project.language} <br />
-                    Project Date : {project.date} <br />
+                    Framework and Database : {currentProject.language} <br />
+                    Project Date : {currentProject.date} <br />
                     Visit the Project :
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="hover:underline"> {project.link}
+                    <a href={currentProject.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                        {currentProject.link}
                     </a>
                 </p>
-                <button onClick={closeModal} className="text-sm font-semibold py-2 px-4 rounded-lg bg-blue-500 text-white">Close</button>
+                <button
+                    className="absolute top-1/2 left-10 transform -translate-y-1/2 text-white text-6xl cursor-pointer z-10"
+                    onClick={handlePreviousProject}
+                >
+                    &#x2039;
+                </button>
+                <div className="mb-4 max-w-[700px]">
+                    {/* ... (existing content) */}
+                </div>
+                <button
+                    className="absolute top-1/2 right-10 transform -translate-y-1/2 text-white text-6xl cursor-pointer z-10"
+                    onClick={handleNextProject}
+                >
+                    &#x203A;
+                </button>
+                <button onClick={closeModal} className="text-sm font-semibold py-2 px-4 rounded-lg bg-blue-500 text-white absolute bottom-4 right-4">
+                    Close
+                </button>
             </div>
         </div>
     );
