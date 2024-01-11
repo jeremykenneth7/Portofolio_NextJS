@@ -77,7 +77,7 @@ export default function Certificates() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 1250); 
+        }, 1000); 
 
         return () => clearTimeout(timer);
     }, []);
