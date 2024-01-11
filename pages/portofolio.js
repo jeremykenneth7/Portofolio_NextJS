@@ -1,9 +1,45 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { bangkit, bimbel, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, tsunami1, tsunami2 } from "../public/portofolio/index.js";
+
+const SkeletonLoading = () => (
+    <div className="basis-1/4 flex-1">
+        <div className="rounded-lg overflow-hidden shadow-md">
+            <div className="h-44 bg-gray-300 dark:bg-gray-600 rounded-lg"></div>
+            <div className="p-10 h-40">
+                <div className="h-6 w-full mb-5 bg-gray-300 dark:bg-gray-600 rounded-lg"></div>
+                <div className="h-12 w-full bg-gray-300 dark:bg-gray-600 rounded-lg"></div>
+            </div>
+        </div>
+    </div>
+);
+
+const TextSkeletonLoading = () => (
+    <div className="pb-10 flex flex-col md:flex-row items-start md:items-center">
+        <div className="w-full ">
+            <div className="mb-3 h-4 w-full mt-12 md:mt-6 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-10 h-4 w-1/3 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+
+            <div className="mt-10 mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="h-4 w-72 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+        </div>
+    </div>
+);
+
+const ButtonSkeletonLoading = ({ buttons, className }) => (
+    <div className={className}>
+        {Array.from({ length: buttons }, (_, index) => (
+            <div key={index} className={`mx-2 py-2 h-10 rounded-lg bg-gray-300 dark:bg-gray-600`}></div>
+        ))}
+    </div>
+);
 
 export default function Portfolio() {
     const [loading, setLoading] = useState(true);
@@ -144,35 +180,66 @@ export default function Portfolio() {
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
                 <div>
+                    {loading ? (
+                        <TextSkeletonLoading lines={8} className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify" />
+                    ) : (
                     <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify">
                         &emsp; Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website.
                         < br />
                         < br />
                         &emsp; From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
                     </p>
+                    )}
                 </div>
                 {/* Mobile view */}
                 <div className="md:hidden flex flex-wrap justify-center md:justify-start mb-8">
+                    {loading ? (
+                        <ButtonSkeletonLoading buttons={2} className="w-full md:w-auto flex flex-wrap justify-center" />
+                    ) : (
                     <div className="w-full md:w-auto flex flex-wrap justify-center">
                         <button onClick={() => setCurrentCategory('all')} className={`mx-2 mb-2 px-[1.8rem] py-2 rounded-lg text-sm ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
                         <button onClick={() => setCurrentCategory('web')} className={`mx-2 mb-2 px-[1.8rem] py-2 rounded-lg text-sm ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
                     </div>
+                    )}
+                    {loading ? (
+                        <ButtonSkeletonLoading buttons={2} className="w-full md:w-auto flex flex-wrap justify-center" />
+                    ) : (
                     <div className="w-full md:w-auto flex flex-wrap justify-center">
                         <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
                         <button onClick={() => setCurrentCategory('backend')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
                     </div>
+                    )}
                 </div>
                 {/* Desktop view */}
-                <div className="hidden md:flex justify-center mb-8">
-                    <button onClick={() => setCurrentCategory('all')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
-                    <button onClick={() => setCurrentCategory('web')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
-                    <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
-                    <button onClick={() => setCurrentCategory('backend')} className={`mx-2 px-4 py-2 rounded-lg ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
+                <div className="hidden md:flex justify-center gap-8 mb-10">
+                    {loading ? (
+                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 h-10 py-2 rounded-lg" />
+                    ) : (
+                    <button onClick={() => setCurrentCategory('all')} className={`mx-2 px-8 py-2 rounded-lg ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
+                    )}
+                    {loading ? (
+                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 py-2 rounded-lg" />
+                    ) : (
+                    <button onClick={() => setCurrentCategory('web')} className={`mx-2 px-8 py-2 rounded-lg ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
+                    )}
+                    {loading ? (
+                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 py-2 rounded-lg" />
+                    ) : (
+                    <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
+                    )}
+                    {loading ? (
+                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 py-2 rounded-lg" />
+                    ) : (
+                    <button onClick={() => setCurrentCategory('backend')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
+                    )}
                 </div>
                 {/* Projects by Category */}
                 <div className="flex flex-col gap-10 lg:flex-row lg:flex-wrap">
-                    {filteredProjects.map((project, index) => (
-                        <div key={index} className="basis-1/4 flex-1">
+                    {(loading ? Array.from({ length: 6 }) : filteredProjects).map((project, index) => (
+                        <React.Fragment key={index}>
+                            {loading ? (
+                                <SkeletonLoading />
+                            ) : ( <div className="basis-1/4 flex-1">
                             <div className="rounded-lg overflow-hidden shadow-md">
                                 <div
                                     className="relative cursor-pointer"
@@ -194,7 +261,9 @@ export default function Portfolio() {
                                     <p className="text-center py-2 px-5 text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
                                 </div>
                             </div>
-                        </div>
+                            </div>
+                            )}
+                        </React.Fragment>
                     ))}
                 </div>
                 {showModal && selectedProject && (
@@ -266,9 +335,6 @@ const Modal = ({ project, closeModal, projects }) => {
                 >
                     &#x2039;
                 </button>
-                <div className="mb-4 max-w-[700px]">
-                    {/* ... (existing content) */}
-                </div>
                 <button
                     className="absolute top-1/2 right-10 transform -translate-y-1/2 text-white text-6xl cursor-pointer z-10"
                     onClick={handleNextProject}

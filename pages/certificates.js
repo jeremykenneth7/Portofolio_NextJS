@@ -1,10 +1,17 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Image from "next/image";
 import { web, js, cloud, backend, software, logic, github, preparing, bits, sysmin, dart, react, frontend, proyek } from "../public/certificate/index.js";
 import { LuExternalLink, LuZoomIn } from "react-icons/lu";
+
+const SkeletonLoading = () => (
+    <div className="animate-pulse bg-gray-300 rounded-lg overflow-hidden shadow-md">
+        <div className="h-48 md:h-56 bg-gray-400"></div>
+    </div>
+);
+
 
 export default function Certificates() {
     const [darkMode, setDarkMode] = useState(false);
@@ -12,6 +19,7 @@ export default function Certificates() {
     const [isZoomed, setIsZoomed] = useState(false);
     const [zoomedImage, setZoomedImage] = useState(null);
     const [zoomedIndex, setZoomedIndex] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const handleHover = (index, isHovered) => {
         const updatedHoverArray = isHoveredArray.map((item, idx) => idx === index ? isHovered : false);
@@ -65,7 +73,14 @@ export default function Certificates() {
         { link: "  https://www.dicoding.com/certificates/81P2VVWQYPOY", src: dart, alt: "dart", description: "Dicoding - Memulai Pemrograman dengan Dart" },
         { link: "  https://www.dicoding.com/certificates/NVP77Q3MWPR0", src: proyek, alt: "proyek", description: "Dicoding - Manajemen Proyek" },
     ];
-    
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1250); 
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className={darkMode ? "dark" : ""}>
@@ -76,47 +91,55 @@ export default function Certificates() {
             <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
                 <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-
-                    {images.map((image, index) => (
-                        <div key={index} className="basis-1/4 flex-1 relative">
-                            <a
-
-                                onMouseEnter={() => handleHover(index, true)}
-                                onMouseLeave={() => handleHover(index, false)}
-                                style={{ position: "relative" }}
-                            >
-                                <Image
-                                    className={`rounded-lg overflow-hidden shadow-md ${isHoveredArray[index] ? "filter blur-2" : ""}`}
-                                    width={600} 
-                                    height={400} 
-                                    layout="responsive"
-                                    src={image.src}
-                                    alt={image.alt}
-                                />
-                                {isHoveredArray[index] && (
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-75 text-white text-center rounded-lg gap-1 ">
-                                        <p className="py-2 px-4 ">{image.description}</p>
-                                        <div className="flex items-center">
-                                            <button
-                                                className="bg-transparent border-none outline-none focus:outline-none mr-5"
-                                                onClick={() => handleActivateZoom(image.src)}
-                                            >
-                                                <span className="text-white text-3xl cursor-pointer"><LuZoomIn className=" text-white hover:text-blue-500" /></span>
-                                            </button>
-                                            <a
-                                                className="text-white text-3xl cursor-pointer"
-                                                href={image.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <LuExternalLink className="transition duration-300 ease-in-out text-white hover:text-blue-500" />
-                                            </a>
+                    {loading ? (
+                        // Display skeleton loading when loading is true
+                        Array.from({ length: images.length }, (_, index) => (
+                            <div key={index} className="basis-1/4 flex-1 relative">
+                                <SkeletonLoading />
+                            </div>
+                        ))
+                    ) : (
+                        // Display content when loading is false
+                        images.map((image, index) => (
+                            <div key={index} className="basis-1/4 flex-1 relative">
+                                <a
+                                    onMouseEnter={() => handleHover(index, true)}
+                                    onMouseLeave={() => handleHover(index, false)}
+                                    style={{ position: "relative" }}
+                                >
+                                    <Image
+                                        className={`rounded-lg overflow-hidden shadow-md ${isHoveredArray[index] ? "filter blur-2" : ""}`}
+                                        width={600}
+                                        height={400}
+                                        layout="responsive"
+                                        src={image.src}
+                                        alt={image.alt}
+                                    />
+                                    {isHoveredArray[index] && (
+                                        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-800 bg-opacity-75 text-white text-center rounded-lg gap-1 ">
+                                            <p className="py-2 px-4 ">{image.description}</p>
+                                            <div className="flex items-center">
+                                                <button
+                                                    className="bg-transparent border-none outline-none focus:outline-none mr-5"
+                                                    onClick={() => handleActivateZoom(image.src, index)}
+                                                >
+                                                    <span className="text-white text-3xl cursor-pointer"><LuZoomIn className=" text-white hover:text-blue-500" /></span>
+                                                </button>
+                                                <a
+                                                    className="text-white text-3xl cursor-pointer"
+                                                    href={image.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <LuExternalLink className="transition duration-300 ease-in-out text-white hover:text-blue-500" />
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                )}
-                            </a>
-                        </div>
-                    ))}
+                                    )}
+                                </a>
+                            </div>
+                        ))
+                    )}
                 </div>
                 <Footer darkMode={darkMode} />
             </main>

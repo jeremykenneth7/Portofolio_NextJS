@@ -3,6 +3,17 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
+const SkeletonLoading = () => (
+    <div className="p-10 py-10 flex flex-col md:flex-row items-start md:items-center">
+        <div className="w-full md:w-3/4">
+            <div className="mb-4 h-40 w-5/6 md:h-8 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-2 h-8 w-5/6 md:w-1/4 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="mb-4 h-20 w-5/6 md:h-8 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+            <div className="h-96 w-11/12 mb-10 md:h-72 md:w-3/4 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+        </div>
+    </div>
+);
+
 export default function Experience() {
     const [loading, setLoading] = useState(true);
     const [darkMode, setDarkMode] = useState(false);
@@ -10,7 +21,7 @@ export default function Experience() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 500);
+        }, 1250);
 
         return () => clearTimeout(timer);
     }, []);
@@ -23,6 +34,14 @@ export default function Experience() {
             </Head>
             <main className="bg-white dark:bg-gray-900 px-10 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+                {/* Render SkeletonLoading while loading is true */}
+                {loading ? (
+                    <div>
+                        <SkeletonLoading />
+                        <SkeletonLoading />
+                    </div>
+                ) : (
+                    <>
                 <div className="p-10 py-10 flex flex-col md:flex-row items-start md:items-center">
                     <div>
                         <a
@@ -79,6 +98,8 @@ export default function Experience() {
                     </div>
                 </div>
                 <Footer darkMode={darkMode} />
+                </>
+                )}
             </main>
         </div>
     );
