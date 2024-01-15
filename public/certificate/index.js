@@ -12,6 +12,7 @@ import dart from "./dart.png";
 import react from "./react.png";
 import frontend from "./frontend.png";
 import proyek from "./proyek.png";
+import data from "./data.png";
 
 
-export {web,js,cloud,backend,software,logic,github,preparing,bits,sysmin,dart,react,frontend,proyek}
+export {web,js,cloud,backend,software,logic,github,preparing,bits,sysmin,dart,react,frontend,proyek,data}

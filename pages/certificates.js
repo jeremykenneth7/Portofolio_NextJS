@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Image from "next/image";
-import { web, js, cloud, backend, software, logic, github, preparing, bits, sysmin, dart, react, frontend, proyek } from "../public/certificate/index.js";
+import { web, js, cloud, backend, software, logic, github, preparing, bits, sysmin, dart, react, frontend, proyek, data } from "../public/certificate/index.js";
 import { LuExternalLink, LuZoomIn } from "react-icons/lu";
 
 const SkeletonLoading = () => (
@@ -15,7 +15,7 @@ const SkeletonLoading = () => (
 
 export default function Certificates() {
     const [darkMode, setDarkMode] = useState(false);
-    const [isHoveredArray, setIsHoveredArray] = useState(Array(14).fill(false));
+    const [isHoveredArray, setIsHoveredArray] = useState(Array(20).fill(false));
     const [isZoomed, setIsZoomed] = useState(false);
     const [zoomedImage, setZoomedImage] = useState(null);
     const [zoomedIndex, setZoomedIndex] = useState(null);
@@ -72,6 +72,7 @@ export default function Certificates() {
         { link: "  https://www.dicoding.com/certificates/N9ZO6VG2DXG5", src: github, alt: "github", description: "Dicoding - Belajar Github" },
         { link: "  https://www.dicoding.com/certificates/81P2VVWQYPOY", src: dart, alt: "dart", description: "Dicoding - Memulai Pemrograman dengan Dart" },
         { link: "  https://www.dicoding.com/certificates/NVP77Q3MWPR0", src: proyek, alt: "proyek", description: "Dicoding - Manajemen Proyek" },
+        { link: "  https://www.dicoding.com/certificates/53XEYQ04VPRN", src: data, alt: "data", description: "Dicoding - Data Science" },
     ];
 
     useEffect(() => {
