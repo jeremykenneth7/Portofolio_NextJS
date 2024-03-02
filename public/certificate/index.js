@@ -13,6 +13,8 @@ import react from "./react.png";
 import frontend from "./frontend.png";
 import proyek from "./proyek.png";
 import data from "./data.png";
+import english from "./english.png";
+import bangkit from "./bangkit.png";
 
 
-export {web,js,cloud,backend,software,logic,github,preparing,bits,sysmin,dart,react,frontend,proyek,data}
+export { web, js, cloud, backend, software, logic, github, preparing, bits, sysmin, dart, react, frontend, proyek, data, english, bangkit }

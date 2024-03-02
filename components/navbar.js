@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
-import { useLocalStorage } from '../components/localstorage';
+import { useLocalStorage } from './localstorage';
 
 export default function Navbar() {
     const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
@@ -68,6 +68,9 @@ export default function Navbar() {
                                 <Link href="./documents/Resume-Jeremy-Kenneth.pdf">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Resume</a>
                                 </Link>
+                                <Link href="https://jeremy-links.vercel.app/">
+                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Connect</a>
+                                </Link>
                             </div>
                         </div>
                     )}
@@ -119,6 +122,15 @@ export default function Navbar() {
                         rel="noopener noreferrer"
                     >
                         Resume
+                    </a>
+                    <a
+                        className="bg-gradient-to-r from-yellow-500 to-purple-700 text-white px-4 py-2 border-none rounded-md"
+                        href="./documents/Resume-Jeremy-Kenneth.pdf"
+                        alt="alt text"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Connect
                     </a>
                 </div>
             </div>
