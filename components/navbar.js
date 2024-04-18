@@ -125,7 +125,7 @@ export default function Navbar() {
                     </a>
                     <a
                         className="bg-gradient-to-r from-yellow-500 to-purple-700 text-white px-4 py-2 border-none rounded-md"
-                        href="./documents/Resume-Jeremy-Kenneth.pdf"
+                        href="https://jeremy-links.vercel.app/"
                         alt="alt text"
                         target="_blank"
                         rel="noopener noreferrer"
