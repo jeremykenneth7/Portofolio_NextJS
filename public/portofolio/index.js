@@ -11,7 +11,15 @@ import tsunami1 from "./tsunami1.png";
 import tsunami2 from "./tsunami2.png";
 import storyku from "./storyku.png";
 import storyku2 from "./storyku2.png";
+import angkasa_keuangan from "./angkasa_keuangan.png";
+import angkasa_pemasaran from "./angkasa_pemasaran.png";
+import dataku from "./dataku.png";
+import dirjenim from "./dirjenim.png";
+import kasil from "./kasil.png";
+import kediri from "./kediri.png";
+import siap from "./siap.png";
+import oz from "./oz.png";
 
 export {
-    bangkit,bimbel,bookshelf,calorease,computershop,flask,gunung,onlineshop2,stopwatch,tsunami1,tsunami2,storyku,storyku2
+    angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim,kasil, kediri, siap,bangkit,bimbel,bookshelf,calorease,computershop,flask,gunung,onlineshop2,stopwatch,tsunami1,tsunami2,storyku,storyku2,oz
 }

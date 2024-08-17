@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
-import { bangkit, bimbel, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, storyku, tsunami1, tsunami2, storyku2 } from "../public/portofolio/index.js";
+import { angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim, kasil, kediri, siap, bangkit, bimbel, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, storyku, tsunami1, oz, storyku2 } from "../public/portofolio/index.js";
 
 const SkeletonLoading = () => (
     <div className="basis-1/4 flex-1">
@@ -56,77 +56,134 @@ export default function Portfolio() {
 
     const webProjects = [
         {
+            title: "Sistem Informasi Aduan Pelanggan - PT Air Minum Intan Banjar (Perseroda)",
+            image: siap,
+            description: "SIAP is a website created so that customers can file complaints to the company through the complaint form provided. The website also provide complaint tracking feature and sending complaint status to the customer number.",
+            date: "2024",
+            link: "-",
+            language: "Laravel + MySQL",
+        },
+        {
+            title: "Kasil - Paniradya Kaistimewaan",
+            image: kasil,
+            description: "Kasil is a website created for the special funds of the Yogyakarta Palace. This website was created to provide a map of the distribution of the number of activity results in the Special Region of Yogyakarta. It also contains monitoring and activity results.",
+            date: "2024",
+            link: " https://kasil.jogjaprov.go.id/",
+            language: "Laravel + MySQL",
+        },
+        {
+            title: "Website Dirjenim - Direktorat Jenderal Imigrasi Kementrian Hukum dan Ham",
+            image: dirjenim,
+            description: "The Dirjenim website is a website for the Directorate General of Immigration of Indonesia, which was created to provide visa and passport services for Indonesian and foreign citizens, in addition to residence permits, immigration and other services.",
+            date: "2024",
+            link: " https://www.imigrasi.go.id/",
+            language: "Yii2 Framework + MySQL",
+
+        },
+        {
+            title: "Jogja Dataku - Bappeda DIY",
+            image: dataku,
+            description: "Dataku is a website created for Regional Development Planning Agency of the Special Region of Yogyakarta, Indonesia to provide data from the Yogyakarta region which contains infographics, master data, financial data, performance indicators and other data.",
+            date: "2024",
+            link: " https://bappeda.jogjaprov.go.id/dataku/",
+            language: "Yii2 Framework + MySQL",
+        },
+        {
+            title: "Satu Data Kota Kediri - Pemerintah Kota Kediri",
+            image: kediri,
+            description: "Satu Data Kota Kediri is a website created for Kediri City Goverment to provide data from the Kediri region which contains infographics, master data, financial data, performance indicators and other data.",
+            date: "2024",
+            link: " https://satudata.kedirikota.go.id/",
+            language: "Yii2 Framework + MySQL",
+        },
+        {
+            title: "Angkasa Penjualan - Angkasa Tour and Travel",
+            image: angkasa_pemasaran,
+            description: "Website for Angkasa Tour and Travel with features for Sales and Payment, Monitoring, Customer and Agent Services, User Management, Data Master for each project",
+            date: "2024",
+            link: "-",
+            language: "Yii2 Framework + MySQL"
+        },
+        {
+            title: "Angkasa Keuangan - Angkasa Tour and Travel",
+            image: angkasa_keuangan,
+            description: "Website for Angkasa Tour and Travel with feature for Loan and Payment, Automatic Journaling, Report for Balanced Sheet, Report for Profit and Loss, Report for Journaling Book of Wages and Travel Expenses",
+            date: "2024",
+            link: "-",
+            language: "Yii2 Framework + MySQL"
+        },
+        {
             title: "Tsunami Warning Center",
             image: tsunami1,
             description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
             date: "2022",
-            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center",
-            language: "PHP + GeoJSON + My SQL + Bootstrap"
+            link: " https://github.com/jeremykenneth7/Tsunami-Warning-Center",
+            language: "PHP + GeoJSON + My SQL"
         },
         {
             title: "Online e-Commerce Website",
             image: onlineshop2,
-            description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build and Developed with PHP, Bootstrap, My SQL",
-            link: "https://github.com/jeremykenneth7/Online-eCommerce-Website",
-            language: "PHP + Bootstrap + My SQL",
+            description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build and Developed with PHP with Bootstrap and using My SQL for the database ",
+            link: " https://github.com/jeremykenneth7/Online-eCommerce-Website",
+            language: "PHP + My SQL",
             date: "2021",
         },
         {
             title: "Storyku Management Website",
             image: storyku,
             description: "Story Management Web Application, For the frontend, powered by React and styled with Tailwind CSS, provides users with a seamless and visually pleasing experience.",
-            link: "https://github.com/jeremykenneth7/Storyku-Website-ReactJS",
-            language: "React JS + Tailwind CSS + Firebase",
+            link: " https://storyku.vercel.app/",
+            language: "React JS + Firebase",
             date: "2024",
         },
         {
             title: "Volcano Eruption Prevention Website",
             image: gunung,
-            description: "Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person.",
+            description: "Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person. The website also provide information about the volcano eruption in Indonesia",
             link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website",
-            language: "PHP + Bootstrap + My SQL",
+            language: "PHP + My SQL",
             date: "2022",
         },
         {
             title: "Website Bimbel Online",
             image: bimbel,
-            description: "Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere",
+            description: "Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere. The website also provide feature for online test and online learning",
             link: "",
-            language: "PHP + Bootstrap + My SQL",
+            language: "PHP + My SQL",
             date: "2023",
         },
         {
             title: "Bookshelf Website",
             image: bookshelf,
-            description: "A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript",
-            link: "https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage",
+            description: "A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript. The website also provide feature for adding, deleting and searching book",
+            link: " https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage",
             language: "JavaScript",
             date: "2023",
-        },
-        {
-            title: "Tsunami Warning Center 2",
-            image: tsunami2,
-            description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
-            link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center",
-            language: "PHP + GeoJSON + My SQL + Bootstrap",
-            date: "2022",
         },
     ];
 
     const mobileProjects = [
         {
+            title: "OZ Loyalty - Australia",
+            image: oz,
+            description: "OZ Loyalty is a mobile application that provides a loyalty program for customers who shop at small grocery store in Australia. This application is built with Flutter and Firebase.",
+            link: " https://www.figma.com/proto/zDXXHy4OeFufoogtGEhErP/OZ-Loyalty-UI?node-id=0-1&t=wSplowS8HFY6thRO-1bit.ly/OZLoyalty",
+            language: "Flutter + Firebase",
+            date: "2024",
+        },
+        {
             title: "Computer Shop Mobile Application",
             image: computershop,
-            description: "A Mobile Development Application for Recommended Places and Stopwatch inside of it. Build and Developed with Flutter",
-            link: "https://github.com/jeremykenneth7/Computer-Shop-MobileApps",
-            language: "Flutter",
+            description: "A Mobile application that created to provide computer parts that can be purchased like e-commerce, users can put in the basket and check out the computer parts they want to buy.",
+            link: " https://github.com/jeremykenneth7/Computer-Shop-MobileApps",
+            language: "Flutter + SQLite",
             date: "2023",
         },
         {
             title: "Stopwatch + Recommended Places Mobile Application",
             image: stopwatch,
             description: "A Mobile Development Application for Computer Shop that connect with API and Database. Build and Developed with Flutter",
-            link: "https://github.com/jeremykenneth7/StopwatchApp-Flutter",
+            link: " https://github.com/jeremykenneth7/StopwatchApp-Flutter",
             language: "Flutter",
             date: "2023",
         },
@@ -150,11 +207,11 @@ export default function Portfolio() {
             date: "2024",
         },
         {
-            title: "Machine Learning Model API Creation",
+            title: "Image Prediction Model API Creation",
             image: flask,
-            description: "API for Machine Learning Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run",
+            description: "API for Machine Learning Image Prediction Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run",
             link: "https://github.com/jeremykenneth7/CalorEase-API-2",
-            language: "Flask API Python + Google Cloud Storage + Docker + Cloud Run",
+            language: "Flask Python + Google Cloud Storage + Docker + Cloud Run",
             date: "2023",
         },
         {
@@ -170,7 +227,7 @@ export default function Portfolio() {
     const filteredProjects = currentCategory === 'web' ? webProjects :
         currentCategory === 'mobile' ? mobileProjects :
             currentCategory === 'backend' ? backendProjects :
-                currentCategory === 'all' ? [...backendProjects, ...webProjects, ...mobileProjects] :
+                currentCategory === 'all' ? [...webProjects, ...mobileProjects, ...backendProjects] :
                     [];
 
     const [showModal, setShowModal] = useState(false);
@@ -326,7 +383,7 @@ const Modal = ({ project, closeModal, projects }) => {
                     <Image
                         className="rounded-lg overflow-hidden shadow-md"
                         width={800}
-                        height={400}
+                        height={450}
                         layout="responsive"
                         src={currentProject.image}
                         alt={currentProject.title}
