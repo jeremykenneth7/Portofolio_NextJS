@@ -101,7 +101,7 @@ export default function Portfolio() {
             image: angkasa_pemasaran,
             description: "Website for Angkasa Tour and Travel with features for Sales and Payment, Monitoring, Customer and Agent Services, User Management, Data Master for each project",
             date: "2024",
-            link: "-",
+            link: " https://angkasatour.co.id/",
             language: "Yii2 Framework + MySQL"
         },
         {
@@ -109,7 +109,7 @@ export default function Portfolio() {
             image: angkasa_keuangan,
             description: "Website for Angkasa Tour and Travel with feature for Loan and Payment, Automatic Journaling, Report for Balanced Sheet, Report for Profit and Loss, Report for Journaling Book of Wages and Travel Expenses",
             date: "2024",
-            link: "-",
+            link: " https://angkasatour.co.id/",
             language: "Yii2 Framework + MySQL"
         },
         {
@@ -123,7 +123,7 @@ export default function Portfolio() {
         {
             title: "Online e-Commerce Website",
             image: onlineshop2,
-            description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools. Build and Developed with PHP with Bootstrap and using My SQL for the database ",
+            description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools Build and Developed with PHP with Bootstrap and using My SQL for the database ",
             link: " https://github.com/jeremykenneth7/Online-eCommerce-Website",
             language: "PHP + My SQL",
             date: "2021",
