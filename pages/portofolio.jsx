@@ -58,7 +58,7 @@ export default function Portfolio() {
         {
             title: "Sistem Informasi Aduan Pelanggan - PT Air Minum Intan Banjar (Perseroda)",
             image: siap,
-            description: "SIAP is a website created so that customers can file complaints to the company through the complaint form provided. The website also provide complaint tracking feature and sending complaint status to the customer number.",
+            description: "SIAP is a website created so that customers can file complaints to the company through the complaint form provided. The website also provide complaint tracking feature and sending complaint status.",
             date: "2024",
             link: "-",
             language: "Laravel + MySQL",
@@ -71,15 +71,15 @@ export default function Portfolio() {
             link: " https://kasil.jogjaprov.go.id/",
             language: "Laravel + MySQL",
         },
-        {
-            title: "Website Dirjenim - Direktorat Jenderal Imigrasi Kementrian Hukum dan Ham",
-            image: dirjenim,
-            description: "The Dirjenim website is a website for the Directorate General of Immigration of Indonesia, which was created to provide visa and passport services for Indonesian and foreign citizens, in addition to residence permits, immigration and other services.",
-            date: "2024",
-            link: " https://www.imigrasi.go.id/",
-            language: "Yii2 Framework + MySQL",
+        // {
+        //     title: "Website Dirjenim - Direktorat Jenderal Imigrasi Kementrian Hukum dan Ham",
+        //     image: dirjenim,
+        //     description: "The Dirjenim website is a website for the Directorate General of Immigration of Indonesia, which was created to provide visa and passport services for Indonesian and foreign citizens, in addition to residence permits, immigration and other services.",
+        //     date: "2024",
+        //     link: " https://www.imigrasi.go.id/",
+        //     language: "Yii2 Framework + MySQL",
 
-        },
+        // },
         {
             title: "Jogja Dataku - Bappeda DIY",
             image: dataku,
@@ -104,14 +104,14 @@ export default function Portfolio() {
             link: " https://angkasatour.co.id/",
             language: "Yii2 Framework + MySQL"
         },
-        {
-            title: "Angkasa Keuangan - Angkasa Tour and Travel",
-            image: angkasa_keuangan,
-            description: "Website for Angkasa Tour and Travel with feature for Loan and Payment, Automatic Journaling, Report for Balanced Sheet, Report for Profit and Loss, Report for Journaling Book of Wages and Travel Expenses",
-            date: "2024",
-            link: " https://angkasatour.co.id/",
-            language: "Yii2 Framework + MySQL"
-        },
+        // {
+        //     title: "Angkasa Keuangan - Angkasa Tour and Travel",
+        //     image: angkasa_keuangan,
+        //     description: "Website for Angkasa Tour and Travel with feature for Loan and Payment, Automatic Journaling, Report for Balanced Sheet, Report for Profit and Loss, Report for Journaling Book of Wages and Travel Expenses",
+        //     date: "2024",
+        //     link: " https://angkasatour.co.id/",
+        //     language: "Yii2 Framework + MySQL"
+        // },
         {
             title: "Tsunami Warning Center",
             image: tsunami1,
@@ -401,7 +401,7 @@ const Modal = ({ project, closeModal, projects }) => {
                         {currentProject.link}
                     </a>
                 </p>
-                <button
+                {/* <button
                     className="absolute top-1/2 left-10 transform -translate-y-1/2 text-white text-6xl cursor-pointer z-10"
                     onClick={handlePreviousProject}
                 >
@@ -412,10 +412,7 @@ const Modal = ({ project, closeModal, projects }) => {
                     onClick={handleNextProject}
                 >
                     &#x203A;
-                </button>
-                <button onClick={closeModal} className="text-sm font-semibold py-2 px-4 rounded-lg bg-blue-500 text-white absolute bottom-4 right-4">
-                    Close
-                </button>
+                </button> */}
             </div>
         </div>
     );
