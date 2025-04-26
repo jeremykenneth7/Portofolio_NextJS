@@ -60,7 +60,7 @@ export default function Home() {
             Full-Stack Developer.
           </h3>
           <p className="font-mono text-md pt-2 pb-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-            My expertise includes leveraging modern frameworks like Flutter, Next JS, Laravel and Node.js to develop scalable and efficient solutions. Combining my knowledge of front-end design principles with robust back-end architecture.
+            My expertise includes leveraging modern frameworks like Flutter, Next JS, Laravel and Node.js to develop scalable and efficient solutions. Combining my knowledge of front-end design principles with robust back-end architecture and mobile development, I create seamless user experiences across platforms. I am passionate about coding and always eager to learn new technologies and improve my skills.
           </p>
           <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
             <a href="mailto: jeremykenneth7@gmail.com"><AiFillMail /> </a>
@@ -72,7 +72,6 @@ export default function Home() {
           </div>
         </div>
         ) : (
-          // SkeletonLoading component while content is loading
           <SkeletonLoading />
         )}
         <Footer darkMode={darkMode} />

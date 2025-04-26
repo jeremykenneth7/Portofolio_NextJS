@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Navbar from '../components/navbar.js';
 import Footer from '../components/footer.js';
-import { angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim, kasil, kediri, siap, bangkit, bimbel, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, storyku, tsunami1, oz, storyku2 } from "../public/portofolio/index.js";
+import { angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim, kasil, kediri, siap, bangkit, samba, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, storyku, tsunami1, oz, storyku2, ifm, sigap } from "../public/portofolio/index.js";
 
 const SkeletonLoading = () => (
     <div className="basis-1/4 flex-1">
@@ -56,45 +56,76 @@ export default function Portfolio() {
 
     const webProjects = [
         {
+            title: "Pasang Baru - PT Air Minum Intan Banjar (Perseroda)",
+            image: samba,
+            description: "Pasang Baru is a website created so that customers can register for new water connections to the company through the registration form provided and also provide tracking feature",
+            date: "2024",
+            link: "https://samba.intanbanjar.id/",
+            language: "Laravel + MySQL",
+            powered: "JMC Indonesia",
+        },
+        {
             title: "Sistem Informasi Aduan Pelanggan - PT Air Minum Intan Banjar (Perseroda)",
             image: siap,
-            description: "SIAP is a website created so that customers can file complaints to the company through the complaint form provided. The website also provide complaint tracking feature and sending complaint status.",
+            description: "SIAP is a website created so that customers can file complaints to the company through the complaint form provided and also provide complaint tracking feature",
             date: "2024",
-            link: "-",
+            link: "https://aduan.intanbanjar.id/",
             language: "Laravel + MySQL",
+            powered: "JMC Indonesia",
         },
         {
             title: "Kasil - Paniradya Kaistimewaan",
             image: kasil,
-            description: "Kasil is a website created for the special funds of the Yogyakarta Palace. This website was created to provide a map of the distribution of the number of activity results in the Special Region of Yogyakarta. It also contains monitoring and activity results.",
+            description: "Kasil is a website created for the special funds of the Yogyakarta Palace. This website was created to provide a map of the distribution of the number of activity results in the Special Region of Yogyakarta.",
             date: "2024",
             link: " https://kasil.jogjaprov.go.id/",
             language: "Laravel + MySQL",
+            powered: "JMC Indonesia",
         },
-        // {
-        //     title: "Website Dirjenim - Direktorat Jenderal Imigrasi Kementrian Hukum dan Ham",
-        //     image: dirjenim,
-        //     description: "The Dirjenim website is a website for the Directorate General of Immigration of Indonesia, which was created to provide visa and passport services for Indonesian and foreign citizens, in addition to residence permits, immigration and other services.",
-        //     date: "2024",
-        //     link: " https://www.imigrasi.go.id/",
-        //     language: "Yii2 Framework + MySQL",
-
-        // },
+        {
+            title: "Website Dirjenim - Direktorat Jenderal Imigrasi Kementrian Hukum dan Ham",
+            image: dirjenim,
+            description: "The Dirjenim website is a website for the Directorate General of Immigration of Indonesia, which was created to provide visa and passport services for Indonesian and foreign citizens",
+            date: "2024",
+            link: " https://www.imigrasi.go.id/",
+            language: "Yii2 Framework + MySQL",
+            powered: "JMC Indonesia",
+        },
         {
             title: "Jogja Dataku - Bappeda DIY",
             image: dataku,
-            description: "Dataku is a website created for Regional Development Planning Agency of the Special Region of Yogyakarta, Indonesia to provide data from the Yogyakarta region which contains infographics, master data, financial data, performance indicators and other data.",
+            description: "Dataku is a website created for Regional Development Planning Agency of the Special Region of Yogyakarta, Indonesia to provide data from the Yogyakarta region which contains infographics, master data, financial data",
             date: "2024",
             link: " https://bappeda.jogjaprov.go.id/dataku/",
             language: "Yii2 Framework + MySQL",
+            powered: "JMC Indonesia",
+        },
+        {
+            title: "Ground Throuted - Independent Forestry Monitor",
+            image: ifm,
+            description: "Ground Throuted is a website created for Independent Forestry Monitor to provide data from the forestry region which contains infographics, master data, financial data",
+            date: "2025",
+            link: "https://ground-truthed.id",
+            language: "Laravel + MySQL",
+            powered: "JMC Indonesia",
+        },
+        {
+            title: "Pasang Baru - PT Air Minum Intan Banjar (Perseroda)",
+            image: samba,
+            description: "Pasang Baru is a website created so that customers can register for new water connections to the company through the registration form provided and also provide tracking feature",
+            date: "2024",
+            link: "https://samba.intanbanjar.id/",
+            language: "Laravel + MySQL",
+            powered: "JMC Indonesia",
         },
         {
             title: "Satu Data Kota Kediri - Pemerintah Kota Kediri",
             image: kediri,
-            description: "Satu Data Kota Kediri is a website created for Kediri City Goverment to provide data from the Kediri region which contains infographics, master data, financial data, performance indicators and other data.",
+            description: "Satu Data Kota Kediri is a website created for Kediri City Goverment to provide data from the Kediri region which contains infographics, master data, financial data",
             date: "2024",
             link: " https://satudata.kedirikota.go.id/",
             language: "Yii2 Framework + MySQL",
+            powered: "JMC Indonesia",
         },
         {
             title: "Angkasa Penjualan - Angkasa Tour and Travel",
@@ -102,23 +133,26 @@ export default function Portfolio() {
             description: "Website for Angkasa Tour and Travel with features for Sales and Payment, Monitoring, Customer and Agent Services, User Management, Data Master for each project",
             date: "2024",
             link: " https://angkasatour.co.id/",
-            language: "Yii2 Framework + MySQL"
+            language: "Yii2 Framework + MySQL",
+            powered: "JMC Indonesia",
         },
-        // {
-        //     title: "Angkasa Keuangan - Angkasa Tour and Travel",
-        //     image: angkasa_keuangan,
-        //     description: "Website for Angkasa Tour and Travel with feature for Loan and Payment, Automatic Journaling, Report for Balanced Sheet, Report for Profit and Loss, Report for Journaling Book of Wages and Travel Expenses",
-        //     date: "2024",
-        //     link: " https://angkasatour.co.id/",
-        //     language: "Yii2 Framework + MySQL"
-        // },
+        {
+            title: "Angkasa Keuangan - Angkasa Tour and Travel",
+            image: angkasa_keuangan,
+            description: "Website for Angkasa Tour and Travel with feature for Loan and Payment, Automatic Journaling, Report for Balanced Sheet & Profit and Loss, Report for Travel Expenses",
+            date: "2024",
+            link: " https://angkasatour.co.id/",
+            language: "Yii2 Framework + MySQL",
+            powered: "JMC Indonesia",
+        },
         {
             title: "Tsunami Warning Center",
             image: tsunami1,
             description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
             date: "2022",
             link: " https://github.com/jeremykenneth7/Tsunami-Warning-Center",
-            language: "PHP + GeoJSON + My SQL"
+            language: "PHP + GeoJSON + My SQL",
+            powered: "UPN Veteran Yogyakarta",
         },
         {
             title: "Online e-Commerce Website",
@@ -127,6 +161,7 @@ export default function Portfolio() {
             link: " https://github.com/jeremykenneth7/Online-eCommerce-Website",
             language: "PHP + My SQL",
             date: "2021",
+            powered: "UPN Veteran Yogyakarta",
         },
         {
             title: "Storyku Management Website",
@@ -135,6 +170,7 @@ export default function Portfolio() {
             link: " https://storyku.vercel.app/",
             language: "React JS + Firebase",
             date: "2024",
+            powered: "Bangkit Academy 2023",
         },
         {
             title: "Volcano Eruption Prevention Website",
@@ -143,14 +179,7 @@ export default function Portfolio() {
             link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website",
             language: "PHP + My SQL",
             date: "2022",
-        },
-        {
-            title: "Website Bimbel Online",
-            image: bimbel,
-            description: "Website for Online Learning named Belajar Online for helping Indonesia Student study from anywhere. The website also provide feature for online test and online learning",
-            link: "",
-            language: "PHP + My SQL",
-            date: "2023",
+            powered: "UPN Veteran Yogyakarta",
         },
         {
             title: "Bookshelf Website",
@@ -159,6 +188,7 @@ export default function Portfolio() {
             link: " https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage",
             language: "JavaScript",
             date: "2023",
+            powered: "Bangkit Academy 2023",
         },
     ];
 
@@ -167,9 +197,10 @@ export default function Portfolio() {
             title: "OZ Loyalty - Australia",
             image: oz,
             description: "OZ Loyalty is a mobile application that provides a loyalty program for customers who shop at small grocery store in Australia. This application is built with Flutter and Firebase.",
-            link: " https://www.figma.com/proto/zDXXHy4OeFufoogtGEhErP/OZ-Loyalty-UI?node-id=0-1&t=wSplowS8HFY6thRO-1bit.ly/OZLoyalty",
+            link: " https://bit.ly/oz_loyalty",
             language: "Flutter + Firebase",
             date: "2024",
+            powered: "Client Project",
         },
         {
             title: "Computer Shop Mobile Application",
@@ -178,6 +209,7 @@ export default function Portfolio() {
             link: " https://github.com/jeremykenneth7/Computer-Shop-MobileApps",
             language: "Flutter + SQLite",
             date: "2023",
+            powered: "Client Project",
         },
         {
             title: "Stopwatch + Recommended Places Mobile Application",
@@ -186,6 +218,7 @@ export default function Portfolio() {
             link: " https://github.com/jeremykenneth7/StopwatchApp-Flutter",
             language: "Flutter",
             date: "2023",
+            powered: "Client Project",
         },
     ];
 
@@ -197,6 +230,7 @@ export default function Portfolio() {
             link: "https://github.com/orgs/CalorEase/repositories",
             language: "Google Cloud Storage , Cloud Run , Cloud Functions",
             date: "2023",
+            powered: "Bangkit Academy 2023",
         },
         {
             title: "Storyku Backend API Development",
@@ -205,6 +239,7 @@ export default function Portfolio() {
             link: "https://github.com/jeremykenneth7/StorykuAPI-Backend-ExpressJS",
             language: "ExpressJS + Firebase + Cloud Functions",
             date: "2024",
+            powered: "Bangkit Academy 2023",
         },
         {
             title: "Image Prediction Model API Creation",
@@ -213,6 +248,7 @@ export default function Portfolio() {
             link: "https://github.com/jeremykenneth7/CalorEase-API-2",
             language: "Flask Python + Google Cloud Storage + Docker + Cloud Run",
             date: "2023",
+            powered: "Bangkit Academy 2023",
         },
         {
             title: "Application Database API Creation",
@@ -221,6 +257,7 @@ export default function Portfolio() {
             link: "https://github.com/CalorEase/CaloriesAPI",
             language: "Express JS + Firebase + Cloud Functions",
             date: "2023",
+            powered: "Bangkit Academy 2023",
         },
     ];
 
@@ -256,10 +293,10 @@ export default function Portfolio() {
                         <TextSkeletonLoading lines={8} className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify" />
                     ) : (
                         <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify">
-                            &emsp; Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website.
+                            Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website.
                             < br />
                             < br />
-                            &emsp; From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
+                            From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
                         </p>
                     )}
                 </div>
@@ -396,23 +433,12 @@ const Modal = ({ project, closeModal, projects }) => {
                 <p className="text-gray-700 dark:text-gray-300 text-xs mb-4">
                     Framework and Database : {currentProject.language} <br />
                     Project Date : {currentProject.date} <br />
+                    Powered by : {currentProject.powered} <br />
                     Visit the Project :
                     <a href={currentProject.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
                         {currentProject.link}
                     </a>
                 </p>
-                {/* <button
-                    className="absolute top-1/2 left-10 transform -translate-y-1/2 text-white text-6xl cursor-pointer z-10"
-                    onClick={handlePreviousProject}
-                >
-                    &#x2039;
-                </button>
-                <button
-                    className="absolute top-1/2 right-10 transform -translate-y-1/2 text-white text-6xl cursor-pointer z-10"
-                    onClick={handleNextProject}
-                >
-                    &#x203A;
-                </button> */}
             </div>
         </div>
     );

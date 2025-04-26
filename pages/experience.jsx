@@ -34,7 +34,6 @@ export default function Experience() {
             </Head>
             <main className="bg-white dark:bg-gray-900 px-10 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-                {/* Render SkeletonLoading while loading is true */}
                 {loading ? (
                     <div>
                         <SkeletonLoading />
@@ -52,21 +51,21 @@ export default function Experience() {
                                     className="text-gray-800 dark:text-gray-200 hover:underline"
                                 >
                                     <h2 className="font-burtons text-2xl py-2 dark:text-white md:text-2xl">
-                                        Web Programmer - JMC Indonesia
+                                        Backend & Mobile Programmer - JMC Indonesia
                                     </h2>
                                 </a>
                                 <h2 className="font-mono text-base mb-2 dark:text-white md:text-base">
-                                    Apr 2024 - Now
+                                    Apr 2024 - Apr 2025
                                 </h2>
                                 <h2 className="font-mono text-base mb-4 dark:text-white md:text-base">
-                                    Yogyakarta , Indonesia - Contract
+                                    Yogyakarta , Indonesia - Contract (Full-Time) - On-Site
                                 </h2>
                                 <p className="font-mono text-md leading-8 text-gray-800 dark:text-gray-200 max-w-xl md:text-lg">
-                                    •   Build web application like E-Gov, GIS, E-Data for Local Goverment and Private Company using Laravel, Yii2, GIS, and other PHP Frameworks
+                                    •   Build web application like E-Gov, GIS, E-Data for Local Goverment and Private Company using Laravel, Yii2, GIS, Flutter, and Vue JS
                                     <br />
                                     •   Actively participate and contribute in the meeting session and in the project initiatives
                                     <br />
-                                    •   Built 2 - 3 Web Applications per month and maintained by the team.
+                                    •   Built and maintained 2 - 3 Web Applications per month with the team.
                                 </p>
                             </div>
                         </div>

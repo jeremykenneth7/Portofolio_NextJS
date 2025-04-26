@@ -19,7 +19,10 @@ import kasil from "./kasil.png";
 import kediri from "./kediri.png";
 import siap from "./siap.png";
 import oz from "./oz.png";
+import ifm from "./ifm.png";
+import samba from "./samba.png";
+import sigap from "./sigap.png";
 
 export {
-    angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim,kasil, kediri, siap,bangkit,bimbel,bookshelf,calorease,computershop,flask,gunung,onlineshop2,stopwatch,tsunami1,tsunami2,storyku,storyku2,oz
+    angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim,kasil, kediri, siap,bangkit,bimbel,bookshelf,calorease,computershop,flask,gunung,onlineshop2,stopwatch,tsunami1,tsunami2,storyku,storyku2,oz, ifm,samba,sigap
 }
