@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import Navbar from "../components/navbar";
 import Footer from '../components/footer';
-import deved from "../public/profile.jpg";
+import deved from "../public/assets/profile.jpg";
 
 const SkeletonLoading = () => (
   <div className="bg-white dark:bg-gray-900 px-10 md:px-20 lg:px-40 min-h-screen">
@@ -47,7 +47,7 @@ export default function Home() {
     <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>Jeremy Kenneth • Full Stack Developer</title>
-        <link rel="icon" href="/developer.png" />
+        <link rel="icon" href="/assets/developer.png" />
       </Head>
       <main className="bg-white dark:bg-gray-900 px-10 md:px-20 lg:px-40 min-h-screen">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />

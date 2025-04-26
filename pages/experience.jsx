@@ -30,7 +30,7 @@ export default function Experience() {
         <div className={darkMode ? "dark" : ""}>
             <Head>
                 <title>Experience • Jeremy Kenneth</title>
-                <link rel="icon" href="/developer.png" />
+                <link rel="icon" href="/assets/developer.png" />
             </Head>
             <main className="bg-white dark:bg-gray-900 px-10 md:px-20 lg:px-40 min-h-screen">
                 <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
