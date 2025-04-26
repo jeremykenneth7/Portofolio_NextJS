@@ -110,12 +110,12 @@ export default function Portfolio() {
             powered: "JMC Indonesia",
         },
         {
-            title: "Pasang Baru - PT Air Minum Intan Banjar (Perseroda)",
-            image: samba,
-            description: "Pasang Baru is a website created so that customers can register for new water connections to the company through the registration form provided and also provide tracking feature",
+            title: "SIGAP - Kementrian Lingkungan Hidup dan Kehutanan",
+            image: sigap,
+            description: "SIGAP is a website created for the Ministry of Environment and Forestry of Indonesia, which was created to provide data on the distribution of forest in Indonesia",
             date: "2024",
-            link: "https://samba.intanbanjar.id/",
-            language: "Laravel + MySQL",
+            link: "https://sigap.menlhk.go.id/sigap-frontend-2024/",
+            language: "Vue JS + PostgreSQL",
             powered: "JMC Indonesia",
         },
         {
