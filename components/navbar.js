@@ -65,12 +65,12 @@ export default function Navbar() {
                                 <Link href="./documents/CV-Jeremy-Kenneth.pdf">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CV</a>
                                 </Link>
-                                <Link href="./documents/Resume-Jeremy-Kenneth.pdf">
+                                {/* <Link href="./documents/Resume-Jeremy-Kenneth.pdf">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Resume</a>
                                 </Link>
                                 <Link href="https://jeremy-links.vercel.app/">
                                     <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Connect</a>
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                     )}
@@ -114,7 +114,7 @@ export default function Navbar() {
                     >
                         CV
                     </a>
-                    <a
+                    {/* <a
                         className="bg-gradient-to-r from-red-500 to-teal-700 text-white px-4 py-2 border-none rounded-md"
                         href="./documents/Resume-Jeremy-Kenneth.pdf"
                         alt="alt text"
@@ -131,7 +131,7 @@ export default function Navbar() {
                         rel="noopener noreferrer"
                     >
                         Connect
-                    </a>
+                    </a> */}
                 </div>
             </div>
 
