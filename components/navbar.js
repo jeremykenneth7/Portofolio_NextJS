@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
-import { useState, useEffect } from 'react';
-import { FaBars } from 'react-icons/fa';
+import { HiMenu, HiX } from 'react-icons/hi';
 import { useLocalStorage } from './localstorage';
 
 export default function Navbar() {
     const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
-    const [showDropdown, setShowDropdown] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const router = useRouter();
 
     const toggleDarkMode = () => {
         const newMode = !darkMode;
@@ -15,126 +18,121 @@ export default function Navbar() {
         document.documentElement.classList.toggle('dark', newMode);
     };
 
-    const toggleDropdown = () => {
-        setShowDropdown(!showDropdown);
-
-    };
-
     useEffect(() => {
         const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
         if (isDarkMode !== null) {
             setDarkMode(isDarkMode);
+            document.documentElement.classList.toggle('dark', isDarkMode);
         }
-    }, [setDarkMode]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 10);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navLinks = [
+        { href: '/experience', label: 'Experience' },
+        { href: '/portofolio', label: 'Portfolio' },
+        { href: '/certificates', label: 'Certificates' },
+    ];
+
+    const isActive = (href) => router.pathname === href;
 
     return (
-        <nav className="py-5 md:py-10 md:mb-2 flex flex-col md:flex-row dark:text-white">
-            {/* Mobile View */}
-            <div className="md:hidden flex flex-row justify-between">
-                <Link href="/">
-                    <a className="mr-4 font-burtons text-lg py-1 dark:text-white hover:border-teal-500">Jeremy</a>
-                </Link>
-                <div className="items-center flex flex-row gap-8 text-left"> <button
-                    type="button"
-                    onClick={toggleDarkMode}
-                    className="cursor-pointer text-xl"
-                >
-                    {darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
-                </button>
-                    <button
-                        onClick={toggleDropdown}
-                        type="button"
-                        className="font-burtons text-lg py-1 dark:text-white hover:border-teal-500"
-                    >
-                        <FaBars />
-                    </button>
-                    {/* Dropdown content */}
-                    {showDropdown && (
-                        <div className="absolute top-14 right-0 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-20">
-                            <div className="py-1">
-                                {/* Dropdown links */}
-                                <Link href="/portofolio">
-                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Portfolio</a>
-                                </Link>
-                                <Link href="/certificates">
-                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Certificates</a>
-                                </Link>
-                                <Link href="/experience">
-                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Experience</a>
-                                </Link>
-                                <Link href="./documents/CV-Jeremy-Kenneth.pdf">
-                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">CV</a>
-                                </Link>
-                                {/* <Link href="./documents/Resume-Jeremy-Kenneth.pdf">
-                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Resume</a>
-                                </Link>
-                                <Link href="https://jeremy-links.vercel.app/">
-                                    <a className="block font-burtons px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Connect</a>
-                                </Link> */}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
+        <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800' : 'bg-white dark:bg-gray-900'}`}>
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
 
-            {/* Desktop View */}
-            <div className="hidden md:flex md:items-center md:flex-row md:flex-wrap justify-between w-full">
-                <div className='flex flex-row gap-10 items-center'>
+                    {/* Logo */}
                     <Link href="/">
-                        <a className="font-burtons text-xl py-1 dark:text-white hover:border-teal-500">Jeremy</a>
+                        <a className="font-burtons text-xl text-gray-900 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
+                            Jeremy<span className="text-sky-500">.</span>
+                        </a>
                     </Link>
-                    <Link href="/experience">
-                        <a className="font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Experience</a>
-                    </Link>
-                    <Link href="/portofolio">
-                        <a className="font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Portfolio</a>
-                    </Link>
-                    <Link href="/certificates">
-                        <a className="font-burtons text-3xl py-1 dark:text-white hover:border-teal-500">Certificates</a>
-                    </Link>
-                </div>
-                <div className='flex items-center gap-10'>
-                    {darkMode ? (
-                        <BsFillSunFill
-                            onClick={toggleDarkMode}
-                            className="cursor-pointer text-2xl"
-                        />
-                    ) : (
-                        <BsFillMoonStarsFill
-                            onClick={toggleDarkMode}
-                            className="cursor-pointer text-2xl"
-                        />
-                    )}
-                    <a
-                        className="bg-gradient-to-r from-blue-500 to-yellow-700 text-white px-4 py-2 border-none rounded-md"
-                        href="./documents/CV-Jeremy-Kenneth.pdf"
-                        alt="alt text"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        CV
-                    </a>
-                    {/* <a
-                        className="bg-gradient-to-r from-red-500 to-teal-700 text-white px-4 py-2 border-none rounded-md"
-                        href="./documents/Resume-Jeremy-Kenneth.pdf"
-                        alt="alt text"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Resume
-                    </a>
-                    <a
-                        className="bg-gradient-to-r from-yellow-500 to-purple-700 text-white px-4 py-2 border-none rounded-md"
-                        href="https://jeremy-links.vercel.app/"
-                        alt="alt text"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Connect
-                    </a> */}
-                </div>
-            </div>
 
+                    {/* Desktop Nav Links */}
+                    <div className="hidden md:flex items-center gap-8">
+                        {navLinks.map((link) => (
+                            <Link key={link.href} href={link.href}>
+                                <a className={`text-sm font-medium transition-colors relative group ${isActive(link.href)
+                                        ? 'text-sky-500 dark:text-sky-400'
+                                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                    }`}>
+                                    {link.label}
+                                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-sky-500 transition-all duration-200 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                                </a>
+                            </Link>
+                        ))}
+                    </div>
+
+                    {/* Desktop Right Controls */}
+                    <div className="hidden md:flex items-center gap-3">
+                        <button
+                            onClick={toggleDarkMode}
+                            className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                            aria-label="Toggle dark mode"
+                        >
+                            {darkMode ? <BsFillSunFill className="text-base" /> : <BsFillMoonStarsFill className="text-base" />}
+                        </button>
+                        <a
+                            href="/documents/CV-Jeremy-Kenneth.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 text-sm font-medium bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors"
+                        >
+                            Download CV
+                        </a>
+                    </div>
+
+                    {/* Mobile Controls */}
+                    <div className="md:hidden flex items-center gap-2">
+                        <button
+                            onClick={toggleDarkMode}
+                            className="p-2 rounded-lg text-gray-500 dark:text-gray-400"
+                            aria-label="Toggle dark mode"
+                        >
+                            {darkMode ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
+                        </button>
+                        <button
+                            onClick={() => setShowMenu(!showMenu)}
+                            className="p-2 rounded-lg text-gray-500 dark:text-gray-400"
+                            aria-label="Toggle menu"
+                        >
+                            {showMenu ? <HiX className="text-xl" /> : <HiMenu className="text-xl" />}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Mobile Menu */}
+                {showMenu && (
+                    <div className="md:hidden border-t border-gray-100 dark:border-gray-800 py-3 pb-4">
+                        {navLinks.map((link) => (
+                            <Link key={link.href} href={link.href}>
+                                <a
+                                    className={`block px-3 py-2.5 text-sm font-medium rounded-lg mb-1 transition-colors ${isActive(link.href)
+                                            ? 'bg-sky-50 dark:bg-sky-900/20 text-sky-500'
+                                            : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                                        }`}
+                                    onClick={() => setShowMenu(false)}
+                                >
+                                    {link.label}
+                                </a>
+                            </Link>
+                        ))}
+                        <a
+                            href="/documents/CV-Jeremy-Kenneth.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block mt-3 mx-3 px-4 py-2.5 text-sm font-medium text-center bg-sky-500 text-white rounded-lg"
+                        >
+                            Download CV
+                        </a>
+                    </div>
+                )}
+            </div>
         </nav>
     );
 }
