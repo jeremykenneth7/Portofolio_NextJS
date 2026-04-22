@@ -46,7 +46,7 @@ export default function CV() {
                     {isMobile ? (
                         <div className="flex flex-col items-center justify-center py-16 text-center gap-4">
                             <p className="text-gray-500 dark:text-gray-400 text-sm">
-                                Browser mobile tidak mendukung preview PDF secara langsung.
+                                For the best experience, please view my CV on a desktop or laptop. You can download the PDF version using the button above.
                             </p>
                             <a
                                 href={cvUrl}
@@ -54,7 +54,7 @@ export default function CV() {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium rounded-lg transition-colors"
                             >
-                                Buka PDF
+                                Open PDF
                             </a>
                         </div>
                     ) : (
