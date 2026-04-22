@@ -164,7 +164,7 @@ export default function Home() {
                 { value: "8+", label: "Technologies" },
               ].map(({ value, label }) => (
                 <div key={label} className="text-center">
-                  <p className="font-burtons text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 mb-1">
+                  <p className="font-burtons text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 py-2 mb-1">
                     {value}
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{label}</p>
