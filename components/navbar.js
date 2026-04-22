@@ -34,6 +34,7 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
+        { href: '/about', label: 'About' },
         { href: '/experience', label: 'Experience' },
         { href: '/portofolio', label: 'Portfolio' },
         { href: '/certificates', label: 'Certificates' },

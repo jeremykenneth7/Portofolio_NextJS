@@ -23,6 +23,7 @@ export const projects = [
         tags: ["Laravel", "MySQL"],
         powered: "JMC Indonesia",
         category: "web",
+        featured: true,
     },
     {
         title: "Sistem Informasi Aduan Pelanggan (SIAP) – PT Air Minum Intan Banjar (Perseroda)",
@@ -43,6 +44,7 @@ export const projects = [
         tags: ["Laravel", "MySQL", "GIS"],
         powered: "JMC Indonesia",
         category: "web",
+        featured: true,
     },
     {
         title: "Jogja Dataku – Bappeda DIY",
@@ -184,6 +186,7 @@ export const projects = [
         tags: ["Flutter", "Firebase"],
         powered: "Client Project",
         category: "mobile",
+        featured: true,
     },
     {
         title: "Computer Shop Mobile App",

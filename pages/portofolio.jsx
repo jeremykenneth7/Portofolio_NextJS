@@ -5,6 +5,7 @@ import Footer from "../components/footer.js";
 import { useLocalStorage } from "../components/localstorage";
 import Navbar from "../components/navbar.js";
 import ProjectCard from "../components/ProjectCard.js";
+import ProjectModal from "../components/ProjectModal.js";
 import { CATEGORIES, projects } from "../data/projects.js";
 
 
@@ -12,6 +13,7 @@ export default function Portfolio() {
     const [darkMode] = useLocalStorage("darkMode", false);
     const [category, setCategory] = useState("all");
     const [search, setSearch] = useState("");
+    const [selectedProject, setSelectedProject] = useState(null);
 
     useEffect(() => {
         const isDarkMode = JSON.parse(localStorage.getItem("darkMode"));
@@ -93,10 +95,14 @@ export default function Portfolio() {
                     </p>
 
                     {/* Grid */}
+                    {selectedProject && (
+                        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+                    )}
+
                     {filtered.length > 0 ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                             {filtered.map((project, i) => (
-                                <ProjectCard key={i} project={project} />
+                                <ProjectCard key={i} project={project} onCardClick={setSelectedProject} />
                             ))}
                         </div>
                     ) : (

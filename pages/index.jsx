@@ -1,12 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
 import { HiArrowRight, HiEye } from "react-icons/hi";
+import { TypeAnimation } from "react-type-animation";
 import Footer from '../components/footer';
 import { useLocalStorage } from "../components/localstorage";
 import Navbar from "../components/navbar";
+import ProjectCard from '../components/ProjectCard';
+import ProjectModal from '../components/ProjectModal';
+import { projects } from "../data/projects";
 import deved from "../public/assets/profile.jpg";
 
 const techStack = [
@@ -14,8 +18,11 @@ const techStack = [
   'Vue.js', 'React', 'Firebase', 'GCP',
 ];
 
+const featuredProjects = projects.filter((p) => p.featured);
+
 export default function Home() {
   const [darkMode] = useLocalStorage('darkMode', false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -62,7 +69,17 @@ export default function Home() {
               </h1>
 
               <h2 className="text-xl md:text-2xl font-semibold text-gray-600 dark:text-gray-300 mb-5">
-                Full-Stack Developer
+                <TypeAnimation
+                  sequence={[
+                    'Full-Stack Developer', 2500,
+                    'Mobile Developer', 2000,
+                    'Backend Engineer', 2000,
+                    'Flutter Developer', 2000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
               </h2>
 
               <p className="text-gray-500 dark:text-gray-400 leading-relaxed max-w-lg mx-auto md:mx-0 mb-8 text-sm md:text-base">
@@ -153,6 +170,43 @@ export default function Home() {
                   <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{label}</p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          {/* Featured Projects Section */}
+          <section className="border-t border-gray-100 dark:border-gray-800 py-12 md:py-16">
+            <div className="flex items-end justify-between mb-8">
+              <div>
+                <p className="inline-flex items-center gap-2 text-sky-500 dark:text-sky-400 text-sm font-medium tracking-widest uppercase mb-2">
+                  <span className="h-px w-6 bg-current inline-block" />
+                  Selected Work
+                </p>
+                <h2 className="font-burtons text-3xl md:text-4xl text-gray-900 dark:text-white">
+                  Featured Projects
+                </h2>
+              </div>
+              <Link
+                href="/portofolio"
+                className="hidden sm:inline-flex items-center gap-1.5 text-sm font-medium text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300 transition-colors"
+              >
+                View all <HiArrowRight />
+              </Link>
+            </div>
+
+            {selectedProject && (
+              <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+            )}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {featuredProjects.map((project, i) => (
+                <ProjectCard key={i} project={project} onCardClick={setSelectedProject} />
+              ))}
+            </div>
+
+            <div className="mt-8 sm:hidden text-center">
+              <Link href="/portofolio" className="inline-flex items-center gap-1.5 text-sm font-medium text-sky-500 dark:text-sky-400">
+                View all projects <HiArrowRight />
+              </Link>
             </div>
           </section>
 

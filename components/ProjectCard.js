@@ -2,12 +2,15 @@ import Image from "next/image";
 import { useState } from "react";
 import { HiExternalLink } from "react-icons/hi";
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onCardClick }) {
     const [imgError, setImgError] = useState(false);
     const showPlaceholder = !project.image || imgError;
 
     return (
-        <div className="group flex flex-col rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 hover:shadow-lg transition-all duration-300">
+        <div
+            className={`group flex flex-col rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 hover:shadow-lg transition-all duration-300 ${onCardClick ? "cursor-pointer" : ""}`}
+            onClick={onCardClick ? () => onCardClick(project) : undefined}
+        >
             {/* Thumbnail */}
             <div className="relative h-44 overflow-hidden bg-gradient-to-br from-sky-100 to-indigo-100 dark:from-sky-900/30 dark:to-indigo-900/30 flex-shrink-0">
                 {!showPlaceholder ? (
@@ -57,14 +60,21 @@ export default function ProjectCard({ project }) {
                     <span className="text-xs text-gray-400 dark:text-gray-500 truncate mr-2">
                         {project.powered}
                     </span>
-                    <a
-                        href={project.link.trim()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-medium text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300 transition-colors flex-shrink-0"
-                    >
-                        Visit <HiExternalLink className="text-sm" />
-                    </a>
+                    {onCardClick ? (
+                        <span className="inline-flex items-center gap-1 text-xs font-medium text-sky-500 dark:text-sky-400 flex-shrink-0">
+                            View Details →
+                        </span>
+                    ) : (
+                        <a
+                            href={project.link.trim()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-flex items-center gap-1 text-xs font-medium text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300 transition-colors flex-shrink-0"
+                        >
+                            Visit <HiExternalLink className="text-sm" />
+                        </a>
+                    )}
                 </div>
             </div>
         </div>

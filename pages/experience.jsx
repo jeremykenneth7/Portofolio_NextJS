@@ -63,18 +63,26 @@ export default function Experience() {
 
                                         {/* Header row */}
                                         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-4">
-                                            <div>
-                                                <h2 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-1">
-                                                    {exp.role}
-                                                </h2>
-                                                <a
-                                                    href={exp.companyUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-sky-500 dark:text-sky-400 font-medium text-sm hover:underline"
-                                                >
-                                                    {exp.company}
-                                                </a>
+                                            <div className="flex items-start gap-4">
+                                                {/* Company Avatar */}
+                                                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center shadow-sm">
+                                                    <span className="text-white font-bold text-lg select-none">
+                                                        {exp.company.charAt(0)}
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <h2 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                                                        {exp.role}
+                                                    </h2>
+                                                    <a
+                                                        href={exp.companyUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-sky-500 dark:text-sky-400 font-medium text-sm hover:underline"
+                                                    >
+                                                        {exp.company}
+                                                    </a>
+                                                </div>
                                             </div>
                                             <span className="inline-flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700/60 px-3 py-1.5 rounded-full whitespace-nowrap self-start">
                                                 <HiCalendar />
