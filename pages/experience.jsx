@@ -1,68 +1,10 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import Navbar from "../components/navbar";
+import { HiCalendar, HiLocationMarker, HiOfficeBuilding } from "react-icons/hi";
 import Footer from "../components/footer";
 import { useLocalStorage } from "../components/localstorage";
-import { HiCalendar, HiLocationMarker, HiOfficeBuilding } from "react-icons/hi";
-
-const experiences = [
-    {
-        role: "Project Manager & Backend Developer",
-        company: "Simetri Dev",
-        companyUrl: "https://www.simetri.my.id/",
-        period: "June 2025 – Present",
-        location: "Yogyakarta, Indonesia",
-        type: "Full-Time · Remote",
-        highlights: [
-            "Led end-to-end custom software projects, bridging client requirements with technical execution for B2B applications",
-            "Modernized internal operations by migrating company systems to a robust Laravel and Tailwind architecture",
-            "Optimized backend logic and database queries, reducing system response times by 40% and enhancing performance for 5 + custom B2B applications",
-        ],
-        tags: ["Laravel", "Flutter", "Vue.js", "GIS", "MySQL"],
-    },
-    {
-        role: "Backend & Mobile Programmer",
-        company: "JMC Indonesia",
-        companyUrl: "https://www.jmc.co.id/",
-        period: "Apr 2024 – Apr 2025",
-        location: "Yogyakarta, Indonesia",
-        type: "Contract (Full-Time) · On-Site",
-        highlights: [
-            "Developed and maintained 3+ large-scale government websites using Laravel, PHP, and Flutter, ensuring high availability and seamless data integration",
-            "Actively participated and contributed in meeting sessions and project initiatives",
-            "Integrating System for the Website and the Information System in the Projects, enabling real-time data synchronization and improving project monitoring",
-        ],
-        tags: ["Laravel", "Yii2", "Flutter", "Vue.js", "GIS", "MySQL"],
-    },
-    {
-        role: "Cloud Computing Cohorts",
-        company: "Bangkit Academy 2023 by Google, GoTo, Traveloka",
-        companyUrl: "https://grow.google/intl/id_id/bangkit/?tab=cloud-computing",
-        period: "Aug 2023 – Jan 2024",
-        location: "Bandung, Indonesia",
-        type: "Certified Independent Study (MSIB) · Remote",
-        highlights: [
-            "Led a multidisciplinary team of 6 people from Machine Learning, Cloud Computing, and Android Development for Captsone Project making an Application(CalorEase: Fueling Wellness - Your Personalized Path to Health and Vitality) ",
-            "Actively participated and contributed in meetings and project initiatives",
-            "Architected and built robust RESTful APIs using Express and Node.js, supporting the mobile application's core health tracking features",
-            "Deployed and managed web servers on Google Cloud Platform, ensuring scalable and secure hosting for the project's backend services",
-        ],
-        tags: ["Node.js", "Express.js", "GCP", "Firebase", "Cloud Run"],
-    },
-    {
-        role: "React Developer",
-        company: "Indosat Ooredoo Hutchison Digital Camp",
-        companyUrl: "https://www.dicoding.com/learningpaths/58",
-        period: "Sep 2023 – Jan 2024",
-        location: "Indonesia",
-        type: "Remote",
-        highlights: [
-            "Developed web-based application using React JSX for Indosat Ooredoo Hutchison Digital Camp, enhancing user engagement and learning experience for aspiring developers",
-            "Completed all technical milestonesfor building 3 React-based web applications, focusing on responsive UI/UX and efficient state management",
-        ],
-        tags: ["React", "JavaScript", "Tailwind CSS"],
-    },
-];
+import Navbar from "../components/navbar";
+import { experiences } from "../data/experiences.js";
 
 export default function Experience() {
     const [darkMode] = useLocalStorage('darkMode', false);

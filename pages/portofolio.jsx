@@ -47,8 +47,8 @@ export default function Portfolio() {
                             <span className="h-px w-6 bg-current inline-block" />
                             My Work
                         </p>
-                        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
-                            Portfolio
+                        <h1 className="font-burtons text-4xl md:text-5xl text-gray-900 dark:text-white mb-4">
+                            Portoflio
                         </h1>
                         <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm leading-relaxed">
                             A collection of projects I&apos;ve built across web, mobile, and backend development — from client work to personal experiments. Each project reflects my passion for crafting seamless user experiences and robust solutions, whether it&apos;s a public-facing website or a backend API. Browse through to see the diversity of my work, ranging from full-stack web applications to mobile apps and backend services.
