@@ -68,6 +68,11 @@ export default function Certificates() {
             <Head>
                 <title>Certificates • Jeremy Kenneth</title>
                 <link rel="icon" href="/assets/developer.png" />
+                <meta name="description" content="Jeremy Kenneth's certifications — Bangkit Academy by Google, Dicoding, Coursera, and more." />
+                <meta property="og:title" content="Certificates • Jeremy Kenneth" />
+                <meta property="og:description" content="Professional certifications from Bangkit Academy by Google, Dicoding, Coursera, and more." />
+                <meta property="og:image" content="/assets/profile.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <div className="bg-white dark:bg-gray-900 min-h-screen">
                 <Navbar />

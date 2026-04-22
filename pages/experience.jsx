@@ -21,6 +21,11 @@ export default function Experience() {
             <Head>
                 <title>Experience • Jeremy Kenneth</title>
                 <link rel="icon" href="/assets/developer.png" />
+                <meta name="description" content="Jeremy Kenneth's professional work experience — Backend & Mobile Developer at JMC Indonesia, Simetri Dev, and Bangkit Academy by Google." />
+                <meta property="og:title" content="Experience • Jeremy Kenneth" />
+                <meta property="og:description" content="Professional journey building software solutions for governments, enterprises, and startups across Indonesia." />
+                <meta property="og:image" content="/assets/profile.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <div className="bg-white dark:bg-gray-900 min-h-screen">
                 <Navbar />

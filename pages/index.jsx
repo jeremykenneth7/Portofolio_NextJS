@@ -29,6 +29,16 @@ export default function Home() {
       <Head>
         <title>Jeremy Kenneth • Full Stack Developer</title>
         <link rel="icon" href="/assets/developer.png" />
+        <meta name="description" content="Jeremy Kenneth — Full Stack Developer specializing in Flutter, Next.js, Laravel, and Node.js. Building scalable web and mobile applications." />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Jeremy Kenneth • Full Stack Developer" />
+        <meta property="og:description" content="Full Stack Developer specializing in Flutter, Next.js, Laravel, and Node.js. Building scalable web and mobile applications." />
+        <meta property="og:image" content="/assets/profile.jpg" />
+        <meta property="og:site_name" content="Jeremy Kenneth" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Jeremy Kenneth • Full Stack Developer" />
+        <meta name="twitter:description" content="Full Stack Developer specializing in Flutter, Next.js, Laravel, and Node.js." />
+        <meta name="twitter:image" content="/assets/profile.jpg" />
       </Head>
       <div className="bg-white dark:bg-gray-900 min-h-screen">
         <Navbar />
@@ -124,6 +134,25 @@ export default function Home() {
                   <Image src={deved} layout="fill" objectFit="cover" alt="Jeremy Kenneth" priority />
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Stats Section */}
+          <section className="border-t border-gray-100 dark:border-gray-800 py-12 md:py-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { value: "19+", label: "Projects Built" },
+                { value: "3+", label: "Years Experience" },
+                { value: "4", label: "Companies" },
+                { value: "8+", label: "Technologies" },
+              ].map(({ value, label }) => (
+                <div key={label} className="text-center">
+                  <p className="font-burtons text-4xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-500 mb-1">
+                    {value}
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{label}</p>
+                </div>
+              ))}
             </div>
           </section>
 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@react-hook/media-query": "^1.1.1",
     "firebase": "^9.10.0",
     "moment": "^2.29.4",

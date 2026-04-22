@@ -34,8 +34,13 @@ export default function Portfolio() {
     return (
         <div className={darkMode ? "dark" : ""}>
             <Head>
-                <title>Portfolio Jeremy Kenneth</title>
+                <title>Portfolio • Jeremy Kenneth</title>
                 <link rel="icon" href="/assets/developer.png" />
+                <meta name="description" content="Jeremy Kenneth's portfolio — 19+ web, mobile, and backend projects built with Flutter, Next.js, Laravel, Vue.js, and more." />
+                <meta property="og:title" content="Portfolio • Jeremy Kenneth" />
+                <meta property="og:description" content="19+ web, mobile, and backend projects built with Flutter, Next.js, Laravel, Vue.js, and more." />
+                <meta property="og:image" content="/assets/profile.jpg" />
+                <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <div className="bg-white dark:bg-gray-900 min-h-screen">
                 <Navbar />

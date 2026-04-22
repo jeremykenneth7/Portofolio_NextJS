@@ -37,6 +37,7 @@ export default function Navbar() {
         { href: '/experience', label: 'Experience' },
         { href: '/portofolio', label: 'Portfolio' },
         { href: '/certificates', label: 'Certificates' },
+        { href: '/contact', label: 'Contact' },
     ];
 
     const isActive = (href) => router.pathname === href;
