@@ -1,427 +1,394 @@
-import Head from "next/head";
+﻿import Head from "next/head";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Navbar from '../components/navbar.js';
-import Footer from '../components/footer.js';
-import { angkasa_keuangan, angkasa_pemasaran, dataku, dirjenim, kasil, kediri, siap, bangkit, samba, bookshelf, calorease, computershop, flask, gunung, onlineshop2, stopwatch, storyku, tsunami1, oz, storyku2, ifm, sigap } from "../public/portofolio/index.js";
+import { useEffect, useState } from "react";
+import { HiExternalLink, HiSearch } from "react-icons/hi";
+import Footer from "../components/footer.js";
+import { useLocalStorage } from "../components/localstorage";
+import Navbar from "../components/navbar.js";
 
-const SkeletonLoading = () => (
-    <div className="basis-1/4 flex-1">
-        <div className="rounded-lg overflow-hidden shadow-md">
-            <div className="h-44 bg-gray-300 dark:bg-gray-600 rounded-lg"></div>
-            <div className="p-10 h-40">
-                <div className="h-6 w-full mb-5 bg-gray-300 dark:bg-gray-600 rounded-lg"></div>
-                <div className="h-12 w-full bg-gray-300 dark:bg-gray-600 rounded-lg"></div>
-            </div>
-        </div>
-    </div>
-);
+// CARA TAMBAH PROJECT BARU:
+//   1. Taruh gambar di /public/portofolio/ (opsional)
+//   2. Tambah objek baru di array projects di bawah ini
+//   3. Kalau tidak ada gambar, isi image: null â†’ otomatis pakai placeholder
+const projects = [
+    {
+        title: "Pasang Baru PT Air Minum Intan Banjar",
+        image: "/portofolio/samba.png",
+        description: "Website for customers to register new water connections and track registration status.",
+        date: "2024",
+        link: "https://samba.intanbanjar.id/",
+        tags: ["Laravel", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "SIAP PT Air Minum Intan Banjar",
+        image: "/portofolio/siap.png",
+        description: "Customer complaint management website with submission form and real-time tracking.",
+        date: "2024",
+        link: "https://aduan.intanbanjar.id/",
+        tags: ["Laravel", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "Kasil Paniradya Kaistimewaan",
+        image: "/portofolio/kasil.png",
+        description: "GIS-based website mapping distribution of special fund activity results across Yogyakarta.",
+        date: "2024",
+        link: "https://kasil.jogjaprov.go.id/",
+        tags: ["Laravel", "MySQL", "GIS"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "Jogja Dataku Bappeda DIY",
+        image: "/portofolio/dataku.png",
+        description: "Regional data portal for Yogyakarta with infographics, master data, and financial data.",
+        date: "2024",
+        link: "https://bappeda.jogjaprov.go.id/dataku/",
+        tags: ["Yii2", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "Ground Truthed Independent Forestry Monitor",
+        image: "/portofolio/ifm.png",
+        description: "Forestry data platform with infographics, master data, and financial reporting.",
+        date: "2025",
+        link: "https://ground-truthed.id",
+        tags: ["Laravel", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "SIGAP Kementrian Lingkungan Hidup",
+        image: "/portofolio/sigap.png",
+        description: "Forest distribution data portal for the Ministry of Environment and Forestry of Indonesia.",
+        date: "2024",
+        link: "https://sigap.menlhk.go.id/sigap-frontend-2024/",
+        tags: ["Vue.js", "PostgreSQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "Satu Data Kota Kediri",
+        image: "/portofolio/kediri.png",
+        description: "Open data platform for Kediri City with infographics, master data, and financial data.",
+        date: "2024",
+        link: "https://satudata.kedirikota.go.id/",
+        tags: ["Yii2", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "Angkasa Penjualan Angkasa Tour and Travel",
+        image: "/portofolio/angkasa_pemasaran.png",
+        description: "Tour & travel sales platform with payment processing, monitoring, and user management.",
+        date: "2024",
+        link: "https://angkasatour.co.id/",
+        tags: ["Yii2", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+    },
+    {
+        title: "Tsunami Warning Center",
+        image: "/portofolio/tsunami1.png",
+        description: "Realtime earthquake and tsunami warning website using BMKG API and GeoJSON maps.",
+        date: "2022",
+        link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center",
+        tags: ["PHP", "GeoJSON", "MySQL"],
+        powered: "UPN Veteran Yogyakarta",
+        category: "web",
+    },
+    {
+        title: "Online eCommerce Website",
+        image: "/portofolio/onlineshop2.png",
+        description: "Full-featured eCommerce app inspired by Tokopedia, built with PHP and Bootstrap.",
+        date: "2021",
+        link: "https://github.com/jeremykenneth7/Online-eCommerce-Website",
+        tags: ["PHP", "MySQL", "Bootstrap"],
+        powered: "UPN Veteran Yogyakarta",
+        category: "web",
+    },
+    {
+        title: "Storyku Management Website",
+        image: "/portofolio/storyku.png",
+        description: "Story management app with React frontend and Firebase backend.",
+        date: "2024",
+        link: "https://storyku.vercel.app/",
+        tags: ["React", "Firebase", "Tailwind CSS"],
+        powered: "Bangkit Academy 2023",
+        category: "web",
+    },
+    {
+        title: "Volcano Eruption Prevention Website",
+        image: "/portofolio/gunung.png",
+        description: "Disaster mitigation site with volcano info and missing person search for Indonesia.",
+        date: "2022",
+        link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website",
+        tags: ["PHP", "MySQL"],
+        powered: "UPN Veteran Yogyakarta",
+        category: "web",
+    },
+    {
+        title: "Bookshelf Website",
+        image: "/portofolio/bookshelf.png",
+        description: "Frontend bookshelf app with localStorage â€” add, delete, and search books.",
+        date: "2023",
+        link: "https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage",
+        tags: ["JavaScript"],
+        powered: "Bangkit Academy 2023",
+        category: "web",
+    },
+    // â”€â”€ MOBILE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    {
+        title: "OZ Loyalty Australia",
+        image: "/portofolio/oz.png",
+        description: "Loyalty program app for small grocery stores in Australia built with Flutter and Firebase.",
+        date: "2024",
+        link: "https://bit.ly/oz_loyalty",
+        tags: ["Flutter", "Firebase"],
+        powered: "Client Project",
+        category: "mobile",
+    },
+    {
+        title: "Computer Shop Mobile App",
+        image: "/portofolio/computershop.png",
+        description: "eCommerce mobile app for computer parts with basket and checkout functionality.",
+        date: "2023",
+        link: "https://github.com/jeremykenneth7/Computer-Shop-MobileApps",
+        tags: ["Flutter", "SQLite"],
+        powered: "Client Project",
+        category: "mobile",
+    },
+    {
+        title: "Stopwatch + Recommended Places App",
+        image: "/portofolio/stopwatch.png",
+        description: "Flutter app combining a stopwatch utility with place recommendations via API.",
+        date: "2023",
+        link: "https://github.com/jeremykenneth7/StopwatchApp-Flutter",
+        tags: ["Flutter"],
+        powered: "Client Project",
+        category: "mobile",
+    },
+    // â”€â”€ BACKEND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    {
+        title: "CalorEase Capstone Project",
+        image: "/portofolio/calorease.png",
+        description: "Cloud backend for a calorie tracking app using food image scanning and nutrition data.",
+        date: "2023",
+        link: "https://github.com/orgs/CalorEase/repositories",
+        tags: ["GCP", "Cloud Run", "Cloud Functions"],
+        powered: "Bangkit Academy 2023",
+        category: "backend",
+    },
+    {
+        title: "Storyku Backend API",
+        image: "/portofolio/storyku2.png",
+        description: "Express.js + Firebase backend powering the Storyku story management platform.",
+        date: "2024",
+        link: "https://github.com/jeremykenneth7/StorykuAPI-Backend-ExpressJS",
+        tags: ["Express.js", "Firebase", "Cloud Functions"],
+        powered: "Bangkit Academy 2023",
+        category: "backend",
+    },
+    {
+        title: "Image Prediction Model API",
+        image: "/portofolio/flask.jpg",
+        description: "REST API for ML image classification deployed via Docker and Google Cloud Run.",
+        date: "2023",
+        link: "https://github.com/jeremykenneth7/CalorEase-API-2",
+        tags: ["Flask", "Python", "Docker", "Cloud Run"],
+        powered: "Bangkit Academy 2023",
+        category: "backend",
+    },
+    {
+        title: "CalorEase Database API",
+        image: "/portofolio/bangkit.jpeg",
+        description: "Express.js + Firebase API for the CalorEase app database, deployed on Cloud Functions.",
+        date: "2023",
+        link: "https://github.com/CalorEase/CaloriesAPI",
+        tags: ["Express.js", "Firebase", "Cloud Functions"],
+        powered: "Bangkit Academy 2023",
+        category: "backend",
+    },
+];
 
-const TextSkeletonLoading = () => (
-    <div className="pb-10 flex flex-col md:flex-row items-start md:items-center">
-        <div className="w-full ">
-            <div className="mb-3 h-4 w-full mt-12 md:mt-6 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-            <div className="mb-10 h-4 w-1/3 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
+const CATEGORIES = [
+    { key: "all", label: "All" },
+    { key: "web", label: "Web" },
+    { key: "mobile", label: "Mobile" },
+    { key: "backend", label: "Backend" },
+];
 
-            <div className="mt-10 mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-            <div className="mb-3 h-4 w-full bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-            <div className="h-4 w-72 bg-gray-300 dark:bg-gray-600 rounded-md"></div>
-        </div>
-    </div>
-);
-
-const ButtonSkeletonLoading = ({ buttons, className }) => (
-    <div className={className}>
-        {Array.from({ length: buttons }, (_, index) => (
-            <div key={index} className={`mx-2 py-2 h-10 rounded-lg bg-gray-300 dark:bg-gray-600`}></div>
-        ))}
-    </div>
-);
-
-export default function Portfolio() {
-    const [loading, setLoading] = useState(true);
-    const [darkMode, setDarkMode] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, []);
-    const [currentCategory, setCurrentCategory] = useState('all');
-
-    const webProjects = [
-        {
-            title: "Pasang Baru - PT Air Minum Intan Banjar (Perseroda)",
-            image: samba,
-            description: "Pasang Baru is a website created so that customers can register for new water connections to the company through the registration form provided and also provide tracking feature",
-            date: "2024",
-            link: "https://samba.intanbanjar.id/",
-            language: "Laravel + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Sistem Informasi Aduan Pelanggan - PT Air Minum Intan Banjar (Perseroda)",
-            image: siap,
-            description: "SIAP is a website created so that customers can file complaints to the company through the complaint form provided and also provide complaint tracking feature",
-            date: "2024",
-            link: "https://aduan.intanbanjar.id/",
-            language: "Laravel + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Kasil - Paniradya Kaistimewaan",
-            image: kasil,
-            description: "Kasil is a website created for the special funds of the Yogyakarta Palace. This website was created to provide a map of the distribution of the number of activity results in the Special Region of Yogyakarta.",
-            date: "2024",
-            link: " https://kasil.jogjaprov.go.id/",
-            language: "Laravel + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Jogja Dataku - Bappeda DIY",
-            image: dataku,
-            description: "Dataku is a website created for Regional Development Planning Agency of the Special Region of Yogyakarta, Indonesia to provide data from the Yogyakarta region which contains infographics, master data, financial data",
-            date: "2024",
-            link: " https://bappeda.jogjaprov.go.id/dataku/",
-            language: "Yii2 Framework + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Ground Throuted - Independent Forestry Monitor",
-            image: ifm,
-            description: "Ground Throuted is a website created for Independent Forestry Monitor to provide data from the forestry region which contains infographics, master data, financial data",
-            date: "2025",
-            link: "https://ground-truthed.id",
-            language: "Laravel + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "SIGAP - Kementrian Lingkungan Hidup dan Kehutanan",
-            image: sigap,
-            description: "SIGAP is a website created for the Ministry of Environment and Forestry of Indonesia, which was created to provide data on the distribution of forest in Indonesia",
-            date: "2024",
-            link: "https://sigap.menlhk.go.id/sigap-frontend-2024/",
-            language: "Vue JS + PostgreSQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Satu Data Kota Kediri - Pemerintah Kota Kediri",
-            image: kediri,
-            description: "Satu Data Kota Kediri is a website created for Kediri City Goverment to provide data from the Kediri region which contains infographics, master data, financial data",
-            date: "2024",
-            link: " https://satudata.kedirikota.go.id/",
-            language: "Yii2 Framework + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Angkasa Penjualan - Angkasa Tour and Travel",
-            image: angkasa_pemasaran,
-            description: "Website for Angkasa Tour and Travel with features for Sales and Payment, Monitoring, Customer and Agent Services, User Management, Data Master for each project",
-            date: "2024",
-            link: " https://angkasatour.co.id/",
-            language: "Yii2 Framework + MySQL",
-            powered: "JMC Indonesia",
-        },
-        {
-            title: "Tsunami Warning Center",
-            image: tsunami1,
-            description: "Website for Tsunami Disaster and Warning Center with BMKG API on Realtime Earthquake data +5.0 Magnitudo and Realtime Maps with GeoJSON prevention Tsunami Warning in Indonesia",
-            date: "2022",
-            link: " https://github.com/jeremykenneth7/Tsunami-Warning-Center",
-            language: "PHP + GeoJSON + My SQL",
-            powered: "UPN Veteran Yogyakarta",
-        },
-        {
-            title: "Online e-Commerce Website",
-            image: onlineshop2,
-            description: "🥦 It is an eCommerce app inspired by Tokopedia Website 📱 built to demonstrate the use of web development tools Build and Developed with PHP with Bootstrap and using My SQL for the database ",
-            link: " https://github.com/jeremykenneth7/Online-eCommerce-Website",
-            language: "PHP + My SQL",
-            date: "2021",
-            powered: "UPN Veteran Yogyakarta",
-        },
-        {
-            title: "Storyku Management Website",
-            image: storyku,
-            description: "Story Management Web Application, For the frontend, powered by React and styled with Tailwind CSS, provides users with a seamless and visually pleasing experience.",
-            link: " https://storyku.vercel.app/",
-            language: "React JS + Firebase",
-            date: "2024",
-            powered: "Bangkit Academy 2023",
-        },
-        {
-            title: "Volcano Eruption Prevention Website",
-            image: gunung,
-            description: "Website for Volcano Eruption Prevention Website in Indonesia with disaster mitigation and feature for searching missing person. The website also provide information about the volcano eruption in Indonesia",
-            link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website",
-            language: "PHP + My SQL",
-            date: "2022",
-            powered: "UPN Veteran Yogyakarta",
-        },
-        {
-            title: "Bookshelf Website",
-            image: bookshelf,
-            description: "A Frontend Development Website for Bookshelf that connect with Local Storage on Device. Build and Developed with JavaScript. The website also provide feature for adding, deleting and searching book",
-            link: " https://github.com/jeremykenneth7/BookshelfApps-Frontend-LocalStorage",
-            language: "JavaScript",
-            date: "2023",
-            powered: "Bangkit Academy 2023",
-        },
-    ];
-
-    const mobileProjects = [
-        {
-            title: "OZ Loyalty - Australia",
-            image: oz,
-            description: "OZ Loyalty is a mobile application that provides a loyalty program for customers who shop at small grocery store in Australia. This application is built with Flutter and Firebase.",
-            link: " https://bit.ly/oz_loyalty",
-            language: "Flutter + Firebase",
-            date: "2024",
-            powered: "Client Project",
-        },
-        {
-            title: "Computer Shop Mobile Application",
-            image: computershop,
-            description: "A Mobile application that created to provide computer parts that can be purchased like e-commerce, users can put in the basket and check out the computer parts they want to buy.",
-            link: " https://github.com/jeremykenneth7/Computer-Shop-MobileApps",
-            language: "Flutter + SQLite",
-            date: "2023",
-            powered: "Client Project",
-        },
-        {
-            title: "Stopwatch + Recommended Places Mobile Application",
-            image: stopwatch,
-            description: "A Mobile Development Application for Computer Shop that connect with API and Database. Build and Developed with Flutter",
-            link: " https://github.com/jeremykenneth7/StopwatchApp-Flutter",
-            language: "Flutter",
-            date: "2023",
-            powered: "Client Project",
-        },
-    ];
-
-    const backendProjects = [
-        {
-            title: "CalorEase",
-            image: calorease,
-            description: "Application that focusing on helping people control the number of calories eaten each day by scanning the food image after that can get the nutrition",
-            link: "https://github.com/orgs/CalorEase/repositories",
-            language: "Google Cloud Storage , Cloud Run , Cloud Functions",
-            date: "2023",
-            powered: "Bangkit Academy 2023",
-        },
-        {
-            title: "Storyku Backend API Development",
-            image: storyku2,
-            description: "Story Management Web Application, Leveraging the versatility of Express JS and the real-time capabilities of Firebase on the backend, i ensure efficient data management and scalability.",
-            link: "https://github.com/jeremykenneth7/StorykuAPI-Backend-ExpressJS",
-            language: "ExpressJS + Firebase + Cloud Functions",
-            date: "2024",
-            powered: "Bangkit Academy 2023",
-        },
-        {
-            title: "Image Prediction Model API Creation",
-            image: flask,
-            description: "API for Machine Learning Image Prediction Model in Calories Application using Flask as a REST-API and for the deployment using Docker and Google Cloud Run",
-            link: "https://github.com/jeremykenneth7/CalorEase-API-2",
-            language: "Flask Python + Google Cloud Storage + Docker + Cloud Run",
-            date: "2023",
-            powered: "Bangkit Academy 2023",
-        },
-        {
-            title: "Application Database API Creation",
-            image: bangkit,
-            description: "API for Calories Application with Database using Express JS and Firebase. For the deployment using Google Cloud Functions",
-            link: "https://github.com/CalorEase/CaloriesAPI",
-            language: "Express JS + Firebase + Cloud Functions",
-            date: "2023",
-            powered: "Bangkit Academy 2023",
-        },
-    ];
-
-    const filteredProjects = currentCategory === 'web' ? webProjects :
-        currentCategory === 'mobile' ? mobileProjects :
-            currentCategory === 'backend' ? backendProjects :
-                currentCategory === 'all' ? [...webProjects, ...mobileProjects, ...backendProjects] :
-                    [];
-
-    const [showModal, setShowModal] = useState(false);
-    const [selectedProject, setSelectedProject] = useState(null);
-
-    const openModal = (project) => {
-        setSelectedProject(project);
-        setShowModal(true);
-    };
-
-    const closeModal = () => {
-        setShowModal(false);
-        setSelectedProject(null);
-    };
+function ProjectCard({ project }) {
+    const [imgError, setImgError] = useState(false);
+    const showPlaceholder = !project.image || imgError;
 
     return (
-        <div className={darkMode ? "dark" : ""}>
-            <Head>
-                <title>Portofolio • Jeremy Kenneth</title>
-                <link rel="icon" href="/assets/developer.png" />
-            </Head>
-            <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40 min-h-screen">
-                <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-                <div>
-                    {loading ? (
-                        <TextSkeletonLoading lines={8} className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify" />
-                    ) : (
-                        <p className="font-mono text-md py-5 mb-8 leading-8 text-gray-800 dark:text-gray-200 md:text-lg text-justify">
-                            Crafting a compelling portfolio to showcase my extensive experience in Full-Stack Development + Mobile Development has been a rewarding journey. Through a dynamic blend of creativity and technical prowess, I have meticulously curated a collection of projects that encapsulate my proficiency in crafting seamless application and website.
-                            < br />
-                            < br />
-                            From responsive website that adapt flawlessly to diverse screen sizes to interactive interfaces that engage users intuitively. Each project stands as a testament to my mastery of Flutter, PHP, React JS, Next JS, Laravel and other cutting-edge technologies, which I seamlessly integrate to breathe life into my programming experience.
-                        </p>
-                    )}
-                </div>
-                {/* Mobile view */}
-                <div className="md:hidden flex flex-wrap justify-center md:justify-start mb-8">
-                    {loading ? (
-                        <ButtonSkeletonLoading buttons={2} className="w-full md:w-auto flex flex-wrap justify-center" />
-                    ) : (
-                        <div className="w-full md:w-auto flex flex-wrap justify-center">
-                            <button onClick={() => setCurrentCategory('all')} className={`mx-2 mb-2 px-[1.8rem] py-2 rounded-lg text-sm ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
-                            <button onClick={() => setCurrentCategory('web')} className={`mx-2 mb-2 px-[1.8rem] py-2 rounded-lg text-sm ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
-                        </div>
-                    )}
-                    {loading ? (
-                        <ButtonSkeletonLoading buttons={2} className="w-full md:w-auto flex flex-wrap justify-center" />
-                    ) : (
-                        <div className="w-full md:w-auto flex flex-wrap justify-center">
-                            <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
-                            <button onClick={() => setCurrentCategory('backend')} className={`mx-2 mb-2 px-4 py-2 rounded-lg text-sm ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
-                        </div>
-                    )}
-                </div>
-                {/* Desktop view */}
-                <div className="hidden md:flex justify-center gap-8 mb-10">
-                    {loading ? (
-                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 h-10 py-2 rounded-lg" />
-                    ) : (
-                        <button onClick={() => setCurrentCategory('all')} className={`mx-2 px-8 py-2 rounded-lg ${currentCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>All Projects</button>
-                    )}
-                    {loading ? (
-                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 py-2 rounded-lg" />
-                    ) : (
-                        <button onClick={() => setCurrentCategory('web')} className={`mx-2 px-8 py-2 rounded-lg ${currentCategory === 'web' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Web Projects</button>
-                    )}
-                    {loading ? (
-                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 py-2 rounded-lg" />
-                    ) : (
-                        <button onClick={() => setCurrentCategory('mobile')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'mobile' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Mobile Projects</button>
-                    )}
-                    {loading ? (
-                        <ButtonSkeletonLoading buttons={1} className="mx-2 w-44 py-2 rounded-lg" />
-                    ) : (
-                        <button onClick={() => setCurrentCategory('backend')} className={`mx-2 px-6 py-2 rounded-lg ${currentCategory === 'backend' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}>Backend Projects</button>
-                    )}
-                </div>
-                {/* Projects by Category */}
-                <div className="flex flex-col gap-10 lg:flex-row lg:flex-wrap">
-                    {(loading ? Array.from({ length: 6 }) : filteredProjects).map((project, index) => (
-                        <React.Fragment key={index}>
-                            {loading ? (
-                                <SkeletonLoading />
-                            ) : (<div className="basis-1/4 flex-1">
-                                <div className="rounded-lg overflow-hidden shadow-md">
-                                    <div
-                                        className="relative cursor-pointer"
-                                        onClick={() => openModal(project)}
-                                        onMouseEnter={(e) => e.currentTarget.style.cursor = "pointer"}
-                                        onMouseLeave={(e) => e.currentTarget.style.cursor = "auto"}
-                                    >
-                                        <Image
-                                            className="rounded-lg overflow-hidden shadow-md"
-                                            width={"200%"}
-                                            height={"110%"}
-                                            layout="responsive"
-                                            src={project.image}
-                                            alt={project.title}
-                                        />
-                                    </div>
-                                    <div className="p-5 h-40">
-                                        <p className="text-center text-gray-700 dark:text-gray-300 mb-1">{project.title}</p>
-                                        <p className="text-center py-2 px-5 text-gray-700 dark:text-gray-300 text-xs font-normal">{project.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            )}
-                        </React.Fragment>
+        <div className="group flex flex-col rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden hover:border-sky-400 dark:hover:border-sky-500 hover:shadow-lg transition-all duration-300">
+            {/* Thumbnail */}
+            <div className="relative h-44 overflow-hidden bg-gradient-to-br from-sky-100 to-indigo-100 dark:from-sky-900/30 dark:to-indigo-900/30 flex-shrink-0">
+                {!showPlaceholder ? (
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        unoptimized
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={() => setImgError(true)}
+                    />
+                ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-5xl font-bold text-sky-300 dark:text-sky-700 select-none">
+                            {project.title.charAt(0)}
+                        </span>
+                    </div>
+                )}
+                <span className="absolute top-2 right-2 px-2 py-0.5 text-xs font-medium bg-white/90 dark:bg-gray-900/80 text-gray-600 dark:text-gray-300 rounded-md backdrop-blur-sm">
+                    {project.date}
+                </span>
+            </div>
+
+            {/* Body */}
+            <div className="flex flex-col flex-1 p-4">
+                <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-1.5 line-clamp-2 leading-snug">
+                    {project.title}
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-3 line-clamp-3 flex-1">
+                    {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                    {project.tags.map((tag) => (
+                        <span
+                            key={tag}
+                            className="px-2 py-0.5 text-xs bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 rounded-md border border-sky-100 dark:border-sky-800/50"
+                        >
+                            {tag}
+                        </span>
                     ))}
                 </div>
-                {showModal && selectedProject && (
-                    <Modal
-                        project={selectedProject}
-                        closeModal={closeModal}
-                        projects={filteredProjects}
-                    />
-                )}
-                <Footer darkMode={darkMode} />
-            </main>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700/50">
+                    <span className="text-xs text-gray-400 dark:text-gray-500 truncate mr-2">
+                        {project.powered}
+                    </span>
+                    <a
+                        href={project.link.trim()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300 transition-colors flex-shrink-0"
+                    >
+                        Visit <HiExternalLink className="text-sm" />
+                    </a>
+                </div>
+            </div>
         </div>
     );
 }
 
-const Modal = ({ project, closeModal, projects }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const handleNextProject = () => {
-        const nextIndex = (currentIndex + 1) % projects.length;
-        setCurrentIndex(nextIndex);
-    };
-
-    const handlePreviousProject = () => {
-        const previousIndex = (currentIndex - 1 + projects.length) % projects.length;
-        setCurrentIndex(previousIndex);
-    };
+export default function Portfolio() {
+    const [darkMode] = useLocalStorage("darkMode", false);
+    const [category, setCategory] = useState("all");
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
-        setCurrentIndex(projects.findIndex((p) => p.title === project.title));
-    }, [project, projects]);
-
-    const currentProject = projects[currentIndex];
-
-    const handleCloseModal = (e) => {
-        if (e.target === e.currentTarget) {
-            closeModal();
+        const isDarkMode = JSON.parse(localStorage.getItem("darkMode"));
+        if (isDarkMode !== null) {
+            document.documentElement.classList.toggle("dark", isDarkMode);
         }
-    };
+    }, []);
+
+    const filtered = projects.filter((p) => {
+        const matchCat = category === "all" || p.category === category;
+        const q = search.toLowerCase();
+        const matchSearch =
+            !q ||
+            p.title.toLowerCase().includes(q) ||
+            p.tags.some((t) => t.toLowerCase().includes(q)) ||
+            p.powered.toLowerCase().includes(q);
+        return matchCat && matchSearch;
+    });
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50" onClick={handleCloseModal}>
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-lg">
-                <div className="mb-4">
-                    <Image
-                        className="rounded-lg overflow-hidden shadow-md"
-                        width={800}
-                        height={450}
-                        layout="responsive"
-                        src={currentProject.image}
-                        alt={currentProject.title}
-                    />
-                </div>
-                <div className="mb-4 max-w-[700px]">
-                    <h2 className="text-gray-700 dark:text-gray-300 text-xl font-bold mb-4">{currentProject.title}</h2>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-4">{currentProject.description}</p>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300 text-xs mb-4">
-                    Framework and Database : {currentProject.language} <br />
-                    Project Date : {currentProject.date} <br />
-                    Powered by : {currentProject.powered} <br />
-                    Visit the Project :
-                    <a href={currentProject.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                        {currentProject.link}
-                    </a>
-                </p>
+        <div className={darkMode ? "dark" : ""}>
+            <Head>
+                <title>Portfolio â€¢ Jeremy Kenneth</title>
+                <link rel="icon" href="/assets/developer.png" />
+            </Head>
+            <div className="bg-white dark:bg-gray-900 min-h-screen">
+                <Navbar />
+                <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+                    {/* Header */}
+                    <div className="mb-10">
+                        <p className="inline-flex items-center gap-2 text-sky-500 dark:text-sky-400 text-sm font-medium tracking-widest uppercase mb-3">
+                            <span className="h-px w-6 bg-current inline-block" />
+                            My Work
+                        </p>
+                        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+                            Portfolio
+                        </h1>
+                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm leading-relaxed">
+                            A collection of projects I&apos;ve built across web, mobile, and backend development â€”
+                            from government platforms to personal experiments.
+                        </p>
+                    </div>
+
+                    {/* Filters + Search */}
+                    <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                        <div className="flex gap-2 flex-wrap">
+                            {CATEGORIES.map((cat) => (
+                                <button
+                                    key={cat.key}
+                                    onClick={() => setCategory(cat.key)}
+                                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${category === cat.key
+                                            ? "bg-sky-500 text-white shadow-sm"
+                                            : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                                        }`}
+                                >
+                                    {cat.label}
+                                </button>
+                            ))}
+                        </div>
+                        <div className="relative sm:ml-auto">
+                            <HiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm pointer-events-none" />
+                            <input
+                                type="text"
+                                placeholder="Search project or tech..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="pl-8 pr-4 py-1.5 text-sm rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent w-full sm:w-60"
+                            />
+                        </div>
+                    </div>
+
+                    <p className="text-xs text-gray-400 dark:text-gray-500 mb-6">
+                        {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+                    </p>
+
+                    {/* Grid */}
+                    {filtered.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                            {filtered.map((project, i) => (
+                                <ProjectCard key={i} project={project} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-center py-24 text-gray-400 dark:text-gray-500 text-sm">
+                            No projects found for &quot;{search}&quot;.
+                        </div>
+                    )}
+
+                    <div className="mt-16">
+                        <Footer />
+                    </div>
+                </main>
             </div>
         </div>
     );
-};
+}

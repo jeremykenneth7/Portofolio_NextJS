@@ -108,13 +108,6 @@ export default function Navbar() {
                                 {link.label}
                             </Link>
                         ))}
-                        <Link
-                            href="/cv"
-                            className="block mt-3 mx-3 px-4 py-2.5 text-sm font-medium text-center bg-sky-500 text-white rounded-lg"
-                            onClick={() => setShowMenu(false)}
-                        >
-                            Preview CV
-                        </Link>
                     </div>
                 )}
             </div>
