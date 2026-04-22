@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
-import { HiDownload, HiArrowRight } from "react-icons/hi";
-import Link from "next/link";
-import Navbar from "../components/navbar";
+import { HiArrowRight, HiEye } from "react-icons/hi";
 import Footer from '../components/footer';
-import deved from "../public/assets/profile.jpg";
 import { useLocalStorage } from "../components/localstorage";
+import Navbar from "../components/navbar";
+import deved from "../public/assets/profile.jpg";
 
 const techStack = [
   'Flutter', 'Next.js', 'Laravel', 'Node.js',
@@ -75,20 +75,13 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mb-8">
-                <a
-                  href="/documents/CV-Jeremy-Kenneth.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium rounded-lg transition-colors"
-                >
-                  <HiDownload />
-                  Download CV
-                </a>
-                <Link href="/portofolio">
-                  <a className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-sky-500 hover:text-sky-500 dark:hover:border-sky-400 dark:hover:text-sky-400 text-sm font-medium rounded-lg transition-colors">
-                    View Portfolio
-                    <HiArrowRight />
-                  </a>
+                <Link href="/cv" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium rounded-lg transition-colors">
+                  <HiEye />
+                  Preview CV
+                </Link>
+                <Link href="/portofolio" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-sky-500 hover:text-sky-500 dark:hover:border-sky-400 dark:hover:text-sky-400 text-sm font-medium rounded-lg transition-colors">
+                  View Portfolio
+                  <HiArrowRight />
                 </Link>
               </div>
 

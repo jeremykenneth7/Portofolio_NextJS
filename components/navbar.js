@@ -47,23 +47,19 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16">
 
                     {/* Logo */}
-                    <Link href="/">
-                        <a className="font-burtons text-xl text-gray-900 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
-                            Jeremy<span className="text-sky-500">.</span>
-                        </a>
+                    <Link href="/" className="font-burtons text-xl text-gray-900 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
+                        Jeremy<span className="text-sky-500"></span>
                     </Link>
 
                     {/* Desktop Nav Links */}
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map((link) => (
-                            <Link key={link.href} href={link.href}>
-                                <a className={`text-sm font-medium transition-colors relative group ${isActive(link.href)
-                                        ? 'text-sky-500 dark:text-sky-400'
-                                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                                    }`}>
-                                    {link.label}
-                                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-sky-500 transition-all duration-200 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-                                </a>
+                            <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors relative group ${isActive(link.href)
+                                ? 'text-sky-500 dark:text-sky-400'
+                                : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                                }`}>
+                                {link.label}
+                                <span className={`absolute -bottom-1 left-0 h-0.5 bg-sky-500 transition-all duration-200 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                             </Link>
                         ))}
                     </div>
@@ -77,14 +73,6 @@ export default function Navbar() {
                         >
                             {darkMode ? <BsFillSunFill className="text-base" /> : <BsFillMoonStarsFill className="text-base" />}
                         </button>
-                        <a
-                            href="/documents/CV-Jeremy-Kenneth.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-4 py-2 text-sm font-medium bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors"
-                        >
-                            Download CV
-                        </a>
                     </div>
 
                     {/* Mobile Controls */}
@@ -110,26 +98,23 @@ export default function Navbar() {
                 {showMenu && (
                     <div className="md:hidden border-t border-gray-100 dark:border-gray-800 py-3 pb-4">
                         {navLinks.map((link) => (
-                            <Link key={link.href} href={link.href}>
-                                <a
-                                    className={`block px-3 py-2.5 text-sm font-medium rounded-lg mb-1 transition-colors ${isActive(link.href)
-                                            ? 'bg-sky-50 dark:bg-sky-900/20 text-sky-500'
-                                            : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
-                                        }`}
-                                    onClick={() => setShowMenu(false)}
-                                >
-                                    {link.label}
-                                </a>
+                            <Link key={link.href} href={link.href}
+                                className={`block px-3 py-2.5 text-sm font-medium rounded-lg mb-1 transition-colors ${isActive(link.href)
+                                    ? 'bg-sky-50 dark:bg-sky-900/20 text-sky-500'
+                                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                                    }`}
+                                onClick={() => setShowMenu(false)}
+                            >
+                                {link.label}
                             </Link>
                         ))}
-                        <a
-                            href="/documents/CV-Jeremy-Kenneth.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link
+                            href="/cv"
                             className="block mt-3 mx-3 px-4 py-2.5 text-sm font-medium text-center bg-sky-500 text-white rounded-lg"
+                            onClick={() => setShowMenu(false)}
                         >
-                            Download CV
-                        </a>
+                            Preview CV
+                        </Link>
                     </div>
                 )}
             </div>
