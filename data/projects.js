@@ -133,7 +133,7 @@ export const projects = [
         date: "2022",
         link: "https://github.com/jeremykenneth7/Tsunami-Warning-Center",
         tags: ["PHP", "GeoJSON", "MySQL"],
-        powered: "UPN Veteran Yogyakarta",
+        powered: "Personal Project",
         category: "web",
     },
     {
@@ -143,7 +143,7 @@ export const projects = [
         date: "2021",
         link: "https://github.com/jeremykenneth7/Online-eCommerce-Website",
         tags: ["PHP", "MySQL", "Bootstrap"],
-        powered: "UPN Veteran Yogyakarta",
+        powered: "Personal Project",
         category: "web",
     },
     {
@@ -163,7 +163,7 @@ export const projects = [
         date: "2022",
         link: "https://github.com/jeremykenneth7/Volcano-Eruption-Prevention-Website",
         tags: ["PHP", "MySQL"],
-        powered: "UPN Veteran Yogyakarta",
+        powered: "Personal Project",
         category: "web",
     },
     {

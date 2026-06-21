@@ -86,7 +86,7 @@ export default function About() {
 
                                 <div className="space-y-4 text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
                                     <p>
-                                        Hi, I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Jeremy Kenneth</span> — a Full Stack Developer based in Yogyakarta, Indonesia. My journey in software development started during my university years at <span className="font-medium text-gray-700 dark:text-gray-300">UPN Veteran Yogyakarta</span>, where I discovered a deep passion for building things that live on the web and mobile devices.
+                                        Hi, I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Jeremy Kenneth</span> — a Full Stack Developer based in Yogyakarta, Indonesia. My journey in software development started during my university years, where I discovered a deep passion for building things that live on the web and mobile devices.
                                     </p>
                                     <p>
                                         In 2023, I was selected for <span className="font-medium text-gray-700 dark:text-gray-300">Bangkit Academy by Google, GoTo, and Traveloka</span> — a highly competitive program where I specialized in Cloud Computing. This experience sharpened my skills in cloud infrastructure, RESTful APIs, and leading cross-functional teams to deliver real-world applications.
@@ -210,7 +210,7 @@ export default function About() {
                                 Education
                             </h2>
                         </div>
-                        <div className="space-y-4">
+                        {/* <div className="space-y-4">
                             {education.map((edu, i) => (
                                 <div key={i} className="flex gap-5 p-5 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50">
                                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center shadow-sm">
@@ -227,7 +227,7 @@ export default function About() {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </section>
 
                     <Footer />
