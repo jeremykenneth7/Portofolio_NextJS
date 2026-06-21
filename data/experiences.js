@@ -2,7 +2,7 @@ export const experiences = [
     {
         role: "Project Manager & Backend Developer",
         company: "Simetri Dev",
-        companyUrl: "https://www.simetri.my.id/",
+        companyUrl: "https://simetri.my.id/",
         period: "June 2025 – Present",
         location: "Yogyakarta, Indonesia",
         type: "Full-Time · Remote",
