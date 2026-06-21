@@ -200,7 +200,7 @@ export default function About() {
                     </section>
 
                     {/* Education */}
-                    <section className="border-t border-gray-100 dark:border-gray-800 py-12">
+                    {/* <section className="border-t border-gray-100 dark:border-gray-800 py-12">
                         <div className="mb-8">
                             <p className="inline-flex items-center gap-2 text-sky-500 dark:text-sky-400 text-sm font-medium tracking-widest uppercase mb-2">
                                 <HiAcademicCap className="text-base" />
@@ -210,7 +210,7 @@ export default function About() {
                                 Education
                             </h2>
                         </div>
-                        {/* <div className="space-y-4">
+                        <div className="space-y-4">
                             {education.map((edu, i) => (
                                 <div key={i} className="flex gap-5 p-5 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700/50">
                                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center shadow-sm">
@@ -227,8 +227,8 @@ export default function About() {
                                     </div>
                                 </div>
                             ))}
-                        </div> */}
-                    </section>
+                        </div>
+                    </section> */}
 
                     <Footer />
                 </main>
