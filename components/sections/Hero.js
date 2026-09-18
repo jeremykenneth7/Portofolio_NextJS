@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
 import { HiDownload } from "react-icons/hi";
 import deved from "../../public/assets/profile.jpg";
@@ -74,15 +75,13 @@ export default function Hero() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mb-8">
-                    <a
-                        href="/documents/CV-Jeremy-Kenneth.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <Link
+                        href="/cv"
                         className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white text-sm font-semibold rounded-full shadow-lg shadow-sky-500/25 hover:shadow-xl hover:shadow-sky-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                     >
                         <HiDownload className="text-base group-hover:translate-y-0.5 transition-transform duration-300" />
-                        Download CV
-                    </a>
+                        View CV
+                    </Link>
                 </div>
 
                 {/* Social Links */}

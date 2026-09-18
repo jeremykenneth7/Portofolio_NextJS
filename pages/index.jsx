@@ -16,15 +16,17 @@ export default function Home() {
           content="Jeremy Kenneth — Full-Stack Developer building scalable web and mobile applications for government agencies, enterprises, and startups across Indonesia. Explore my portfolio, experience, and certifications."
         />
         <link rel="icon" href="/assets/developer.png" />
+        <link rel="canonical" href="https://jeremykenneth.com/" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jeremykenneth.com/" />
         <meta property="og:title" content="Jeremy Kenneth • Full Stack Developer" />
         <meta
           property="og:description"
           content="Full-Stack Developer building scalable web and mobile applications for government agencies, enterprises, and startups across Indonesia."
         />
-        <meta property="og:image" content="/assets/profile.jpg" />
+        <meta property="og:image" content="https://jeremykenneth.com/api/og" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -33,7 +35,35 @@ export default function Home() {
           name="twitter:description"
           content="Full-Stack Developer building scalable web and mobile applications for government agencies, enterprises, and startups across Indonesia."
         />
-        <meta name="twitter:image" content="/assets/profile.jpg" />
+        <meta name="twitter:image" content="https://jeremykenneth.com/api/og" />
+
+        {/* Structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Jeremy Kenneth",
+              jobTitle: "Full-Stack Developer",
+              url: "https://jeremykenneth.com/",
+              image: "https://jeremykenneth.com/api/og",
+              sameAs: [
+                "https://www.linkedin.com/in/jeremykenneth7/",
+                "https://github.com/jeremykenneth7",
+              ],
+              worksFor: {
+                "@type": "Organization",
+                name: "Simetri Dev",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Yogyakarta",
+                addressCountry: "ID",
+              },
+            }),
+          }}
+        />
       </Head>
       <div className="relative bg-white min-h-screen overflow-hidden">
         {/* Ambient glow orbs for the glass surfaces to refract */}
