@@ -15,6 +15,19 @@ export const CATEGORIES = [
 export const projects = [
     // ── WEB ────────────────────────────────────────────────
     {
+        title: "Direktorat Jenderal Imigrasi",
+        image: "/portofolio/dirjenim.png",
+        imageWidth: 3360,
+        imageHeight: 2100,
+        description: "Official website for Indonesia's Directorate General of Immigration, serving public information and immigration services.",
+        date: "2024",
+        link: "https://www.imigrasi.go.id/",
+        tags: ["Laravel", "MySQL"],
+        powered: "JMC Indonesia",
+        category: "web",
+        featured: true,
+    },
+    {
         title: "Aplikasi Pasang Baru – PT Air Minum Intan Banjar (Perseroda)",
         image: "/portofolio/samba.png",
         description: "Website for customers to register new water connections and track registration status.",
@@ -23,7 +36,6 @@ export const projects = [
         tags: ["Laravel", "MySQL"],
         powered: "JMC Indonesia",
         category: "web",
-        featured: true,
     },
     {
         title: "Sistem Informasi Aduan Pelanggan (SIAP) – PT Air Minum Intan Banjar (Perseroda)",
@@ -38,6 +50,8 @@ export const projects = [
     {
         title: "Kasil – Paniradya Kaistimewaan",
         image: "/portofolio/kasil.png",
+        imageWidth: 3346,
+        imageHeight: 2082,
         description: "GIS-based website mapping distribution of special fund activity results across Yogyakarta.",
         date: "2024",
         link: "https://kasil.jogjaprov.go.id/",
@@ -79,12 +93,15 @@ export const projects = [
     {
         title: "Dynamics Home Decor & Interior",
         image: "/portofolio/dynamics.png",
+        imageWidth: 1888,
+        imageHeight: 993,
         description: "Landing Page for an interior design company showcasing services, portfolio, and contact information.",
         date: "2025",
-        link: "https://dynamicshomedecor.com/",
+        link: "https://dynamicshomedecor.site/",
         tags: ["Next.js", "Tailwind CSS"],
         powered: "Simetri Dev",
         category: "web",
+        featured: true,
     },
     {
         title: "Sistem Informasi Manajemen Proyek (SIMP) – Dynamics Home Decor & Interior",
@@ -186,7 +203,6 @@ export const projects = [
         tags: ["Flutter", "Firebase"],
         powered: "Client Project",
         category: "mobile",
-        featured: true,
     },
     {
         title: "Computer Shop Mobile App",
