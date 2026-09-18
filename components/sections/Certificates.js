@@ -36,7 +36,7 @@ export default function Certificates() {
             className={`py-16 md:py-20 scroll-mt-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
             <div className="mb-10 md:mb-12">
-                <p className="inline-flex items-center gap-2 text-amber-600 text-sm font-medium tracking-widest uppercase mb-3">
+                <p className="inline-flex items-center gap-2 text-sky-600 text-sm font-medium tracking-widest uppercase mb-3">
                     <span className="h-px w-6 bg-current inline-block" />
                     Credentials
                 </p>
@@ -53,7 +53,7 @@ export default function Certificates() {
                     <div
                         key={index}
                         style={{ transitionDelay: `${index * 100}ms` }}
-                        className={`rounded-xl overflow-hidden border border-gray-200 bg-white/60 backdrop-blur-md hover:border-amber-300 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                        className={`rounded-xl overflow-hidden border border-gray-200 bg-white/60 backdrop-blur-md hover:border-sky-300 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     >
                         <div className="relative aspect-[4/3]">
                             <Image
@@ -68,7 +68,7 @@ export default function Certificates() {
                             <p className="text-xs text-gray-600 leading-relaxed">{image.description}</p>
                             <div className="flex items-center gap-1.5 flex-shrink-0">
                                 <button
-                                    className="p-2 rounded-lg bg-white/60 border border-gray-200 text-gray-500 hover:bg-gold hover:text-gray-900 hover:border-gold transition-colors"
+                                    className="p-2 rounded-lg bg-white/60 border border-gray-200 text-gray-500 hover:bg-accent hover:text-gray-900 hover:border-accent transition-colors"
                                     onClick={() => handleZoom(index)}
                                     aria-label="Zoom"
                                 >
@@ -78,7 +78,7 @@ export default function Certificates() {
                                     href={image.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="p-2 rounded-lg bg-white/60 border border-gray-200 text-gray-500 hover:bg-gold hover:text-gray-900 hover:border-gold transition-colors"
+                                    className="p-2 rounded-lg bg-white/60 border border-gray-200 text-gray-500 hover:bg-accent hover:text-gray-900 hover:border-accent transition-colors"
                                     aria-label="View certificate"
                                 >
                                     <LuExternalLink className="text-sm" />
@@ -95,14 +95,14 @@ export default function Certificates() {
                     onClick={handleCloseZoom}
                 >
                     <button
-                        className="absolute top-5 right-6 text-white/70 hover:text-gold text-3xl z-10 transition-colors"
+                        className="absolute top-5 right-6 text-white/70 hover:text-accent text-3xl z-10 transition-colors"
                         onClick={handleCloseZoom}
                         aria-label="Close"
                     >
                         &#10006;
                     </button>
                     <button
-                        className="absolute left-5 top-1/2 -translate-y-1/2 text-white/70 hover:text-gold text-5xl z-10 transition-colors"
+                        className="absolute left-5 top-1/2 -translate-y-1/2 text-white/70 hover:text-accent text-5xl z-10 transition-colors"
                         onClick={(e) => { e.stopPropagation(); handlePreviousImage(); }}
                         aria-label="Previous"
                     >
@@ -120,7 +120,7 @@ export default function Certificates() {
                         </div>
                     </div>
                     <button
-                        className="absolute right-5 top-1/2 -translate-y-1/2 text-white/70 hover:text-gold text-5xl z-10 transition-colors"
+                        className="absolute right-5 top-1/2 -translate-y-1/2 text-white/70 hover:text-accent text-5xl z-10 transition-colors"
                         onClick={(e) => { e.stopPropagation(); handleNextImage(); }}
                         aria-label="Next"
                     >

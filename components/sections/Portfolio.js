@@ -39,7 +39,7 @@ export default function Portfolio() {
             className={`py-16 md:py-20 scroll-mt-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
             <div className="mb-10 md:mb-12">
-                <p className="inline-flex items-center gap-2 text-amber-600 text-sm font-medium tracking-widest uppercase mb-3">
+                <p className="inline-flex items-center gap-2 text-sky-600 text-sm font-medium tracking-widest uppercase mb-3">
                     <span className="h-px w-6 bg-current inline-block" />
                     Fixtures
                 </p>
@@ -82,7 +82,7 @@ export default function Portfolio() {
                     <div
                         key={index}
                         style={{ transitionDelay: `${index * 100}ms` }}
-                        className={`group border border-gray-200 rounded-xl overflow-hidden hover:border-amber-300 hover:-translate-y-1 transition-all duration-500 cursor-pointer bg-white/60 backdrop-blur-md shadow-sm hover:shadow-xl ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                        className={`group border border-gray-200 rounded-xl overflow-hidden hover:border-sky-300 hover:-translate-y-1 transition-all duration-500 cursor-pointer bg-white/60 backdrop-blur-md shadow-sm hover:shadow-xl ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                         onClick={() => openModal(project)}
                     >
                         <div className="relative w-full h-48 overflow-hidden bg-white">
@@ -159,14 +159,14 @@ const Modal = ({ project, closeModal, projects }) => {
                         <>
                             <button
                                 onClick={handlePreviousProject}
-                                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-gray-600 hover:text-amber-600 shadow-sm transition-colors"
+                                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-gray-600 hover:text-sky-600 shadow-sm transition-colors"
                                 aria-label="Previous project"
                             >
                                 <HiChevronLeft className="text-lg" />
                             </button>
                             <button
                                 onClick={handleNextProject}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-gray-600 hover:text-amber-600 shadow-sm transition-colors"
+                                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-gray-600 hover:text-sky-600 shadow-sm transition-colors"
                                 aria-label="Next project"
                             >
                                 <HiChevronRight className="text-lg" />
@@ -181,7 +181,7 @@ const Modal = ({ project, closeModal, projects }) => {
 
                     <div className="flex flex-wrap gap-1.5 mb-5">
                         {currentProject.tags.map((tag) => (
-                            <span key={tag} className="px-2.5 py-1 text-xs font-medium bg-amber-50 text-amber-700 rounded-full border border-amber-200">
+                            <span key={tag} className="px-2.5 py-1 text-xs font-medium bg-sky-50 text-sky-700 rounded-full border border-sky-200">
                                 {tag}
                             </span>
                         ))}
@@ -202,7 +202,7 @@ const Modal = ({ project, closeModal, projects }) => {
                         href={currentProject.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold bg-gold hover:bg-amber-400 text-gray-900 rounded-lg transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold bg-accent hover:bg-sky-600 text-gray-900 rounded-lg transition-colors"
                     >
                         Visit the Project
                         <HiOutlineExternalLink />

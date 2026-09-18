@@ -44,8 +44,8 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-16">
 
                     {/* Logo */}
-                    <a href="#top" className="font-display text-2xl tracking-tight font-bold text-gray-900 hover:text-amber-600 transition-colors">
-                        Jeremy<span className="text-amber-500">.</span>
+                    <a href="#top" className="font-display text-2xl tracking-tight font-bold text-gray-900 hover:text-sky-600 transition-colors">
+                        Jeremy<span className="text-sky-500">.</span>
                     </a>
 
                     {/* Desktop Nav Links */}
@@ -54,11 +54,11 @@ export default function Navbar() {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`font-display text-lg tracking-tight font-bold transition-colors relative group ${isActive(link.href) ? 'text-amber-600' : 'text-gray-500 hover:text-gray-900'
+                                className={`font-display text-lg tracking-tight font-bold transition-colors relative group ${isActive(link.href) ? 'text-sky-600' : 'text-gray-500 hover:text-gray-900'
                                     }`}
                             >
                                 {link.label}
-                                <span className={`absolute -bottom-1 left-0 h-0.5 bg-amber-500 transition-all duration-200 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                                <span className={`absolute -bottom-1 left-0 h-0.5 bg-sky-500 transition-all duration-200 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                             </a>
                         ))}
                     </div>
@@ -80,7 +80,7 @@ export default function Navbar() {
                             <a
                                 key={link.href}
                                 href={link.href}
-                                className={`block px-3 py-2.5 font-display text-lg tracking-tight font-bold rounded-lg mb-1 transition-colors ${isActive(link.href) ? 'bg-amber-50 text-amber-600' : 'text-gray-600 hover:bg-gray-50'
+                                className={`block px-3 py-2.5 font-display text-lg tracking-tight font-bold rounded-lg mb-1 transition-colors ${isActive(link.href) ? 'bg-sky-50 text-sky-600' : 'text-gray-600 hover:bg-gray-50'
                                     }`}
                                 onClick={() => setShowMenu(false)}
                             >

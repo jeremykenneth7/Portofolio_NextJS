@@ -13,7 +13,7 @@ module.exports = {
         display: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       colors: {
-        gold: '#fce432',
+        accent: '#0ea5e9',
       },
       keyframes: {
         marquee: {

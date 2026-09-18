@@ -10,7 +10,7 @@ const techStack = [
 ];
 
 const CornerBracket = ({ className }) => (
-    <span className={`absolute w-6 h-6 border-amber-400 ${className}`} />
+    <span className={`absolute w-6 h-6 border-sky-400 ${className}`} />
 );
 
 export default function Hero() {
@@ -25,14 +25,14 @@ export default function Hero() {
 
             {/* Text Content */}
             <div className="flex-1 text-center md:text-left">
-                <p className="inline-flex items-center gap-2 text-amber-600 text-sm font-medium tracking-widest uppercase mb-4">
+                <p className="inline-flex items-center gap-2 text-sky-600 text-sm font-medium tracking-widest uppercase mb-4">
                     <span className="h-px w-6 bg-current inline-block" />
                     Hello, I&apos;m
                 </p>
 
                 <h1 className="font-display text-6xl md:text-7xl lg:text-8xl tracking-tight font-extrabold text-gray-900 mb-4 leading-none">
                     Jeremy<br />
-                    <span className="text-amber-500">Kenneth</span>
+                    <span className="text-sky-500">Kenneth</span>
                 </h1>
 
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-600 mb-5">
@@ -78,7 +78,7 @@ export default function Hero() {
                         href="/documents/CV-Jeremy-Kenneth.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-amber-400 text-gray-900 text-sm font-semibold rounded-lg transition-colors shadow-sm"
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-sky-600 text-gray-900 text-sm font-semibold rounded-lg transition-colors shadow-sm"
                     >
                         <HiDownload />
                         Download CV
@@ -89,7 +89,7 @@ export default function Hero() {
                 <div className="flex justify-center md:justify-start gap-3">
                     <a
                         href="mailto:jeremykenneth7@gmail.com"
-                        className="p-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 text-gray-500 hover:text-amber-600 hover:border-amber-300 transition-colors"
+                        className="p-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 text-gray-500 hover:text-sky-600 hover:border-sky-300 transition-colors"
                         aria-label="Email"
                     >
                         <AiFillMail className="text-xl" />
@@ -98,7 +98,7 @@ export default function Hero() {
                         href="https://www.linkedin.com/in/jeremykenneth7/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 text-gray-500 hover:text-amber-600 hover:border-amber-300 transition-colors"
+                        className="p-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 text-gray-500 hover:text-sky-600 hover:border-sky-300 transition-colors"
                         aria-label="LinkedIn"
                     >
                         <AiFillLinkedin className="text-xl" />
@@ -107,7 +107,7 @@ export default function Hero() {
                         href="https://github.com/jeremykenneth7"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 text-gray-500 hover:text-amber-600 hover:border-amber-300 transition-colors"
+                        className="p-2.5 rounded-xl bg-white/60 backdrop-blur-md border border-gray-200 text-gray-500 hover:text-sky-600 hover:border-sky-300 transition-colors"
                         aria-label="GitHub"
                     >
                         <AiFillGithub className="text-xl" />

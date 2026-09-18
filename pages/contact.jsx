@@ -1,10 +1,9 @@
 import emailjs from "@emailjs/browser";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai";
 import { HiCheckCircle, HiExclamationCircle, HiLocationMarker, HiMail, HiPaperAirplane } from "react-icons/hi";
 import Footer from "../components/footer";
-import { useLocalStorage } from "../components/localstorage";
 import Navbar from "../components/navbar";
 
 // ─── EmailJS config ──────────────────────────────────────────────────────────
@@ -50,18 +49,10 @@ const socialLinks = [
 ];
 
 export default function Contact() {
-    const [darkMode] = useLocalStorage("darkMode", false);
     const formRef = useRef(null);
     const [status, setStatus] = useState("idle"); // idle | sending | success | error
     const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
     const [errors, setErrors] = useState({});
-
-    useEffect(() => {
-        const isDarkMode = JSON.parse(localStorage.getItem("darkMode"));
-        if (isDarkMode !== null) {
-            document.documentElement.classList.toggle("dark", isDarkMode);
-        }
-    }, []);
 
     const validate = () => {
         const e = {};
@@ -100,13 +91,13 @@ export default function Contact() {
     };
 
     const inputClass = (field) =>
-        `w-full px-4 py-3 rounded-lg border text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 outline-none transition-colors focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors[field]
-            ? "border-red-400 dark:border-red-500"
-            : "border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
+        `w-full px-4 py-3 rounded-lg border text-sm bg-white text-gray-900 placeholder-gray-400 outline-none transition-colors focus:ring-2 focus:ring-sky-400 focus:border-transparent ${errors[field]
+            ? "border-red-400"
+            : "border-gray-200 hover:border-gray-300"
         }`;
 
     return (
-        <div className={darkMode ? "dark" : ""}>
+        <>
             <Head>
                 <title>Contact • Jeremy Kenneth</title>
                 <link rel="icon" href="/assets/developer.png" />
@@ -114,20 +105,20 @@ export default function Contact() {
                 <meta property="og:title" content="Contact • Jeremy Kenneth" />
                 <meta property="og:description" content="Get in touch with Jeremy Kenneth — Full Stack Developer." />
             </Head>
-            <div className="bg-white dark:bg-gray-900 min-h-screen">
+            <div className="bg-white min-h-screen">
                 <Navbar />
                 <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
 
                     {/* Section Header */}
                     <div className="py-12 md:py-16">
-                        <p className="inline-flex items-center gap-2 text-sky-500 dark:text-sky-400 text-sm font-medium tracking-widest uppercase mb-3">
+                        <p className="inline-flex items-center gap-2 text-sky-600 text-sm font-medium tracking-widest uppercase mb-3">
                             <span className="h-px w-6 bg-current inline-block" />
                             Get In Touch
                         </p>
-                        <h1 className="font-burtons text-4xl md:text-5xl text-gray-900 dark:text-white mb-4">
+                        <h1 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
                             Contact
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl text-sm md:text-base leading-relaxed">
+                        <p className="text-gray-500 max-w-2xl text-sm md:text-base leading-relaxed">
                             Have a project in mind, a question, or just want to say hi? My inbox is always open — I&apos;ll get back to you as soon as possible.
                         </p>
                     </div>
@@ -141,17 +132,17 @@ export default function Contact() {
                             <div className="space-y-4">
                                 {contactInfo.map(({ icon: Icon, label, value, href }) => (
                                     <div key={label} className="flex items-start gap-4">
-                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/20 flex items-center justify-center">
-                                            <Icon className="text-sky-500 dark:text-sky-400 text-lg" />
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center">
+                                            <Icon className="text-sky-600 text-lg" />
                                         </div>
                                         <div>
-                                            <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-0.5">{label}</p>
+                                            <p className="text-xs text-gray-400 uppercase tracking-wider mb-0.5">{label}</p>
                                             {href ? (
-                                                <a href={href} className="text-sm text-gray-700 dark:text-gray-200 hover:text-sky-500 dark:hover:text-sky-400 transition-colors font-medium">
+                                                <a href={href} className="text-sm text-gray-700 hover:text-sky-600 transition-colors font-medium">
                                                     {value}
                                                 </a>
                                             ) : (
-                                                <p className="text-sm text-gray-700 dark:text-gray-200 font-medium">{value}</p>
+                                                <p className="text-sm text-gray-700 font-medium">{value}</p>
                                             )}
                                         </div>
                                     </div>
@@ -159,17 +150,17 @@ export default function Contact() {
                             </div>
 
                             {/* Availability badge */}
-                            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800">
+                            <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200">
                                 <span className="relative flex h-2.5 w-2.5">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                                     <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
                                 </span>
-                                <span className="text-sm font-medium text-emerald-700 dark:text-emerald-400">Available for opportunities</span>
+                                <span className="text-sm font-medium text-emerald-700">Available for opportunities</span>
                             </div>
 
                             {/* Social links */}
                             <div>
-                                <p className="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3">Find me on</p>
+                                <p className="text-xs text-gray-400 uppercase tracking-wider mb-3">Find me on</p>
                                 <div className="flex gap-3">
                                     {socialLinks.map(({ icon: Icon, label, href }) => (
                                         <a
@@ -178,7 +169,7 @@ export default function Contact() {
                                             target={href.startsWith("mailto") ? undefined : "_blank"}
                                             rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                                             aria-label={label}
-                                            className="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:text-sky-400 dark:hover:border-sky-500 transition-colors"
+                                            className="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center text-gray-500 hover:border-sky-400 hover:text-sky-600 transition-colors"
                                         >
                                             <Icon className="text-lg" />
                                         </a>
@@ -189,17 +180,17 @@ export default function Contact() {
 
                         {/* Right — Form */}
                         <div className="md:col-span-3">
-                            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 md:p-8 border border-gray-100 dark:border-gray-700/50">
+                            <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-gray-200">
                                 {status === "success" ? (
                                     <div className="flex flex-col items-center justify-center text-center py-12 gap-4">
                                         <HiCheckCircle className="text-5xl text-emerald-500" />
-                                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Message sent!</h3>
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xs">
+                                        <h3 className="text-xl font-semibold text-gray-900">Message sent!</h3>
+                                        <p className="text-gray-500 text-sm max-w-xs">
                                             Thanks for reaching out. I&apos;ll get back to you as soon as possible.
                                         </p>
                                         <button
                                             onClick={() => setStatus("idle")}
-                                            className="mt-2 px-5 py-2 text-sm font-medium text-sky-500 border border-sky-300 dark:border-sky-700 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900/20 transition-colors"
+                                            className="mt-2 px-5 py-2 text-sm font-medium text-sky-600 border border-sky-300 rounded-lg hover:bg-sky-50 transition-colors"
                                         >
                                             Send another
                                         </button>
@@ -209,7 +200,7 @@ export default function Contact() {
                                         <div className="grid sm:grid-cols-2 gap-5">
                                             {/* Name */}
                                             <div>
-                                                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">
+                                                <label className="block text-xs font-medium text-gray-600 mb-1.5 uppercase tracking-wide">
                                                     Name <span className="text-red-400">*</span>
                                                 </label>
                                                 <input
@@ -224,7 +215,7 @@ export default function Contact() {
                                             </div>
                                             {/* Email */}
                                             <div>
-                                                <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">
+                                                <label className="block text-xs font-medium text-gray-600 mb-1.5 uppercase tracking-wide">
                                                     Email <span className="text-red-400">*</span>
                                                 </label>
                                                 <input
@@ -241,7 +232,7 @@ export default function Contact() {
 
                                         {/* Subject */}
                                         <div>
-                                            <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">
+                                            <label className="block text-xs font-medium text-gray-600 mb-1.5 uppercase tracking-wide">
                                                 Subject
                                             </label>
                                             <input
@@ -256,7 +247,7 @@ export default function Contact() {
 
                                         {/* Message */}
                                         <div>
-                                            <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5 uppercase tracking-wide">
+                                            <label className="block text-xs font-medium text-gray-600 mb-1.5 uppercase tracking-wide">
                                                 Message <span className="text-red-400">*</span>
                                             </label>
                                             <textarea
@@ -272,7 +263,7 @@ export default function Contact() {
 
                                         {/* Error banner */}
                                         {status === "error" && (
-                                            <div className="flex items-center gap-2 p-3 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm">
+                                            <div className="flex items-center gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
                                                 <HiExclamationCircle className="flex-shrink-0 text-lg" />
                                                 Failed to send. Please try emailing directly at jeremykenneth7@gmail.com
                                             </div>
@@ -282,7 +273,7 @@ export default function Contact() {
                                         <button
                                             type="submit"
                                             disabled={status === "sending"}
-                                            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-600 disabled:bg-sky-400 text-white text-sm font-medium rounded-lg transition-colors"
+                                            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent hover:bg-sky-600 disabled:opacity-60 text-gray-900 text-sm font-semibold rounded-lg transition-colors"
                                         >
                                             {status === "sending" ? (
                                                 <>
@@ -308,6 +299,6 @@ export default function Contact() {
                     <Footer />
                 </main>
             </div>
-        </div>
+        </>
     );
 }

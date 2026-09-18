@@ -11,7 +11,7 @@ export default function Experience() {
             className={`py-16 md:py-20 scroll-mt-16 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
             <div className="mb-10 md:mb-12">
-                <p className="inline-flex items-center gap-2 text-amber-600 text-sm font-medium tracking-widest uppercase mb-3">
+                <p className="inline-flex items-center gap-2 text-sky-600 text-sm font-medium tracking-widest uppercase mb-3">
                     <span className="h-px w-6 bg-current inline-block" />
                     Career
                 </p>
@@ -42,7 +42,7 @@ export default function Experience() {
                                     href={exp.companyUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-sm font-medium text-amber-600 hover:underline"
+                                    className="text-sm font-medium text-sky-600 hover:underline"
                                 >
                                     {exp.company}
                                 </a>
