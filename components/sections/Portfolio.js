@@ -15,6 +15,10 @@ const logos = [
     { name: "Simetri Dev", src: "/logos/simetri.png" },
     { name: "Angkasa Tour and Travel", src: "/logos/angkasatour.webp" },
     { name: "Dinas Pariwisata Kabupaten Bantul", src: "/logos/bantul.png" },
+    { name: "Bintang Nusantara", src: "/logos/bintangnusantara.svg" },
+    { name: "Bintang Oli", src: "/logos/bintangoli.svg" },
+    { name: "Koperasi Simpan Pinjam Artha Parama Berkembang", src: "/logos/kspartha.png" },
+    { name: "Toko Emas Kembang", src: "/logos/tokoemas-admin.png" },
 ];
 
 export default function Portfolio() {

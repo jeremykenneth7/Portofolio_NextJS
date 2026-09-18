@@ -15,7 +15,7 @@ export const CATEGORIES = [
 export const projects = [
     // ── WEB ────────────────────────────────────────────────
     {
-        title: "Direktorat Jenderal Imigrasi",
+        title: "Directorate General of Immigration of Indonesia — Official Portal",
         image: "/portofolio/dirjenim.png",
         imageWidth: 3360,
         imageHeight: 2100,
@@ -48,7 +48,7 @@ export const projects = [
         category: "web",
     },
     {
-        title: "Kasil – Paniradya Kaistimewaan",
+        title: "Kasil — Special Autonomy Fund Monitoring Platform",
         image: "/portofolio/kasil.png",
         imageWidth: 3346,
         imageHeight: 2082,
@@ -91,7 +91,7 @@ export const projects = [
         category: "web",
     },
     {
-        title: "Dynamics Home Decor & Interior",
+        title: "Dynamics Home Decor & Interior — Company Website",
         image: "/portofolio/dynamics.png",
         imageWidth: 1888,
         imageHeight: 993,

@@ -1,5 +1,17 @@
 export const experiences = [
     {
+        role: "iOS App Developer (Incoming)",
+        company: "Apple Developer Academy @ BINUS Bali",
+        companyUrl: "https://developeracademy.apps.binus.ac.id/bali/",
+        period: "2027",
+        location: "Bali, Indonesia",
+        type: "Full-Time · On-Site · Onboarding",
+        highlights: [
+            "Accepted into Apple Developer Academy @ BINUS, a highly selective program focused on iOS app development, design thinking, and entrepreneurship",
+        ],
+        tags: ["Swift", "SwiftUI", "iOS Development"],
+    },
+    {
         role: "Project Manager & Backend Developer",
         company: "Simetri Dev",
         companyUrl: "https://simetri.my.id/",
