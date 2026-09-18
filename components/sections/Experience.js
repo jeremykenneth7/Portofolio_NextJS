@@ -38,14 +38,18 @@ export default function Experience() {
                             <div className="flex flex-wrap items-baseline gap-x-2 mb-1.5">
                                 <h3 className="text-base font-semibold text-gray-900">{exp.role}</h3>
                                 <span className="text-gray-300">·</span>
-                                <a
-                                    href={exp.companyUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-sm font-medium text-sky-600 hover:underline"
-                                >
-                                    {exp.company}
-                                </a>
+                                {exp.companyUrl ? (
+                                    <a
+                                        href={exp.companyUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm font-medium text-sky-600 hover:underline"
+                                    >
+                                        {exp.company}
+                                    </a>
+                                ) : (
+                                    <span className="text-sm font-medium text-sky-600">{exp.company}</span>
+                                )}
                             </div>
                             <p className="text-sm text-gray-500 leading-relaxed mb-2 max-w-2xl">
                                 {exp.highlights[0]}

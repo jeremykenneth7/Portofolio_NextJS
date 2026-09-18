@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { LuExternalLink, LuZoomIn } from "react-icons/lu";
 import { useScrollReveal } from "../useScrollReveal";
 import { certificates } from "../../data/certificates.js";
 
 const highlightAlts = ["bangkit", "preparing", "sysmin"];
-const images = highlightAlts
-    .map((alt) => certificates.find((c) => c.alt === alt))
-    .filter(Boolean);
+const highlighted = highlightAlts.map((alt) => certificates.find((c) => c.alt === alt)).filter(Boolean);
+const rest = certificates.filter((c) => !highlightAlts.includes(c.alt));
+const images = [...highlighted, ...rest];
 
 export default function Certificates() {
     const [isZoomed, setIsZoomed] = useState(false);
@@ -29,6 +29,31 @@ export default function Certificates() {
 
     const [ref, visible] = useScrollReveal();
 
+    // Drag-to-scroll for mouse users (touch/trackpad already scroll natively)
+    const trackRef = useRef(null);
+    const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: false });
+
+    const onPointerDown = (e) => {
+        drag.current = { active: true, startX: e.clientX, startScroll: trackRef.current.scrollLeft, moved: false };
+    };
+    const onPointerMove = (e) => {
+        if (!drag.current.active) return;
+        const delta = e.clientX - drag.current.startX;
+        if (Math.abs(delta) > 5) drag.current.moved = true;
+        trackRef.current.scrollLeft = drag.current.startScroll - delta;
+    };
+    const endDrag = () => {
+        drag.current.active = false;
+    };
+    // Swallow the click that follows a drag so it doesn't trigger zoom/link
+    const onClickCapture = (e) => {
+        if (drag.current.moved) {
+            e.preventDefault();
+            e.stopPropagation();
+            drag.current.moved = false;
+        }
+    };
+
     return (
         <section
             id="certificates"
@@ -44,24 +69,33 @@ export default function Certificates() {
                     Certificates
                 </h2>
                 <p className="text-gray-500 max-w-2xl text-sm md:text-base leading-relaxed">
-                    A few highlights — {certificates.length} certificates earned in total from Google, Coursera, Dicoding, and other platforms.
+                    {certificates.length} certificates earned from Google, Coursera, Dicoding, and other platforms — drag sideways to see more.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div
+                ref={trackRef}
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={endDrag}
+                onPointerLeave={endDrag}
+                onClickCapture={onClickCapture}
+                className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-proximity cursor-grab active:cursor-grabbing select-none [scrollbar-width:thin]"
+            >
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        style={{ transitionDelay: `${index * 100}ms` }}
-                        className={`rounded-xl overflow-hidden border border-gray-200 bg-white/60 backdrop-blur-md hover:border-sky-300 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                        style={{ transitionDelay: `${Math.min(index, 6) * 80}ms` }}
+                        className={`flex-shrink-0 w-64 snap-start rounded-xl overflow-hidden border border-gray-200 bg-white/60 backdrop-blur-md hover:border-sky-300 transition-all duration-500 shadow-sm hover:shadow-lg ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     >
-                        <div className="relative aspect-[4/3]">
+                        <div className="relative aspect-[4/3] pointer-events-none">
                             <Image
                                 src={image.src}
                                 alt={image.alt}
                                 fill
-                                sizes="(max-width: 768px) 100vw, 33vw"
+                                sizes="256px"
                                 className="object-cover"
+                                draggable={false}
                             />
                         </div>
                         <div className="p-4 flex items-center justify-between gap-3">
